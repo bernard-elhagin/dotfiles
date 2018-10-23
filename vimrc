@@ -8,9 +8,9 @@ set nocompatible
 " Initialize ------------------------------------------------------------- [[[
 filetype off
 
-set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
-set rtp+=$VIM/vimfiles/bundle/powerline/powerline/bindings/vim/
-call vundle#begin('$VIM/vimfiles/bundle')
+set rtp+=/home/bertold/.vim/vimfiles/bundle/Vundle.vim/
+set rtp+=/home/bertold/.vim/vimfiles/bundle/powerline/powerline/bindings/vim/
+call vundle#begin('/home/bertold/.vim/vimfiles/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
@@ -30,7 +30,6 @@ Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'gregsexton/gitv'
 Plugin 'mhinz/vim-startify'
@@ -43,6 +42,7 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'sukima/xmledit'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'wincent/command-t'
+Plugin 'Yggdroot/LeaderF', { 'do' : './install.sh' }
 
 call vundle#end()
 
@@ -94,7 +94,7 @@ set cdpath=C:\Git\iszkody-esb
 
 if has('persistent_undo')
     " Save all undo files in a single location (less messy, more risky)...
-    set undodir=$HOME\tmp\.VIM_UNDO_FILES
+    set undodir=~/tmp/.VIM_UNDO_FILES
 
     " Save a lot of back-history...
     set undolevels=5000
@@ -384,7 +384,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:SuperTabDefaultCompletionType = 'context'
 
-let g:UltiSnipsSnippetsDir="$VIM/vimfiles/bundle/vim-snippets/mySnips"
+let g:UltiSnipsSnippetsDir="~/.vim/vimfiles/bundle/vim-snippets/mySnips"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mySnips"]
 
 let g:airline_powerline_fonts = 1

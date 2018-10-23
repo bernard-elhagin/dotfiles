@@ -1,0 +1,3 @@
+[submodule "vim/vimfiles/bundle/diffconflicts"]
+	path = vim/vimfiles/bundle/diffconflicts
+	url = https://github.com/whiteinge/diffconflicts
