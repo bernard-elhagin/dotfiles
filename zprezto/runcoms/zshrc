@@ -54,6 +54,8 @@ alias pfiles='pacman -Fl'
 
 alias zs='vim ~/.zshrc'
 
+alias github='git clone https://github.com/'
+
 # Kafka SSH aliases
 KAFKA_DEV_MGT='dev-kafka-mgt01'
 KAFKA_TEST_MGT='10.200.53.54'
@@ -130,5 +132,8 @@ alias -g L='| less'
 
 # Filetype aliases
 alias -s xml="vim"
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 eval "$(fasd --init auto)"
