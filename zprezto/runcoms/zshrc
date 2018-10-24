@@ -138,4 +138,13 @@ source /usr/share/fzf/completion.zsh
 
 alias v='vim $(fzf)'
 
+# Go to top dir of current git repo
+function gcd() {
+  topdir=$(git rev-parse --show-toplevel)
+  if [[ $? -ne 0 ]]; then
+    return 1
+  fi
+  cd "${topdir}/${1}"
+}
+
 eval "$(fasd --init auto)"
