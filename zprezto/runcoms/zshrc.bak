@@ -9,9 +9,7 @@ setopt EXTENDED_GLOB
 export EDITOR='vim'
 
 export POWERLEVEL9K_MODE='awesome-fontconfig'
-export POWERLEVEL9K_CONTEXT_TEMPLATE='<%m>'
-export POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='cyan'
-export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+export POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 export POWERLEVEL9K_DISABLE_RPROMPT=true
 export POWERLEVEL9K_VCS_CLEAN_BACKGROUND='132'
 
@@ -139,10 +137,8 @@ alias -g L='| less'
 # Filetype aliases
 alias -s xml="vim"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"                 
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"                                   
