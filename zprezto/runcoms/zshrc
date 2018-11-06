@@ -19,10 +19,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export VIM=/home/bertold/.vim
+export VIM=$HOME/.vim
 export VIMRUNTIME=/usr/share/vim/vim81
 
-source /home/bertold/proxy.zshrc
+source $HOME/proxy.zshrc
 
 # ls after cd
 c() {
@@ -40,7 +40,7 @@ export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-export PATH=/home/bertold/Devel/kafka_2.11-1.0.0/bin/:$HOME/bin:$PATH
+export PATH=$HOME/Devel/kafka_2.11-1.0.0/bin/:$HOME/bin:$PATH
 export ECLIPSE_HOME=/usr/lib/eclipse
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
@@ -52,7 +52,7 @@ alias yss='yaourt -Ss'
 alias ys='yaourt -S'
 alias pfiles='pacman -Fl'
 
-alias zs='vim ~/.zshrc'
+alias zs='vim $HOME/.zshrc'
 
 alias github='git clone https://github.com/'
 
@@ -81,13 +81,13 @@ alias wp2='ssh -t logviewer@10.200.69.211  "cd logs; bash"'
 alias wpm='ssh -t logviewer@10.200.69.209  "cd logs; bash"'
 
 # WSO2 aliases
-alias esb='~/Devel/wso2ei-6.3.0/bin/integrator.sh'
+alias esb='$HOME/Devel/wso2ei-6.3.0/bin/integrator.sh'
 
 # Kafka aliases
 KCC1='kafka-console-consumer.sh --bootstrap-server '
-KCC2=' --topic notify.claims.claim.claim_change.mob_client.claim_lite --from-beginning --consumer.config ~/kafka/config/client-ssl.properties'
+KCC2=' --topic notify.claims.claim.claim_change.mob_client.claim_lite --from-beginning --consumer.config $HOME/kafka/config/client-ssl.properties'
 KCP1='kafka-console-producer.sh --broker-list '
-KCP2=' --topic notify.claims.claim.claim_change.mob_client.claim_lite --producer.config ~/kafka/config/client-ssl.properties'
+KCP2=' --topic notify.claims.claim.claim_change.mob_client.claim_lite --producer.config $HOME/kafka/config/client-ssl.properties'
 
 #--------------DEV-----------
 KAFKA_DEV_BROKERS_SSL='dev-kafka-wrk01:9093,dev-kafka-wrk02:9093,dev-kafka-wrk03:9093'
@@ -156,3 +156,9 @@ function gcd() {
 }
 
 eval "$(fasd --init auto)"
+
+# Taskwarrior
+alias tl='task list'
+alias ta='task add'
+alias td='task done'
+alias tph='task add priority:H'
