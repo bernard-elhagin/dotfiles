@@ -8,24 +8,23 @@ set nocompatible
 " Initialize ------------------------------------------------------------- [[[
 filetype off
 
-set rtp+=/home/bertold/.vim/vimfiles/bundle/Vundle.vim/
-set rtp+=/home/bertold/.vim/vimfiles/bundle/powerline/powerline/bindings/vim/
-call vundle#begin('/home/bertold/.vim/vimfiles/bundle')
+set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
+set rtp+=$VIM/vimfiles/bundle/powerline/powerline/bindings/vim/
+call vundle#begin('$VIM/vimfiles/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 Plugin 'sjl/gundo.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'godlygeek/tabular'
-Plugin 'vim-scripts/ZoomWin'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
 Plugin 'airblade/vim-gitgutter'
@@ -38,11 +37,11 @@ Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-peekaboo'
 Plugin 'airblade/vim-rooter'
-Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'sukima/xmledit'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'wincent/command-t'
-Plugin 'Yggdroot/LeaderF', { 'do' : './install.sh' }
+Plugin 'whiteinge/diffconflicts'
+Plugin 'unblevable/quick-scope'
 
 call vundle#end()
 
@@ -94,7 +93,7 @@ set cdpath=C:\Git\iszkody-esb
 
 if has('persistent_undo')
     " Save all undo files in a single location (less messy, more risky)...
-    set undodir=~/tmp/.VIM_UNDO_FILES
+    set undodir=$HOME/tmp/.VIM_UNDO_FILES
 
     " Save a lot of back-history...
     set undolevels=5000
@@ -212,6 +211,7 @@ imap {{ {}<ESC>O
 nnoremap ZQ ZZ
 nnoremap ZZ ZQ
 
+map <leader>b :Buffers<CR>
 
 " ]]]
 
@@ -459,7 +459,7 @@ map <leader>fh :History<CR>
 
 imap <c-l> <plug>(fzf-complete-line)
 
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Find call fzf#vim#grep('ag --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 " ]]]
 
