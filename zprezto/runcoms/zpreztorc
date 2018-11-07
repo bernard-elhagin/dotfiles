@@ -37,19 +37,9 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'syntax-highlighting' \
   'history-substring-search' \
-  'ssh' \
   'autosuggestions' \
   'ssh' \
   'prompt'
-  'syntax-highlighting' \
-  'prompt'
-
-#
-# Autosuggestions
-#
-
-# Set the query found color.
-zstyle ':prezto:module:autosuggestions:color' found 'red'
 
 #
 # Editor
