@@ -97,7 +97,7 @@ KAFKA_DEV_BROKER1_SSL='dev-kafka-wrk01:9093'
 KAFKA_DEV_BROKER2_SSL='dev-kafka-wrk02:9093'
 KAFKA_DEV_BROKER3_SSL='dev-kafka-wrk03:9093'
 
-alias dev_consume="$KCC1$KAFKA_DEV_BROKERS_SSL$KCC2"
+alias  dev_consume="$KCC1$KAFKA_DEV_BROKERS_SSL$KCC2"
 alias dev_consume1="$KCC1$KAFKA_DEV_BROKER1_SSL$KCC2"
 alias dev_consume2="$KCC1$KAFKA_DEV_BROKER2_SSL$KCC2"
 alias dev_consume3="$KCC1$KAFKA_DEV_BROKER3_SSL$KCC2"
@@ -111,7 +111,7 @@ KAFKA_TEST_BROKER1_SSL='test-kafka-prep-wrk01.hestia.polska:9093'
 KAFKA_TEST_BROKER2_SSL='test-kafka-prep-wrk02.hestia.polska:9093'
 KAFKA_TEST_BROKER3_SSL='test-kafka-prep-wrk03.hestia.polska:9093'
 
-alias test_consume="$KCC1$KAFKA_TEST_BROKERS_SSL$KCC2"
+alias  test_consume="$KCC1$KAFKA_TEST_BROKERS_SSL$KCC2"
 alias test_consume1="$KCC1$KAFKA_TEST_BROKER1_SSL$KCC2"
 alias test_consume2="$KCC1$KAFKA_TEST_BROKER2_SSL$KCC2"
 alias test_consume3="$KCC1$KAFKA_TEST_BROKER3_SSL$KCC2"
@@ -125,7 +125,7 @@ KAFKA_PROD_BROKER1_SSL='prod-kafka-prod-wrk01.hestia.polska:9093'
 KAFKA_PROD_BROKER2_SSL='prod-kafka-prod-wrk02.hestia.polska:9093'
 KAFKA_PROD_BROKER3_SSL='prod-kafka-prod-wrk03.hestia.polska:9093'
 
-alias prod_consume="$KCC1$KAFKA_PROD_BROKERS_SSL$KCC2"
+alias  prod_consume="$KCC1$KAFKA_PROD_BROKERS_SSL$KCC2"
 alias prod_consume1="$KCC1$KAFKA_PROD_BROKER1_SSL$KCC2"
 alias prod_consume2="$KCC1$KAFKA_PROD_BROKER2_SSL$KCC2"
 alias prod_consume3="$KCC1$KAFKA_PROD_BROKER3_SSL$KCC2"
@@ -160,9 +160,3 @@ function gcd() {
 }
 
 eval "$(fasd --init auto)"
-
-# Taskwarrior
-alias tl='task list'
-alias ta='task add'
-alias td='task done'
-alias tph='task add priority:H'
