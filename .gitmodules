@@ -1,3 +1,6 @@
 [submodule "vim/vimfiles/bundle/diffconflicts"]
 	path = vim/vimfiles/bundle/diffconflicts
 	url = https://github.com/whiteinge/diffconflicts
+[submodule "vim/vimfiles/bundle/vim-csexact"]
+	path = vim/vimfiles/bundle/vim-csexact
+	url = https://github.com/KevinGoodsell/vim-csexact

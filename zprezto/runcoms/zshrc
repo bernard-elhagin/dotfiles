@@ -160,3 +160,5 @@ function gcd() {
 }
 
 eval "$(fasd --init auto)"
+
+source .functions

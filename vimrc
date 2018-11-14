@@ -42,6 +42,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'wincent/command-t'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
+Plugin 'KevinGoodsell/vim-csexact'
 
 call vundle#end()
 
@@ -258,9 +259,20 @@ nnoremap zO zczO
 
 let g:airline_theme='papercolor'
 
-colorscheme Tomorrow-Night
+colorscheme molokai
 
-hi MatchParen ctermbg=black ctermfg=red cterm=bold
+hi PreProc ctermfg=cyan
+hi MatchParen ctermbg=bg ctermfg=yellow cterm=bold
+hi xmlTagName ctermfg=22
+hi xmlTag ctermfg=22
+"hi xmlString ctermfg=yellow
+"hi Type ctermfg=111
+"hi String ctermfg=13
+"hi xmlEndTag ctermfg=4
+"hi xmlTag ctermfg=cyan
+"hi xmlTagName ctermfg=cyan
+"hi Comment ctermfg=4
+"hi xmlString ctermfg=13
 
 " Override some of the color settings of PaperColor
 " hi String guifg=hotpink
