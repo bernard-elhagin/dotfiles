@@ -42,7 +42,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'wincent/command-t'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
-Plugin 'KevinGoodsell/vim-csexact'
+Plugin 'vim-scripts/CSApprox'
 
 call vundle#end()
 
@@ -259,12 +259,12 @@ nnoremap zO zczO
 
 let g:airline_theme='papercolor'
 
-colorscheme molokai
+colorscheme mopkai
 
-hi PreProc ctermfg=cyan
-hi MatchParen ctermbg=bg ctermfg=yellow cterm=bold
-hi xmlTagName ctermfg=22
-hi xmlTag ctermfg=22
+"hi PreProc ctermfg=cyan
+"hi MatchParen ctermbg=bg ctermfg=yellow cterm=bold
+"hi xmlTagName ctermfg=22
+"hi xmlTag ctermfg=22
 "hi xmlString ctermfg=yellow
 "hi Type ctermfg=111
 "hi String ctermfg=13
