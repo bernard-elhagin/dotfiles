@@ -4,18 +4,13 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-setopt EXTENDED_GLOB
 
 export EDITOR='vim'
 
-export POWERLEVEL9K_MODE='awesome-fontconfig'
-export POWERLEVEL9K_CONTEXT_TEMPLATE='<%m>'
-export POWERLEVEL9K_CONTEXT_REMOTE_FOREGROUND='cyan'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-export POWERLEVEL9K_DISABLE_RPROMPT=true
-export POWERLEVEL9K_VCS_CLEAN_BACKGROUND='132'
+export TERM="xterm-256color"
 
-# Source prezto
+
+# Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
@@ -39,14 +34,21 @@ export LESS=-iXFR
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-export PATH=$HOME/Devel/kafka_2.11-1.0.0/bin/:$HOME/bin:$PATH
-export ECLIPSE_HOME=/usr/lib/eclipse
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+alias music='ncmpcpp'
 
+alias el='episoder list -n 4'
+alias es='episoder search'
+alias ea='episoder add'
+alias v='vifm'
+alias vi='vim'
+alias yt='cd ~/Videos/YouTube && youtube-dl --no-playlist \"$(xsel -o)\"'
 alias lll='ls -crtl'
+alias d='cd ~/Downloads'
 alias pacman='pacman --color=always'
 alias pss='pacman -Ss'
 alias pS='sudo pacman -S'
@@ -138,8 +140,7 @@ alias prod_produce="$KCP1$KAFKA_PROD_BROKERS_SSL$KCP2"
 alias -g G='| grep'
 alias -g L='| less'
 
-# Filetype aliases
-alias -s xml="vim"
+eval "$(fasd --init auto)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -149,6 +150,8 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 alias v='vim $(fzf)'
 
+export PATH=$HOME/Devel/appservers/kafka_2.11-2.0.0/bin:$HOME/Devel/appservers/zookeeper-3.4.13/bin:$HOME/bin:$PATH
+export ECLIPSE_HOME=/usr/lib/eclipse
 # Go to top dir of current git repo
 function gcd() {
   topdir=$(git rev-parse --show-toplevel)
@@ -161,3 +164,6 @@ function gcd() {
 eval "$(fasd --init auto)"
 
 source .functions
+#
+#source /usr/share/fzf/key-bindings.zsh
+#source /usr/share/fzf/completion.zsh

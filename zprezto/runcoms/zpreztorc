@@ -39,7 +39,14 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'autosuggestions' \
   'ssh' \
-  'prompt'
+  'prompt' \
+
+#
+# Autosuggestions
+#
+
+# Set the query found color.
+zstyle ':prezto:module:autosuggestions:color' found 'red'
 
 #
 # Editor
