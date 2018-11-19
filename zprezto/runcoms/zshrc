@@ -35,7 +35,7 @@ c() {
 alias cd="c"
 
 # less() color output
-export LESS=-R
+export LESS=-iXFR
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
 export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
@@ -81,6 +81,8 @@ alias wtm='ssh -t logviewer@10.200.70.48   "cd logs; bash"'
 alias wp1='ssh -t logviewer@10.200.69.210  "cd logs; bash"'
 alias wp2='ssh -t logviewer@10.200.69.211  "cd logs; bash"'
 alias wpm='ssh -t logviewer@10.200.69.209  "cd logs; bash"'
+
+alias wso2='ssh Bernard.El-Hagin@10.111.250.167'
 
 # WSO2 aliases
 alias esb='$HOME/Devel/wso2ei-6.3.0/bin/integrator.sh'
