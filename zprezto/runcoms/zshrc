@@ -22,7 +22,7 @@ fi
 
 # Customize to your needs...
 export VIM=$HOME/.vim
-export VIMRUNTIME=/usr/share/vim/vim74
+export VIMRUNTIME=/usr/share/vim/vim81
 
 source $HOME/proxy.zshrc
 
@@ -140,6 +140,8 @@ alias -g L='| less'
 
 # Filetype aliases
 alias -s xml="vim"
+
+alias e='exit'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
