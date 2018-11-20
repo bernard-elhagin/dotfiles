@@ -51,8 +51,6 @@ fi
 alias -g G='| grep'
 alias -g L='| less'
 
-eval "$(fasd --init auto)"
-
 alias e='exit'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -69,6 +67,3 @@ alias v='vim $(fzf)'
 eval "$(fasd --init auto)"
 
 source .functions
-#
-#source /usr/share/fzf/key-bindings.zsh
-#source /usr/share/fzf/completion.zsh
