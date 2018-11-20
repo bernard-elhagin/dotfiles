@@ -35,7 +35,7 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-export PATH=/opt/kafka/bin/:$HOME/bin:$PATH
+export PATH=/opt/kafka/bin/:$HOME/bin/ranger-1.9.2:$HOME/bin:$PATH
 export JAVA_HOME=/usr
 
 alias lll='ls -crtl'
@@ -46,17 +46,17 @@ alias github='git clone https://github.com/'
 
 if [[ $HOSTNAME = "bertold-pc" ]]; then
     source $HOME/.aliases_home.zsh
+else
+    source $HOME/.aliases_ssh.zsh
 fi
 
 # Global aliases
 alias -g G='| grep'
 alias -g L='| less'
 
-eval "$(fasd --init auto)"
-
 alias e='exit'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.sh ] && source $HOME/.fzf.sh
 
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
@@ -69,7 +69,4 @@ alias v='vim $(fzf)'
 
 eval "$(fasd --init auto)"
 
-source .functions
-#
-#source /usr/share/fzf/key-bindings.zsh
-#source /usr/share/fzf/completion.zsh
+source $HOME/.functions
