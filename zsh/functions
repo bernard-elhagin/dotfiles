@@ -10,6 +10,25 @@ fshow() {
         --bind="alt-y:execute:$commit_hash | xclip -selection clipboard"
 }
 
+# mkdir and change to it
 mkd() {
     mkdir -p "$@" && cd "$@"
 }
+
+# Go to top dir of current git repo
+function gcd() {
+  topdir=$(git rev-parse --show-toplevel)
+  if [[ $? -ne 0 ]]; then
+    return 1
+  fi
+  cd "${topdir}/${1}"
+}
+
+# ls after cd
+c() {
+    cd $1;
+    /usr/bin/ls --group-directories-first --color=auto -l;
+}
+
+alias cd="c"
+
