@@ -146,7 +146,7 @@ map <C-s> +
 map <C-z> -
 map <leader>_ _
 
-map <leader>q ZZ
+map <leader>q :QuickScopeToggle<CR>
 
 " Moving up and down with centering the cursor
 map <C-J> jzz
