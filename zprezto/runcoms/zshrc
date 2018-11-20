@@ -55,7 +55,7 @@ alias -g L='| less'
 
 alias e='exit'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.sh ] && source $HOME/.fzf.sh
 
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
@@ -68,4 +68,4 @@ alias v='vim $(fzf)'
 
 eval "$(fasd --init auto)"
 
-source .functions
+source $HOME/.functions
