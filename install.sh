@@ -40,6 +40,11 @@ echo -n "Copying bin.."
 `ln -s $HOME/dotfiles/bin ~/bin`
 echo "done"
 
+# fzf
+echo -n "Copying fzf.."
+`ln -s $HOME/dotfiles/fzf ~/.fzf`
+echo "done"
+
 declare -a FILES_TO_SYMLINK=(
   'zprezto/runcoms/zlogin'
   'zprezto/runcoms/zlogout'
