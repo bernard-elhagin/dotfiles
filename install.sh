@@ -27,17 +27,17 @@ echo "done"
 
 # VIM
 echo -n "Copying VIM settings.."
-echo "ln -s $HOME/dotfiles/vim ~/.vim"
+`ln -s $HOME/dotfiles/vim ~/.vim`
 echo "done"
 
 # prezto
 echo -n "Copying zprezto.."
-echo "ln -s $HOME/dotfiles/zprezto ~/.zprezto"
+`ln -s $HOME/dotfiles/zprezto ~/.zprezto`
 echo "done"
 
 # bin
 echo -n "Copying bin.."
-echo "ln -s $HOME/dotfiles/bin ~/bin"
+`ln -s $HOME/dotfiles/bin ~/bin`
 echo "done"
 
 declare -a FILES_TO_SYMLINK=(
@@ -72,7 +72,7 @@ main() {
     sourceFile="$(pwd)/$i"
     targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
-    echo "ln -fs $sourceFile $targetFile"
+    `ln -fs $sourceFile $targetFile`
 
   done
 
