@@ -4,22 +4,8 @@
 # Utils
 #
 
-# Get the dotfiles directory's absolute path
-SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
-DOTFILES_DIR="$(dirname "$SCRIPT_DIR")"
-
-dir=~/dotfiles                        # dotfiles directory
-dir_backup=~/dotfiles_old             # old dotfiles backup directory
-
-# Get current dir (so run this script from anywhere)
-
-export DOTFILES_DIR
-DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 # Change to the dotfiles directory
-echo -n "Changing to the $dir directory..."
-cd $dir
-echo "done"
+cd $HOME/dotfiles
 
 #
 # Actual symlink stuff
@@ -27,22 +13,22 @@ echo "done"
 
 # VIM
 echo -n "Copying VIM settings.."
-`ln -s $HOME/dotfiles/vim ~/.vim`
+`ln -s $HOME/dotfiles/vim $HOME/.vim`
 echo "done"
 
 # prezto
 echo -n "Copying zprezto.."
-`ln -s $HOME/dotfiles/zprezto ~/.zprezto`
+`ln -s $HOME/dotfiles/zprezto $HOME/.zprezto`
 echo "done"
 
 # bin
 echo -n "Copying bin.."
-`ln -s $HOME/dotfiles/bin ~/bin`
+`ln -s $HOME/dotfiles/bin $HOME/bin`
 echo "done"
 
 # fzf
 echo -n "Copying fzf.."
-`ln -s $HOME/dotfiles/fzf ~/.fzf`
+`ln -s $HOME/dotfiles/fzf $HOME/.fzf`
 echo "done"
 
 declare -a FILES_TO_SYMLINK=(
@@ -85,4 +71,4 @@ main() {
 }
 
 main
-#source ~/.zshrc
+#source $HOME/.zshrc
