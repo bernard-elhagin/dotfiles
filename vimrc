@@ -261,6 +261,11 @@ let g:airline_theme='papercolor'
 
 colorscheme mopkai
 
+hi Visual ctermbg=blue
+hi xmlTagName ctermfg=198 cterm=bold
+hi xmlTag ctermfg=198 cterm=bold
+hi MatchParen ctermfg=yellow cterm=bold
+
 "hi PreProc ctermfg=cyan
 "hi MatchParen ctermbg=bg ctermfg=yellow cterm=bold
 "hi xmlTagName ctermfg=22
