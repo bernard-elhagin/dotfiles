@@ -19,9 +19,12 @@ esac
 # filename to argument skryptu wskazujący na plik
 # z listą topiców do utworzenia
 filename="$1"
-while read -r line
-    do
-       name="$line"
-       /opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor 3 --partitions 3 --topic $name
+while IFS='' read -r line || [[ -n "$line" ]]; do
+    topic=$(echo $line | cut -f 1 -d" ")
+    retention=$(echo $line | cut -f 2 -d" ")
+
+    retention_ms=$(($retention*24*60*60*1000))
+
+    /opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor 3 --partitions 3 --topic $topic --config retention.ms=$retention_ms
     done < "$filename"
 exit 0
