@@ -11,6 +11,7 @@ notify.claims.claim.claim_change.std_client.claim_lite 14
 notify.space_policy.front.policy_notification 30
 notify.space_policy.life.policy_notification 30
 notify.space_policy.property.policy_change 30
+notify.space_policy.property.policy_confirmation 30
 notify.space_policy.property.policy_notification 30
 notify.space_rep.of_cancellation_indemnity.json 7
 notify.space_rep.of_cancellation_insuranceevent.json 7

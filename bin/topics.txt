@@ -5,6 +5,7 @@ notify.internal.claims.websocket_connection.trace.mob_client
 notify.internal.claims.claim.claim_process.mob_client
 notify.space_policy.front.policy_notification
 notify.space_policy.property.policy_change
+notify.space_policy.property.policy_confirmation
 notify.space_policy.property.policy_notification
 notify.space_policy.life.policy_notification
 log.claims.mob_client.business_log
