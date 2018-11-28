@@ -23,7 +23,7 @@ else
     echo "Can't find vim runtime folder."
 fi
 
-source $HOME/.proxy.zsh
+[[ -f $HOME/.proxy.zsh ]] && source $HOME/.proxy.zsh
 
 # less() color output
 export LESS=-iXFR
