@@ -114,7 +114,7 @@
 [core]
     autocrlf = false
     editor = vim
-    excludesfile = ~/.yadr/git/gitignore
+    excludesfile = ~/.gitignore
     pager = diff-so-fancy | less --tabs=4 -RFX
 [advice]
     statusHints = false
@@ -130,7 +130,7 @@
 [include]
     path = .gitconfig.user
 [user]
-    email = bernard.elhagin@gmail.com
+    email = bernard.elhagin@atena.pl
     name = Bernard El-Hagin
 [color "diff-highlight"]
     oldNormal = red bold
