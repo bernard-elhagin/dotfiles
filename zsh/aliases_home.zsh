@@ -22,6 +22,10 @@ alias wp1='ssh -t logviewer@10.200.69.210  "cd logs; bash"'
 alias wp2='ssh -t logviewer@10.200.69.211  "cd logs; bash"'
 alias wpm='ssh -t logviewer@10.200.69.209  "cd logs; bash"'
 
+# WSO2 Baltics
+alias wbalcmnd='ssh bernard.el-hagin@baltics-cmndev-wso2-as'
+alias wbalctrd='ssh bernard.el-hagin@baltics-ctrdev-wso2-as'
+
 alias wso2='ssh Bernard.El-Hagin@10.111.250.167'
 
 # WSO2 aliases
