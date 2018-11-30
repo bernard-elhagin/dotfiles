@@ -85,7 +85,7 @@ set ai
 set si
 set nowrap
 set laststatus=2
-set path+=.,C:\Git\**
+set path+=.,~/Devel/Projects/**
 set suffixesadd+=.xml
 set listchars=tab:▸\ ,eol:¬
 set noswapfile

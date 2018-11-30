@@ -2,6 +2,7 @@
 KAFKA_DEV_MGT='dev-kafka-mgt01'
 KAFKA_QA_MGT='test-kafka-mgt01'
 KAFKA_TEST_MGT='10.200.53.54'
+KAFKA_SZKOL_MGT='10.200.53.34'
 KAFKA_FIX_MGT='10.200.53.61'
 KAFKA_PROD_MGT='10.200.43.54'
 
@@ -9,6 +10,7 @@ alias kd="ssh bernard.elhagin@$KAFKA_DEV_MGT"
 alias kq="ssh bernardelh@$KAFKA_QA_MGT"
 alias kf="ssh bernard.elhagin@$KAFKA_FIX_MGT"
 alias kt="ssh bernard.elhagin@$KAFKA_TEST_MGT"
+alias ks="ssh bernard.elhagin@$KAFKA_SZKOL_MGT"
 alias kp="ssh bernard.elhagin@$KAFKA_PROD_MGT"
 
 # WSO2 SSH aliases
