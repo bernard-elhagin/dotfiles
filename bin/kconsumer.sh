@@ -3,6 +3,7 @@
 DEV='dev-kafka-mgt01'
 QA='test-kafka-mgt01'
 FIX='test-kafka-fix-mgt01'
+SZKOL='test-kafka-szkol-mgt01'
 PREP='test-kafka-prep-mgt01'
 PROD='prod-kafka-prod-mgt01'
 
@@ -13,12 +14,13 @@ then
     environment=`hostname`
 else
     case $1 in
-        'dev'  ) environment=$DEV;;
-        'fix'  ) environment=$FIX;;
-        'qa'   ) environment=$QA;;
-        'prep' ) environment=$PREP;;
-        'prod' ) environment=$PROD;;
-        *      ) echo "Możliwe wartości: dev - fix - qa - prep - prod" && exit;;
+        'dev'   ) environment=$DEV;;
+        'fix'   ) environment=$FIX;;
+        'qa'    ) environment=$QA;;
+        'szkol' ) environment=$SZKOL;;
+        'prep'  ) environment=$PREP;;
+        'prod'  ) environment=$PROD;;
+        *       ) echo "Możliwe wartości: dev - fix - qa - prep - prod" && exit;;
     esac
 fi
 
@@ -42,11 +44,12 @@ ssl_or_not()
 }
 
 case $environment in
-    $DEV  ) zookeeper="dev-kafka-zk01.atena.pl:2181"            && ssl_or_not "dev-kafka-wrk01.atena.pl:";;
-    $QA   ) zookeeper="test-kafka-zk01.atena.pl:2181"           && ssl_or_not "test-kafka-wrk01.atena.pl:";;
-    $FIX  ) zookeeper="test-kafka-fix-zk01.hestia.polska:2181"  && ssl_or_not "test-kafka-fix-wrk01.hestia.polska:";;
-    $PREP ) zookeeper="test-kafka-prep-zk01.hestia.polska:2181" && ssl_or_not "test-kafka-prep-wrk01.hestia.polska:";;
-    $PROD ) zookeeper="prod-kafka-prod-zk01.hestia.polska:2181" && ssl_or_not "prod-kafka-prod-wrk01.hestia.polska:";;
+    $DEV   ) zookeeper="dev-kafka-zk01.atena.pl:2181"            && ssl_or_not "dev-kafka-wrk01.atena.pl:";;
+    $QA    ) zookeeper="test-kafka-zk01.atena.pl:2181"           && ssl_or_not "test-kafka-wrk01.atena.pl:";;
+    $FIX   ) zookeeper="test-kafka-fix-zk01.hestia.polska:2181"  && ssl_or_not "test-kafka-fix-wrk01.hestia.polska:";;
+    $SZKOL ) zookeeper="test-kafka-szkol-zk01.hestia.polska:2181" && ssl_or_not "test-kafka-szkol-wrk01.hestia.polska:";;
+    $PREP  ) zookeeper="test-kafka-prep-zk01.hestia.polska:2181" && ssl_or_not "test-kafka-prep-wrk01.hestia.polska:";;
+    $PROD  ) zookeeper="prod-kafka-prod-zk01.hestia.polska:2181" && ssl_or_not "prod-kafka-prod-wrk01.hestia.polska:";;
 esac
 break
 
