@@ -5,6 +5,7 @@ notify.claims.claim.claim_change.mob_client.claim_lite 30
 notify.claims.claim.claim_change.std_client.claim_lite 14
 notify.claims.claim.claim_change.with_insp.claimID 30
 notify.claims.claim.inspection_new.inspection 30
+notify.commission.commission_statement.export 7
 notify.internal.claims.claim.claim_process.mob_client 30
 notify.internal.claims.dashboard_notification.notif_id 30
 notify.internal.claims.websocket_connection.trace.mob_client 30
@@ -20,10 +21,10 @@ notify.space_rep.of_cancellation_policy.json 7
 notify.space_rep.of_corrected_indemnity.json 7
 notify.space_rep.of_corrected_insuranceevent.json 7
 notify.space_rep.of_corrected_policy.json 7
-notify.space_rep.of_indemnity.json 7
-notify.space_rep.of_new_insuranceevent.json 7
-notify.space_rep.of_new_policy.json 7
 notify.space_rep.of_corrected_policy.json 7
 notify.space_rep.of_indemnity.json 7
+notify.space_rep.of_indemnity.json 7
 notify.space_rep.of_new_insuranceevent.json 7
+notify.space_rep.of_new_insuranceevent.json 7
+notify.space_rep.of_new_policy.json 7
 notify.space_rep.of_new_policy.json 7

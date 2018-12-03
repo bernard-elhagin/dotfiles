@@ -6,6 +6,7 @@ notify.claims.claim.claim_change.std_client.claim_lite
 notify.claims.claim.claim_change.with_insp.claimID
 notify.claims.claim.inspection_new.inspection
 notify.commission.commission_statement
+notify.commission.commission_statement.export
 notify.commission.file_import_report
 notify.commission.policy
 notify.commission.policy_payment
