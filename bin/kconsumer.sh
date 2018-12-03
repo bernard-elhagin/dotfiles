@@ -20,7 +20,7 @@ else
         'szkol' ) environment=$SZKOL;;
         'prep'  ) environment=$PREP;;
         'prod'  ) environment=$PROD;;
-        *       ) echo "Możliwe wartości: dev - fix - qa - prep - prod" && exit;;
+        *       ) echo "Możliwe wartości: dev - fix - qa - prep - prod - szkol" && exit;;
     esac
 fi
 
