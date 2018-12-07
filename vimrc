@@ -43,6 +43,7 @@ Plugin 'wincent/command-t'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
@@ -395,8 +396,8 @@ map <leader>xs :call XSLTransform()<CR>
 
 " UltiSnips [[[
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:SuperTabDefaultCompletionType = 'context'
