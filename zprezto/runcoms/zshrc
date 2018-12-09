@@ -70,3 +70,5 @@ alias v='vim $(fzf)'
 eval "$(fasd --init auto)"
 
 source $HOME/.functions
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=238'
