@@ -2,6 +2,6 @@
 rofi.lines: 12
 rofi.font: Source Sans Pro 12
 rofi.show-icons: true
-rofi.theme: ~/.config/rofi/oxide.rasi
 rofi.display-window: Window
 rofi.display-drun: Search
+rofi.theme: /usr/share/rofi/themes/Adapta-Nokto.rasi

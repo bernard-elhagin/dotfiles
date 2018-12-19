@@ -4,3 +4,6 @@
 [submodule "vim/vimfiles/bundle/vim-csexact"]
 	path = vim/vimfiles/bundle/vim-csexact
 	url = https://github.com/KevinGoodsell/vim-csexact
+[submodule "vim/vimfiles/bundle/YouCompleteMe"]
+	path = vim/vimfiles/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe

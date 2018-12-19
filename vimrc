@@ -43,6 +43,7 @@ Plugin 'wincent/command-t'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
@@ -395,8 +396,8 @@ map <leader>xs :call XSLTransform()<CR>
 
 " UltiSnips [[[
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:SuperTabDefaultCompletionType = 'context'
@@ -409,13 +410,13 @@ let g:airline_powerline_fonts = 1
 "]]]
 " Fugitive [[[
 
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gp :Gpull<CR>
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
+nnoremap <leader>gs :silent Gstatus<CR>
+nnoremap <leader>gp :silent Gpull<CR>
+nnoremap <leader>gd :silent Gdiff<cr>
+nnoremap <leader>gw :silent Gwrite<cr>
+nnoremap <leader>gb :silent Gblame<cr>
+nnoremap <leader>gc :silent Gcommit<cr>
+nnoremap <leader>gl :silent Shell git gl -18<cr>:wincmd \|<cr>
 
 let g:gitgutter_map_keys = 0
 

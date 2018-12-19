@@ -130,7 +130,7 @@
 [include]
     path = .gitconfig.user
 [user]
-    email = bernard.elhagin@atena.pl
+	email = bernard.el-hagin@gmail.com
     name = Bernard El-Hagin
 [color "diff-highlight"]
     oldNormal = red bold
