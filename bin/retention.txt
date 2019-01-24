@@ -28,3 +28,11 @@ notify.space_rep.of_new_insuranceevent.json 7
 notify.space_rep.of_new_insuranceevent.json 7
 notify.space_rep.of_new_policy.json 7
 notify.space_rep.of_new_policy.json 7
+notify.claims.claim.claim_data 7
+notify.claims.claim.claim_service_system 7
+notify.claims.claim.claim_decision 7
+notify.claims.claim.claim_documents 7
+notify.claims.claim.claim_objects 7
+notify.claims.claim.claim_partners 7
+notify.claims.claim.claim_policy 7
+notify.claims.claim.aggregate_claim 7
