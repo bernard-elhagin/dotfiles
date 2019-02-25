@@ -37,3 +37,4 @@ notify.claims.claim.claim_partners 7
 notify.claims.claim.claim_policy 7
 notify.claims.claim.aggregate_claim 7
 notify.commission.commission_change_comm_param 7
+notify.internal.mls.mails 7
