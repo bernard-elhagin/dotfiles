@@ -1,0 +1,6 @@
+notify.commission.policy 4
+notify.commission.policy_payment 4
+notify.commission.commission_statement 4
+notify.commission.file_import_report 4
+log.commission.event_status 4
+notify.commission.commission_statement.export 4
