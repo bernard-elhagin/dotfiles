@@ -1,1 +1,3 @@
-notify.internal.mls.ws_notifications 7
+notify.claims.claim.document_template 7
+notify.claims.claim.email_template 7
+notify.claims.claim.sms_template 7
