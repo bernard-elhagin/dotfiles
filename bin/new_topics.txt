@@ -1,1 +1,1 @@
-notify.questionnaires.questionnaire.status_change 7
+notify.internal.mls.ws_notifications 7
