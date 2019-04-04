@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+set MAVEN_OPTS=" -Duser.language=pl -Duser.region=PL"
+
+mvn -version
+
 rm ~/Devel/wso2esb-4.9.0/repository/deployment/server/carbonapps/pl.atena.iszkody.deploy_1.0.0.car
 
 cd ~/Devel/Projects/iszkody-esb/pl.atena.iszkody/ || exit

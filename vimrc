@@ -44,6 +44,7 @@ Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'benmills/vimux'
 
 call vundle#end()
 
@@ -266,6 +267,8 @@ hi Visual ctermbg=blue
 hi xmlTagName ctermfg=198 cterm=bold
 hi xmlTag ctermfg=198 cterm=bold
 hi MatchParen ctermfg=yellow cterm=bold
+hi StartifyFile ctermfg=cyan
+hi StartifyPath ctermfg=blue
 
 "hi PreProc ctermfg=cyan
 "hi MatchParen ctermbg=bg ctermfg=yellow cterm=bold
@@ -478,6 +481,20 @@ map <leader>fh :History<CR>
 imap <c-l> <plug>(fzf-complete-line)
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+" ]]]
+" Startify [[[
+
+let g:startify_header=''
+let g:startify_custom_header=''
+
+" ]]]
+" Vimux [[[
+
+let g:VimuxOrientation="h"
+let g:VimuxHeight="35"
+
+map <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
 
 " ]]]
 
