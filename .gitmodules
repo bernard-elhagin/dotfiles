@@ -7,3 +7,6 @@
 [submodule "vim/vimfiles/bundle/YouCompleteMe"]
 	path = vim/vimfiles/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule "vimux"]
+	path = vimux
+	url = https://github.com/benmills/vimux.git

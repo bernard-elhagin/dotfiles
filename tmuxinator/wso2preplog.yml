@@ -1,0 +1,15 @@
+# /home/bertold/.config/tmuxinator/wso2preplog.yml
+
+name: WSO2 [PREP]
+root: ~/
+tmux_detached: false
+tmux: tmux
+windows:
+  - WSO2 PREP wrk1:
+      layout: main-horizontal
+      panes:
+          - clear; wt1
+  - WSO2 PREP wrk2:
+      layout: main-horizontal
+      panes:
+          - clear; wt2

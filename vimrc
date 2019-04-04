@@ -44,6 +44,7 @@ Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'benmills/vimux'
 
 call vundle#end()
 
@@ -486,6 +487,17 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 
 let g:startify_header=''
 let g:startify_custom_header=''
+
+" ]]]
+" Vimux [[[
+
+let g:VimuxOrientation="h"
+let g:VimuxHeight="35"
+
+map <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
+map <leader>vc :VimuxCloseRunner<CR>
+map <leader>vr :VimuxRunLastCommand<CR>
+map <leader>vi :VimuxInterruptRunner<CR>
 
 " ]]]
 
