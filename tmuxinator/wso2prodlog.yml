@@ -1,0 +1,15 @@
+# /home/bertold/.config/tmuxinator/wso2prodlog.yml
+
+name: WSO2 [PROD]
+root: ~/
+tmux_detached: false
+tmux: tmux
+windows:
+  - WSO2 PROD wrk1:
+      layout: main-horizontal
+      panes:
+          - clear; wp1
+  - WSO2 PROD wrk2:
+      layout: main-horizontal
+      panes:
+          - clear; wp2
