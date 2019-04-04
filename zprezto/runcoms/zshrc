@@ -69,6 +69,8 @@ alias v='vim $(fzf)'
 
 eval "$(fasd --init auto)"
 
+bindkey -M viins 'jk' vi-cmd-mode
+
 source $HOME/.functions
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=238'
