@@ -124,8 +124,7 @@ let mapleader = ' '
 
 map <leader>s :w<CR>
 
-map <leader>v :tabedit $MYVIMRC<CR>
-map <leader>V :source $MYVIMRC<CR>
+map <leader>V :tabedit $MYVIMRC<CR>
 
 " Paste the contents of clipboard
 map <C-Space> "*p
