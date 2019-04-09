@@ -144,3 +144,5 @@
 [grep]
 	extendedRegexp = true
 	lineNumber = false
+[http]
+	sslVerify = false
