@@ -17,3 +17,7 @@ windows:
       layout: main-horizontal
       panes:
           - ~/Devel/wso2esb-4.9.0/bin/wso2server.sh
+  - curl:
+      layout: main-horizontal
+      panes:
+          - export http_proxy= && export https_proxy=

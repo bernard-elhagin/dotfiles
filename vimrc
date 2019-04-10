@@ -124,8 +124,7 @@ let mapleader = ' '
 
 map <leader>s :w<CR>
 
-map <leader>v :tabedit $MYVIMRC<CR>
-map <leader>V :source $MYVIMRC<CR>
+map <leader>V :tabedit $MYVIMRC<CR>
 
 " Paste the contents of clipboard
 map <C-Space> "*p
@@ -495,6 +494,9 @@ let g:VimuxOrientation="h"
 let g:VimuxHeight="35"
 
 map <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
+map <leader>vc :VimuxCloseRunner<CR>
+map <leader>vr :VimuxRunLastCommand<CR>
+map <leader>vi :VimuxInterruptRunner<CR>
 
 " ]]]
 
