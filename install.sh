@@ -31,6 +31,11 @@ echo -n "Copying fzf.."
 `ln -s $HOME/dotfiles/fzf $HOME/.fzf`
 echo "done"
 
+# tmux
+echo -n "Copying tmux settings.."
+`ln -s $HOME/dotfiles/tmux $HOME/.tmux`
+echo "done"
+
 declare -a FILES_TO_SYMLINK=(
   'zprezto/runcoms/zlogin'
   'zprezto/runcoms/zlogout'
@@ -39,8 +44,9 @@ declare -a FILES_TO_SYMLINK=(
   'zprezto/runcoms/zshenv'
   'zprezto/runcoms/zshrc'
   'fzf.sh'
-  'tmux.conf'
   'vimrc'
+  'tmux/tmux.conf'
+  'tmux.conf.local'
   'zsh/functions'
   'zsh/aliases_home.zsh'
   'zsh/aliases_ssh.zsh'
