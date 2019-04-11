@@ -45,6 +45,7 @@ Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'benmills/vimux'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 
