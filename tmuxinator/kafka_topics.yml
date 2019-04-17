@@ -1,0 +1,16 @@
+# /home/bertold/.config/tmuxinator/kafka_topics.yml
+
+name: kafka_topics
+root: ~/bin
+tmux_detached: false
+tmux: tmux
+windows:
+    - KAFKA:
+        layout: tiled
+        panes:
+          - kd
+          - kq
+          - kt
+          - kf
+          - kp
+          - ks

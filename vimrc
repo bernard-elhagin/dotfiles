@@ -46,6 +46,7 @@ Plugin 'vim-scripts/CSApprox'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'xolox/vim-session'
 
 call vundle#end()
 

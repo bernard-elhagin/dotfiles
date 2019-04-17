@@ -1,0 +1,12 @@
+pane	1	1	:vim	1	:*	1	:/home/bertold	1	zsh	:
+pane	wso2dev	1	:vim	1	:*	1	:/home/bertold/Devel/Projects/iszkody-esb	1	vim	:vim
+pane	wso2dev	1	:vim	1	:*	2	:/home/bertold/Devel/Projects/iszkody-esb	0	zsh	:
+pane	wso2dev	2	:WSO2 MB	0	:	1	:/home/bertold/Devel/wso2mb-3.1.0	1	sh	:/bin/sh /home/bertold/Devel/wso2mb-3.1.0/bin/wso2server.sh
+pane	wso2dev	3	:WSO2 ESB	0	:	1	:/home/bertold/Devel/wso2esb-4.9.0	1	sh	:/bin/sh /home/bertold/Devel/wso2esb-4.9.0/bin/wso2server.sh
+pane	wso2dev	4	:curl	0	:-	1	:/home/bertold/Devel/Projects/iszkody-esb	1	zsh	:
+window	1	1	1	:*	65f2,319x85,0,0,13
+window	wso2dev	1	1	:*	e3af,319x85,0,0{207x85,0,0,5,111x85,208,0,16}
+window	wso2dev	2	0	:	cb7e,319x85,0,0,1
+window	wso2dev	3	0	:	cb7f,319x85,0,0,2
+window	wso2dev	4	0	:-	cb80,319x85,0,0,3
+state	wso2dev	1

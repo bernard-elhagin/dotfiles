@@ -10,3 +10,6 @@
 [submodule "vimux"]
 	path = vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "bin/tmux/plugins/tmux-resurrect"]
+	path = bin/tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect
