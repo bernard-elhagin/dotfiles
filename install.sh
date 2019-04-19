@@ -41,6 +41,11 @@ echo -n "Copying tmuxinator settings.."
 `ln -s $HOME/dotfiles/tmuxinator $HOME/.tmuxinator`
 echo "done"
 
+# i3
+echo -n "Copying i3 settings.."
+`ln -s $HOME/dotfiles/i3 $HOME/.i3`
+echo "done"
+
 declare -a FILES_TO_SYMLINK=(
   'zprezto/runcoms/zlogin'
   'zprezto/runcoms/zlogout'
