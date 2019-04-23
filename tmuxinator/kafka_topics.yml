@@ -8,9 +8,9 @@ windows:
     - KAFKA:
         layout: tiled
         panes:
-          - kd
-          - kq
-          - kt
-          - kf
-          - kp
-          - ks
+          - clear; kd
+          - clear; kq
+          - clear; kt
+          - clear; kf
+          - clear; kp
+          - clear; ks
