@@ -59,6 +59,7 @@ declare -a FILES_TO_SYMLINK=(
   'tmux.conf.local'
   'zsh/functions'
   'zsh/aliases_home.zsh'
+  'zsh/aliases_work.zsh'
   'zsh/aliases_ssh.zsh'
   'git/gitconfig'
   'git/gitignore'
