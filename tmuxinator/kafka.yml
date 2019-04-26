@@ -1,0 +1,31 @@
+# /home/bertold/.config/tmuxinator/kafka.yml
+
+name: kafka
+root: ~/bin
+tmux_detached: false
+tmux: tmux
+windows:
+  - DEV:
+      layout: main-horizontal
+      panes:
+          - kd
+  - QA:
+      layout: main-horizontal
+      panes:
+          - kq
+  - PREP:
+      layout: main-horizontal
+      panes:
+          - kt
+  - FIX:
+      layout: main-horizontal
+      panes:
+          - kf
+  - PROD:
+      layout: main-horizontal
+      panes:
+          - kp
+  - SZKOL:
+      layout: main-horizontal
+      panes:
+          - ks

@@ -1,0 +1,23 @@
+# /home/bertold/.config/tmuxinator/wso2dev.yml
+
+name: wso2dev
+root: ~/Devel/Projects/iszkody-esb
+tmux_detached: false
+tmux: tmux
+windows:
+  - vim:
+      layout: main-horizontal
+      panes:
+          - vim
+  - WSO2 MB:
+      layout: main-horizontal
+      panes:
+          - ~/Devel/wso2mb-3.1.0/bin/wso2server.sh
+  - WSO2 ESB:
+      layout: main-horizontal
+      panes:
+          - ~/Devel/wso2esb-4.9.0/bin/wso2server.sh
+  - curl:
+      layout: main-horizontal
+      panes:
+          - export http_proxy= && export https_proxy=

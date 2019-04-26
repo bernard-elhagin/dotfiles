@@ -44,6 +44,9 @@ Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'benmills/vimux'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'xolox/vim-session'
 
 call vundle#end()
 
@@ -111,6 +114,9 @@ autocmd BufReadPost *  if line("'\"") > 1 && line("'\"") <= line("$")
                    \|     exe "normal! g`\""
                    \|  endif
 
+" Name tmux window with currently edited filename
+" autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+
 syntax enable
 
 " ]]]
@@ -123,8 +129,7 @@ let mapleader = ' '
 
 map <leader>s :w<CR>
 
-map <leader>v :tabedit $MYVIMRC<CR>
-map <leader>V :source $MYVIMRC<CR>
+map <leader>V :tabedit $MYVIMRC<CR>
 
 " Paste the contents of clipboard
 map <C-Space> "*p
@@ -266,6 +271,8 @@ hi Visual ctermbg=blue
 hi xmlTagName ctermfg=198 cterm=bold
 hi xmlTag ctermfg=198 cterm=bold
 hi MatchParen ctermfg=yellow cterm=bold
+hi StartifyFile ctermfg=cyan
+hi StartifyPath ctermfg=blue
 
 "hi PreProc ctermfg=cyan
 "hi MatchParen ctermbg=bg ctermfg=yellow cterm=bold
@@ -478,6 +485,23 @@ map <leader>fh :History<CR>
 imap <c-l> <plug>(fzf-complete-line)
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+" ]]]
+" Startify [[[
+
+let g:startify_header=''
+let g:startify_custom_header=''
+
+" ]]]
+" Vimux [[[
+
+let g:VimuxOrientation="h"
+let g:VimuxHeight="35"
+
+map <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
+map <leader>vc :VimuxCloseRunner<CR>
+map <leader>vr :VimuxRunLastCommand<CR>
+map <leader>vi :VimuxInterruptRunner<CR>
 
 " ]]]
 
