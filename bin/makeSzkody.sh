@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-set MAVEN_OPTS=" -Duser.language=pl -Duser.region=PL"
+export MAVEN_OPTS=" -Duser.language=pl -Duser.region=PL"
 
 mvn -version
 
