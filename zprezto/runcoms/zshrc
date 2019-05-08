@@ -44,12 +44,9 @@ alias zs='vim $HOME/.zshrc'
 
 alias github='git clone https://github.com/'
 
-if [[ $HOSTNAME = "bertold-pc" ]]; then
-    source $HOME/.aliases_home.zsh
-    source $HOME/.aliases_work.zsh
-else
-    source $HOME/.aliases_ssh.zsh
-fi
+source $HOME/.aliases_home.zsh
+source $HOME/.aliases_work.zsh
+source $HOME/.aliases_ssh.zsh
 
 # Global aliases
 alias -g G='| grep'
