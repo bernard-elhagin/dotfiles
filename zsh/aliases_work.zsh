@@ -1,4 +1,5 @@
 # Kafka hosts [[[
+
 DEV='dev-kafka-mgt01'
 QA='test-kafka-mgt01'
 FIX='test-kafka-fix-mgt01'
@@ -54,6 +55,10 @@ KAFKA_PROD_ZOO1='10.200.43.55'
 KAFKA_PROD_ZOO2='10.200.43.56'
 KAFKA_PROD_ZOO3='10.200.43.57'
 
+# ]]]
+
+# Kafka connect aliases [[[
+
 alias kd="ssh bernard.elhagin@$KAFKA_DEV_MGT"
 alias kdw1="ssh bernard.elhagin@$KAFKA_DEV_WRK1"
 alias kdw2="ssh bernard.elhagin@$KAFKA_DEV_WRK2"
@@ -102,18 +107,19 @@ alias kpz1="ssh bernard.elhagin@$KAFKA_PROD_ZOO1"
 alias kpz2="ssh bernard.elhagin@$KAFKA_PROD_ZOO2"
 alias kpz3="ssh bernard.elhagin@$KAFKA_PROD_ZOO3"
 
-KCC1='kafka-console-consumer.sh --bootstrap-server '
-KCP1='kafka-console-producer.sh --broker-list '
+# ]]]
+
+# Kafka helpers [[[
 
 environment=`hostname`
 
 case $environment in
-    $DEV   ) zookeeper="dev-kafka-zk01.atena.pl:2181"             && brokers="dev-kafka-wrk01.atena.pl:9092";;
-    $QA    ) zookeeper="test-kafka-zk01.atena.pl:2181"            && brokers="test-kafka-wrk01.atena.pl:9092";;
-    $FIX   ) zookeeper="test-kafka-fix-zk01.hestia.polska:2181"   && brokers="test-kafka-fix-wrk01.hestia.polska:9092";;
-    $SZKOL ) zookeeper="test-kafka-szkol-zk01.hestia.polska:2181" && brokers="test-kafka-szkol-wrk01.hestia.polska:9092";;
-    $PREP  ) zookeeper="test-kafka-prep-zk01.hestia.polska:2181"  && brokers="test-kafka-prep-wrk01.hestia.polska:9092";;
-    $PROD  ) zookeeper="prod-kafka-prod-zk01.hestia.polska:2181"  && brokers="prod-kafka-prod-wrk01.hestia.polska:9092";;
+    $DEV   ) zookeeper="dev-kafka-zk01.atena.pl:2181"             && brokers="dev-kafka-wrk01.atena.pl:9092,dev-kafka-wrk02.atena.pl:9092,dev-kafka-wrk03.atena.pl:9092";;
+    $QA    ) zookeeper="test-kafka-zk01.atena.pl:2181"            && brokers="test-kafka-wrk01.atena.pl:9092,test-kafka-wrk02.atena.pl:9092,test-kafka-wrk03.atena.pl:9092";;
+    $FIX   ) zookeeper="test-kafka-fix-zk01.hestia.polska:2181"   && brokers="test-kafka-fix-wrk01.hestia.polska:9092,test-kafka-fix-wrk02.hestia.polska:9092,test-kafka-fix-wrk03.hestia.polska:9092";;
+    $SZKOL ) zookeeper="test-kafka-szkol-zk01.hestia.polska:2181" && brokers="test-kafka-szkol-wrk01.hestia.polska:9092,test-kafka-szkol-wrk02.hestia.polska:9092,test-kafka-szkol-wrk03.hestia.polska:9092";;
+    $PREP  ) zookeeper="test-kafka-prep-zk01.hestia.polska:2181"  && brokers="test-kafka-prep-wrk01.hestia.polska:9092,test-kafka-prep-wrk02.hestia.polska:9092,test-kafka-prep-wrk03.hestia.polska:9092";;
+    $PROD  ) zookeeper="prod-kafka-prod-zk01.hestia.polska:2181"  && brokers="prod-kafka-prod-wrk01.hestia.polska:9092,prod-kafka-prod-wrk02.hestia.polska:9092,prod-kafka-prod-wrk03.hestia.polska:9092";;
 esac
 
 describe_topic()
@@ -121,15 +127,21 @@ describe_topic()
     kafka-topics.sh --zookeeper $zookeeper --describe --topic $(cat /tmp/topics.txt | fzf)
 }
 
+alias dt=describe_topic
+
 list_topics()
 {
     kafka-topics.sh --zookeeper $zookeeper --list
 }
 
+alias lt=list_topics
+
 consume_topic()
 {
     kafka-console-consumer.sh --bootstrap-server $brokers --from-beginning --topic $(cat /tmp/topics.txt | fzf)
 }
+
+alias ct=consume_topic
 
 #--------------DEV-----------
 KAFKA_DEV_BROKERS_SSL='dev-kafka-wrk01:9093,dev-kafka-wrk02:9093,dev-kafka-wrk03:9093'

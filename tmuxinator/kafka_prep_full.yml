@@ -1,0 +1,16 @@
+# /home/bertold/.config/tmuxinator/kafka_prep_full.yml
+
+name: kafka_prep_full
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - PREP_NODES:
+        layout: tiled
+        panes:
+          - clear; ktw1
+          - clear; ktz1
+          - clear; ktw2
+          - clear; ktz2
+          - clear; ktw3
+          - clear; ktz3

@@ -1,0 +1,16 @@
+# /home/bertold/.config/tmuxinator/kafka_prod_full.yml
+
+name: kafka_prod_full
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - PROD_NODES:
+        layout: tiled
+        panes:
+          - clear; kpw1
+          - clear; kpz1
+          - clear; kpw2
+          - clear; kpz2
+          - clear; kpw3
+          - clear; kpz3
