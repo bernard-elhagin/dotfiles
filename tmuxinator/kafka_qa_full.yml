@@ -1,0 +1,16 @@
+# /home/bertold/.config/tmuxinator/kafka_qa_full.yml
+
+name: kafka_qa_full
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - QA_NODES:
+        layout: tiled
+        panes:
+          - clear; kqw1
+          - clear; kqz1
+          - clear; kqw2
+          - clear; kqz2
+          - clear; kqw3
+          - clear; kqz3
