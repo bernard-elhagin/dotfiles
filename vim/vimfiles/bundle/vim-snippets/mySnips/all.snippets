@@ -14,48 +14,59 @@ $6http://test-ihestia-trunk-wso2-svc2svc.atena.pl:8190/service/
 endsnippet
 
 snippet kafkasrod "serwery Kafki" b
-dev-kafka-wrk01.atena.pl              10.111.234.187
-dev-kafka-wrk02.atena.pl              10.111.234.188
-dev-kafka-wrk03.atena.pl              10.111.234.189
-dev-kafka-mgt01.atena.pl              10.111.234.190
-dev-kafka-zk01.atena.pl               10.111.234.191
-dev-kafka-zk02.atena.pl               10.111.234.192
-dev-kafka-zk03.atena.pl               10.111.234.193
-test-kafka-wrk01.atena.pl             10.111.234.180
-test-kafka-wrk02.atena.pl             10.111.234.181
-test-kafka-wrk03.atena.pl             10.111.234.182
-test-kafka-mgt01.atena.pl             10.111.234.183
-test-kafka-zk01.atena.pl              10.111.234.184
-test-kafka-zk02.atena.pl              10.111.234.185
-test-kafka-zk03.atena.pl              10.111.234.186
-test-kafka-szkol-wrk01.hestia.polska  10.200.53.31
-test-kafka-szkol-wrk02.hestia.polska  10.200.53.32
-test-kafka-szkol-wrk03.hestia.polska  10.200.53.33
-test-kafka-szkol-mgt01.hestia.polska  10.200.53.34
-test-kafka-szkol-zk01.hestia.polska   10.200.53.35
-test-kafka-szkol-zk02.hestia.polska   10.200.53.36
-test-kafka-szkol-zk03.hestia.polska   10.200.53.37
-test-kafka-prep-wrk01.hestia.polska   10.200.53.51
-test-kafka-prep-wrk02.hestia.polska   10.200.53.52
-test-kafka-prep-wrk03.hestia.polska   10.200.53.53
-test-kafka-prep-mgt01.hestia.polska   10.200.53.54
-test-kafka-prep-zk01.hestia.polska    10.200.53.55
-test-kafka-prep-zk02.hestia.polska    10.200.53.56
-test-kafka-prep-zk03.hestia.polska    10.200.53.57
-test-kafka-fix-wrk01.hestia.polska    10.200.53.58
-test-kafka-fix-wrk02.hestia.polska    10.200.53.59
-test-kafka-fix-wrk03.hestia.polska    10.200.53.60
-test-kafka-fix-mgt01.hestia.polska    10.200.53.61
-test-kafka-fix-zk01.hestia.polska     10.200.53.62
-test-kafka-fix-zk02.hestia.polska     10.200.53.63
-test-kafka-fix-zk03.hestia.polska     10.200.53.64
-prod-kafka-prod-wrk01.hestia.polska   10.200.43.51
-prod-kafka-prod-wrk02.hestia.polska   10.200.43.52
-prod-kafka-prod-wrk03.hestia.polska   10.200.43.53
-prod-kafka-prod-mgt01.hestia.polska   10.200.43.54
-prod-kafka-prod-zk01.hestia.polska    10.200.43.55
-prod-kafka-prod-zk02.hestia.polska    10.200.43.56
-prod-kafka-prod-zk03.hestia.polska    10.200.43.57
+DEV
+$1dev-kafka-wrk01.atena.pl                10.111.234.187
+dev-kafka-wrk02.atena.pl                10.111.234.188
+dev-kafka-wrk03.atena.pl                10.111.234.189
+dev-kafka-mgt01.atena.pl                10.111.234.190
+dev-kafka-zk01.atena.pl                 10.111.234.191
+dev-kafka-zk02.atena.pl                 10.111.234.192
+dev-kafka-zk03.atena.pl                 10.111.234.193
+
+QA
+$2test-kafka-wrk01.atena.pl               10.111.234.180
+test-kafka-wrk02.atena.pl               10.111.234.181
+test-kafka-wrk03.atena.pl               10.111.234.182
+test-kafka-mgt01.atena.pl               10.111.234.183
+test-kafka-zk01.atena.pl                10.111.234.184
+test-kafka-zk02.atena.pl                10.111.234.185
+test-kafka-zk03.atena.pl                10.111.234.186
+
+SZKOL
+$3test-kafka-szkol-wrk01.hestia.polska    10.200.53.31
+test-kafka-szkol-wrk02.hestia.polska    10.200.53.32
+test-kafka-szkol-wrk03.hestia.polska    10.200.53.33
+test-kafka-szkol-mgt01.hestia.polska    10.200.53.34
+test-kafka-szkol-zk01.hestia.polska     10.200.53.35
+test-kafka-szkol-zk02.hestia.polska     10.200.53.36
+test-kafka-szkol-zk03.hestia.polska     10.200.53.37
+
+PREP
+$4test-kafka-prep-wrk01.hestia.polska     10.200.53.51
+test-kafka-prep-wrk02.hestia.polska     10.200.53.52
+test-kafka-prep-wrk03.hestia.polska     10.200.53.53
+test-kafka-prep-mgt01.hestia.polska     10.200.53.54
+test-kafka-prep-zk01.hestia.polska      10.200.53.55
+test-kafka-prep-zk02.hestia.polska      10.200.53.56
+test-kafka-prep-zk03.hestia.polska      10.200.53.57
+
+FIX
+$5test-kafka-fix-wrk01.hestia.polska      10.200.53.58
+test-kafka-fix-wrk02.hestia.polska      10.200.53.59
+test-kafka-fix-wrk03.hestia.polska      10.200.53.60
+test-kafka-fix-mgt01.hestia.polska      10.200.53.61
+test-kafka-fix-zk01.hestia.polska       10.200.53.62
+test-kafka-fix-zk02.hestia.polska       10.200.53.63
+test-kafka-fix-zk03.hestia.polska       10.200.53.64
+
+PROD
+$6prod-kafka-prod-wrk01.hestia.polska     10.200.43.51
+prod-kafka-prod-wrk02.hestia.polska     10.200.43.52
+prod-kafka-prod-wrk03.hestia.polska     10.200.43.53
+prod-kafka-prod-mgt01.hestia.polska     10.200.43.54
+prod-kafka-prod-zk01.hestia.polska      10.200.43.55
+prod-kafka-prod-zk02.hestia.polska      10.200.43.56
+prod-kafka-prod-zk03.hestia.polska      10.200.43.57
 endsnippet
 
 snippet kafka "serwery Kafki" b

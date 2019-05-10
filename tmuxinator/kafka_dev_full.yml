@@ -1,0 +1,16 @@
+# /home/bertold/.config/tmuxinator/kafka_dev_full.yml
+
+name: kafka_dev_full
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - DEV_NODES:
+        layout: tiled
+        panes:
+          - clear; kdw1
+          - clear; kdz1
+          - clear; kdw2
+          - clear; kdz2
+          - clear; kdw3
+          - clear; kdz3

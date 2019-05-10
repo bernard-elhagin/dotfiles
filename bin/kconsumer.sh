@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 
 DEV='dev-kafka-mgt01'
 QA='test-kafka-mgt01'
@@ -7,11 +7,11 @@ SZKOL='test-kafka-szkol-mgt01'
 PREP='test-kafka-prep-mgt01'
 PROD='prod-kafka-prod-mgt01'
 
-KAFKA_PATH=`dirname $(which kafka-console-consumer.sh)`
+KAFKA_PATH=$(dirname "$(command -v kafka-console-consumer.sh)")
 
 if [ $# -eq 0 ]
 then
-    environment=`hostname`
+    environment=$(fzf < /tmp/hosts.txt)
 else
     case $1 in
         'dev'   ) environment=$DEV;;
@@ -26,7 +26,7 @@ fi
 
 ssl_or_not()
 {
-    PS3='Masz truststora z certyfikatami? '
+    PS3="Masz truststora z certyfikatami na server $environment? "
 
     select ssl in 'tak' 'nie'
     do
@@ -44,14 +44,13 @@ ssl_or_not()
 }
 
 case $environment in
-    $DEV   ) zookeeper="dev-kafka-zk01.atena.pl:2181"            && ssl_or_not "dev-kafka-wrk01.atena.pl:";;
-    $QA    ) zookeeper="test-kafka-zk01.atena.pl:2181"           && ssl_or_not "test-kafka-wrk01.atena.pl:";;
-    $FIX   ) zookeeper="test-kafka-fix-zk01.hestia.polska:2181"  && ssl_or_not "test-kafka-fix-wrk01.hestia.polska:";;
+    $DEV   ) zookeeper="dev-kafka-zk01.atena.pl:2181"             && ssl_or_not "dev-kafka-wrk01.atena.pl:";;
+    $QA    ) zookeeper="test-kafka-zk01.atena.pl:2181"            && ssl_or_not "test-kafka-wrk01.atena.pl:";;
+    $FIX   ) zookeeper="test-kafka-fix-zk01.hestia.polska:2181"   && ssl_or_not "test-kafka-fix-wrk01.hestia.polska:";;
     $SZKOL ) zookeeper="test-kafka-szkol-zk01.hestia.polska:2181" && ssl_or_not "test-kafka-szkol-wrk01.hestia.polska:";;
-    $PREP  ) zookeeper="test-kafka-prep-zk01.hestia.polska:2181" && ssl_or_not "test-kafka-prep-wrk01.hestia.polska:";;
-    $PROD  ) zookeeper="prod-kafka-prod-zk01.hestia.polska:2181" && ssl_or_not "prod-kafka-prod-wrk01.hestia.polska:";;
+    $PREP  ) zookeeper="test-kafka-prep-zk01.hestia.polska:2181"  && ssl_or_not "test-kafka-prep-wrk01.hestia.polska:";;
+    $PROD  ) zookeeper="prod-kafka-prod-zk01.hestia.polska:2181"  && ssl_or_not "prod-kafka-prod-wrk01.hestia.polska:";;
 esac
-break
 
 action_choice()
 {
@@ -83,10 +82,9 @@ consume()
     echo
 
     case $ssl in
-        'tak' ) $KAFKA_PATH/kafka-console-consumer.sh --bootstrap-server $brokers --topic $topic --from-beginning --consumer.config ~/kafka/config/client-ssl.properties 2>/dev/null;;
-        'nie' ) $KAFKA_PATH/kafka-console-consumer.sh --bootstrap-server $brokers --topic $topic --from-beginning 2>/dev/null;;
+        'tak' ) "$KAFKA_PATH"/kafka-console-consumer.sh --bootstrap-server "$brokers" --topic $topic --from-beginning --consumer.config ~/kafka/config/client-ssl.properties 2>/dev/null;;
+        'nie' ) "$KAFKA_PATH"/kafka-console-consumer.sh --bootstrap-server "$brokers" --topic $topic --from-beginning 2>/dev/null;;
     esac
-    break
 }
 
 produce()
@@ -96,10 +94,9 @@ produce()
     echo
 
     case $ssl in
-        'tak' ) $KAFKA_PATH/kafka-console-producer.sh --broker-list $brokers --topic $topic --producer.config ~/kafka/config/client-ssl.properties 2>/dev/null;;
-        'nie' ) $KAFKA_PATH/kafka-console-producer.sh --broker-list $brokers --topic $topic 2>/dev/null;;
+        'tak' ) "$KAFKA_PATH"/kafka-console-producer.sh --broker-list "$brokers" --topic $topic --producer.config ~/kafka/config/client-ssl.properties 2>/dev/null;;
+        'nie' ) "$KAFKA_PATH"/kafka-console-producer.sh --broker-list "$brokers" --topic $topic 2>/dev/null;;
     esac
-    break
 }
 
 describe()
@@ -108,7 +105,7 @@ describe()
     echo "Pobieram info nt. topicu $topic"
     echo
 
-    $KAFKA_PATH/kafka-topics.sh --zookeeper $zookeeper --topic $topic --describe 2>/dev/null
+    "$KAFKA_PATH"/kafka-topics.sh --zookeeper $zookeeper --topic $topic --describe 2>/dev/null
 }
 
 PS3='Co robimy: '
@@ -117,6 +114,7 @@ action_choice "produce" "consume" "describe"
 echo "Pobieram listę topiców z $zookeeper"
 
 PS3='Wybierz topic: '
-topic_choice `$KAFKA_PATH/kafka-topics.sh --list --zookeeper $zookeeper 2>/dev/null`
+echo "$KAFKA_PATH"/kafka-topics.sh --list --zookeeper $zookeeper 2>/dev/null
+topic_choice $("$KAFKA_PATH"/kafka-topics.sh --list --zookeeper $zookeeper 2>/dev/null)
 
 exit 0
