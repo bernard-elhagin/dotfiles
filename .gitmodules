@@ -13,3 +13,6 @@
 [submodule "bin/tmux/plugins/tmux-resurrect"]
 	path = bin/tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
+[submodule "tmuxinator/tmux/plugins/tmux-fpp"]
+	path = tmuxinator/tmux/plugins/tmux-fpp
+	url = https://github.com/tmux-plugins/tmux-fpp
