@@ -124,7 +124,9 @@ esac
 
 describe_topic()
 {
-    kafka-topics.sh --zookeeper $zookeeper --describe --topic $(cat /tmp/topics.txt | fzf)
+    topic=$(cat /tmp/topics.txt | fzf)
+    echo "kafka-topics.sh --zookeeper $zookeeper --describe --topic $topic"
+    kafka-topics.sh --zookeeper $zookeeper --describe --topic $topic
 }
 
 alias dt=describe_topic
@@ -138,7 +140,9 @@ alias lt=list_topics
 
 consume_topic()
 {
-    kafka-console-consumer.sh --bootstrap-server $brokers --from-beginning --topic $(cat /tmp/topics.txt | fzf)
+    topic=$(cat /tmp/topics.txt | fzf)
+    echo "kafka-console-consumer.sh --bootstrap-server $brokers --from-beginning --topic $topic"
+    kafka-console-consumer.sh --bootstrap-server $brokers --from-beginning --topic $topic
 }
 
 alias ct=consume_topic
