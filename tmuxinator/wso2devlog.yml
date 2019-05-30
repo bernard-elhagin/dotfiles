@@ -1,15 +1,12 @@
 # /home/bertold/.config/tmuxinator/wso2devlog.yml
 
-name: WSO2 [DEV]
+name: wso2devlog
 root: ~/
 tmux_detached: false
 tmux: tmux
 windows:
-  - WSO2 DEV wrk1:
-      layout: main-horizontal
+  - WSO2 DEV:
+      layout: tiled
       panes:
           - clear; wd1
-  - WSO2 DEV wrk2:
-      layout: main-horizontal
-      panes:
           - clear; wd2

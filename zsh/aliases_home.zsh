@@ -9,3 +9,6 @@ alias pS='sudo pacman -S'
 alias yss='yay -Ss'
 alias ys='yay -S'
 alias pfiles='pacman -Fl'
+
+alias gs='git status'
+alias gc='git commit'

@@ -1,0 +1,61 @@
+# /home/bertold/.config/tmuxinator/kafka.yml
+
+name: kafka
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+  - DEV:
+      layout: tiled
+      panes:
+          - clear; kdw1
+          - clear; kdz1
+          - clear; kdw2
+          - clear; kdz2
+          - clear; kdw3
+          - clear; kdz3
+  - QA:
+      layout: tiled
+      panes:
+          - clear; kqw1
+          - clear; kqz1
+          - clear; kqw2
+          - clear; kqz2
+          - clear; kqw3
+          - clear; kqz3
+  - PREP:
+      layout: tiled
+      panes:
+          - clear; ktw1
+          - clear; ktz1
+          - clear; ktw2
+          - clear; ktz2
+          - clear; ktw3
+          - clear; ktz3
+  - FIX:
+      layout: tiled
+      panes:
+          - clear; kfw1
+          - clear; kfz1
+          - clear; kfw2
+          - clear; kfz2
+          - clear; kfw3
+          - clear; kfz3
+  - PROD:
+      layout: tiled
+      panes:
+          - clear; kpw1
+          - clear; kpz1
+          - clear; kpw2
+          - clear; kpz2
+          - clear; kpw3
+          - clear; kpz3
+  - SZKOL:
+      layout: tiled
+      panes:
+          - clear; ksw1
+          - clear; ksz1
+          - clear; ksw2
+          - clear; ksz2
+          - clear; ksw3
+          - clear; ksz3
