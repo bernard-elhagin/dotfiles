@@ -62,6 +62,7 @@ set encoding=utf-8
 set noshowmode
 set scrolloff=8
 set wildmenu
+set wildmode=list:full
 set ruler
 set cmdheight=2
 set backspace=2
@@ -220,6 +221,8 @@ imap {{ {}<ESC>O
 nnoremap ZQ ZZ
 nnoremap ZZ ZQ
 
+nmap <tab> :bn<CR>
+nmap <s-tab> :bp<CR>
 map <leader>b :Buffers<CR>
 
 " ]]]
@@ -267,12 +270,13 @@ nnoremap zO zczO
 
 let g:airline_theme='papercolor'
 
-colorscheme mopkai
+"colorscheme mopkai
+colorscheme badwolf
 
 hi Visual ctermbg=blue
 hi xmlTagName ctermfg=198 cterm=bold
 hi xmlTag ctermfg=198 cterm=bold
-hi MatchParen ctermfg=yellow cterm=bold
+hi MatchParen ctermfg=cyan cterm=bold
 hi StartifyFile ctermfg=cyan
 hi StartifyPath ctermfg=blue
 
@@ -472,7 +476,10 @@ map <C-F4> :NERDTreeToggle<CR>
 "]]]
 " FZF [[[
 
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.settings,*.esb_diagram,*\\*sandbox\\*,*.classpath,*\\.meta\\*
+set wildignore+=*\\tmp\\*,*.sw?,*.zip,*.settings,*.esb_diagram,*\\*sandbox\\*,*.classpath,*\\.meta\\*
+set wildignore+=.git,*.orig
+set wildignore+=*.exe,*.o,*.obj,*.dll,*.manifest
+set wildignore+=*.jpg,*.jpeg,*.bmp,*.gif,*.png
 
 command! -bang -nargs=* FindInRepo call fzf#run({ 'sink': 'e', 'source': 'git ls-files' })
 

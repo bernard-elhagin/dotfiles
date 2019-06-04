@@ -1,0 +1,19 @@
+# /home/bertold/.config/tmuxinator/kafka_local_split.yml
+
+name: kafka_local_split
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - LOCAL_BROKERS:
+        layout: tiled
+        panes:
+          - clear; ssh vagrant@192.168.1.116
+          - clear; ssh vagrant@192.168.1.117
+          - clear; ssh vagrant@192.168.1.118
+    - LOCAL_ZOOKEEPERS:
+        layout: tiled
+        panes:
+          - clear; ssh vagrant@192.168.1.119
+          - clear; ssh vagrant@192.168.1.120
+          - clear; ssh vagrant@192.168.1.121
