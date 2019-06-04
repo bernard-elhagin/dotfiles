@@ -11,7 +11,7 @@ KAFKA_PATH=$(dirname "$(command -v kafka-console-consumer.sh)")
 
 if [ $# -eq 0 ]
 then
-    environment=$(fzf < /tmp/hosts.txt)
+    environment=$(hostname)
 else
     case $1 in
         'dev'   ) environment=$DEV;;
