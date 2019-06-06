@@ -49,6 +49,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'xolox/vim-session'
 Plugin 'mattn/emmet-vim'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'rafi/awesome-vim-colorschemes'
 
 call vundle#end()
 
@@ -97,7 +98,10 @@ set suffixesadd+=.xml
 set listchars=tab:▸\ ,eol:¬
 set noswapfile
 set autochdir
-set cdpath=C:\Git\iszkody-esb
+
+if has('termguicolors')
+    set termguicolors
+endif
 
 if has('persistent_undo')
     " Save all undo files in a single location (less messy, more risky)...
@@ -271,14 +275,18 @@ nnoremap zO zczO
 let g:airline_theme='papercolor'
 
 "colorscheme mopkai
-colorscheme badwolf
+"colorscheme badwolf
+colorscheme github
 
-hi Visual ctermbg=blue
-hi xmlTagName ctermfg=198 cterm=bold
-hi xmlTag ctermfg=198 cterm=bold
-hi MatchParen ctermfg=cyan cterm=bold
-hi StartifyFile ctermfg=cyan
-hi StartifyPath ctermfg=blue
+hi QuickScopeSecondary cterm=none ctermfg=red
+hi QuickScopePrimary cterm=underline,bold
+
+"hi Visual ctermbg=blue
+"hi xmlTagName ctermfg=198 cterm=bold
+"hi xmlTag ctermfg=198 cterm=bold
+"hi MatchParen ctermfg=cyan cterm=bold
+"hi StartifyFile ctermfg=cyan
+"hi StartifyPath ctermfg=blue
 
 "hi PreProc ctermfg=cyan
 "hi MatchParen ctermbg=bg ctermfg=yellow cterm=bold
