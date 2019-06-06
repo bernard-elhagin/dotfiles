@@ -49,8 +49,8 @@ source $HOME/.aliases_work.zsh
 source $HOME/.aliases_ssh.zsh
 
 # Global aliases
-alias -g G='| grep'
-alias -g L='| less'
+alias -g G='| grep --color=always'
+alias -g L='| less -r'
 
 alias e='exit'
 
