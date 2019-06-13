@@ -506,7 +506,7 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 " ]]]
 " Startify [[[
 
-let g:startify_header=''
+"let g:startify_header=''
 let g:startify_custom_header=''
 
 " ]]]
