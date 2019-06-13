@@ -521,6 +521,11 @@ map <leader>vr :VimuxRunLastCommand<CR>
 map <leader>vi :VimuxInterruptRunner<CR>
 
 " ]]]
+" Command-T [[[
+
+map <leader>t :CommandTHelp<CR>
+
+" ]]]
 
 "]]]
 
