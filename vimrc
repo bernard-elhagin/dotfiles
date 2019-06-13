@@ -281,42 +281,6 @@ colorscheme github
 hi QuickScopeSecondary cterm=none ctermfg=red
 hi QuickScopePrimary cterm=underline,bold
 
-"hi Visual ctermbg=blue
-"hi xmlTagName ctermfg=198 cterm=bold
-"hi xmlTag ctermfg=198 cterm=bold
-"hi MatchParen ctermfg=cyan cterm=bold
-"hi StartifyFile ctermfg=cyan
-"hi StartifyPath ctermfg=blue
-
-"hi PreProc ctermfg=cyan
-"hi MatchParen ctermbg=bg ctermfg=yellow cterm=bold
-"hi xmlTagName ctermfg=22
-"hi xmlTag ctermfg=22
-"hi xmlString ctermfg=yellow
-"hi Type ctermfg=111
-"hi String ctermfg=13
-"hi xmlEndTag ctermfg=4
-"hi xmlTag ctermfg=cyan
-"hi xmlTagName ctermfg=cyan
-"hi Comment ctermfg=4
-"hi xmlString ctermfg=13
-
-" Override some of the color settings of PaperColor
-" hi String guifg=hotpink
-" hi XmlString guifg=hotpink
-" hi MatchParen guibg=bg guifg=red gui=bold
-" hi Folded guibg=#204a87 guifg=#d3d7cf gui=none
-" hi Search gui=none guifg=black guibg=#55aaff
-" hi CtrlPMatch guifg=red
-
-" Override some of the color settings of PaperColor
-"hi String guifg=#ff8888
-"hi XmlString guifg=#ff8888
-"hi Folded guibg=#204a87 guifg=#d3d7cf gui=none
-"hi Search gui=none guifg=black guibg=#55aaff
-"hi CtrlPMatch guifg=red
-
-" set guifont=Hack:h9:cANSI:qDRAFT
 set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
 
 set guioptions=egrLt

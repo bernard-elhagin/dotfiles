@@ -13,38 +13,66 @@ cd $HOME/dotfiles
 
 # VIM
 echo -n "Copying VIM settings.."
-`ln -s $HOME/dotfiles/vim $HOME/.vim`
-echo "done"
+if [[ -d $HOME/.vim ]]; then
+    echo "$HOME/.vim already exists...skipping."
+else
+    `ln -s $HOME/dotfiles/vim $HOME/.vim`
+    echo "done."
+fi
 
 # prezto
 echo -n "Copying zprezto.."
-`ln -s $HOME/dotfiles/zprezto $HOME/.zprezto`
-echo "done"
+if [[ -d $HOME/.zprezto ]]; then
+    echo "$HOME/.zprezto already exists...skipping."
+else
+    `ln -s $HOME/dotfiles/zprezto $HOME/.zprezto`
+    echo "done."
+fi
 
 # bin
 echo -n "Copying bin.."
-`ln -s $HOME/dotfiles/bin $HOME/bin`
-echo "done"
+if [[ -d $HOME/bin ]]; then
+    echo "$HOME/bin already exists...skipping."
+else
+    `ln -s $HOME/dotfiles/bin $HOME/bin`
+    echo "done."
+fi
 
 # fzf
 echo -n "Copying fzf.."
-`ln -s $HOME/dotfiles/fzf $HOME/.fzf`
-echo "done"
+if [[ -d $HOME/.fzf ]]; then
+    echo "$HOME/.fzf already exists...skipping."
+else
+    `ln -s $HOME/dotfiles/fzf $HOME/.fzf`
+    echo "done."
+fi
 
 # tmux
 echo -n "Copying tmux settings.."
-`ln -s $HOME/dotfiles/tmux $HOME/.tmux`
-echo "done"
+if [[ -d $HOME/.tmux ]]; then
+    echo "$HOME/.tmux already exists...skipping."
+else
+    `ln -s $HOME/dotfiles/tmux $HOME/.tmux`
+    echo "done."
+fi
 
 # tmuxinator
 echo -n "Copying tmuxinator settings.."
-`ln -s $HOME/dotfiles/tmuxinator $HOME/.tmuxinator`
-echo "done"
+if [[ -d $HOME/.tmuxinator ]]; then
+    echo "$HOME/.tmuxinator already exists...skipping."
+else
+    `ln -s $HOME/dotfiles/tmuxinator $HOME/.tmuxinator`
+    echo "done."
+fi
 
 # i3
 echo -n "Copying i3 settings.."
-`ln -s $HOME/dotfiles/i3 $HOME/.i3`
-echo "done"
+if [[ -d $HOME/.i3 ]]; then
+    echo "$HOME/.i3 already exists...skipping."
+else
+    `ln -s $HOME/dotfiles/i3 $HOME/.i3`
+    echo "done."
+fi
 
 declare -a FILES_TO_SYMLINK=(
   'zprezto/runcoms/zlogin'
