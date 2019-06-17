@@ -55,6 +55,27 @@ call vundle#end()
 
 filetype plugin indent on
 
+if filereadable('/usr/bin/python3')
+  " Avoid search, speeding up start-up.
+  let g:python3_host_prog='/usr/bin/python3'
+endif
+
+" Allow for per-machine overrides in ~/.vim/host/$HOSTNAME.vim and
+" ~/.vim/vimrc.local.
+let s:hostfile =
+      \ $HOME .
+      \ '/.vim/host/' .
+      \ substitute(hostname(), "\\..*", '', '') .
+      \ '.vim'
+if filereadable(s:hostfile)
+  execute 'source ' . s:hostfile
+endif
+
+let s:vimrc_local = $HOME . '/.vim/vimrc.local'
+if filereadable(s:vimrc_local)
+  execute 'source ' . s:vimrc_local
+endif
+
 " ]]]
 
 " Basic Options ---------------------------------------------------------- [[[
@@ -98,6 +119,19 @@ set suffixesadd+=.xml
 set listchars=tab:▸\ ,eol:¬
 set noswapfile
 set autochdir
+set synmaxcol=200
+
+set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
+set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+set fillchars+=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
+
+set list                              " show whitespace
+set listchars=nbsp:⦸                  " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+set listchars+=tab:▷┅                 " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
+                                      " + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
+set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
 
 if has('termguicolors')
     set termguicolors
@@ -134,36 +168,42 @@ imap jk <ESC>
 
 let mapleader = ' '
 
-map <leader>s :w<CR>
+nnoremap <leader>s :w<CR>
 
-map <leader>V :tabedit $MYVIMRC<CR>
+nnoremap <leader>V :tabedit $MYVIMRC<CR>
 
 " Paste the contents of clipboard
-map <C-Space> "*p
+nnoremap <C-Space> "*p
 
 " Copy whole file to clipboard and quit Vim
-map <CS-Space> gg"*yG:q!<CR>
+nnoremap <CS-Space> gg"*yG:q!<CR>
 
 " Rerun last shell command
-map <leader>r :!<UP><CR>
+nnoremap <leader>r :!<UP><CR>
+
+" Show the path of current file.
+nnoremap <leader>p :echo expand('%')<CR>
 
 " Mappings for manipulating and moving around splits
-map <leader>j j
-map <leader>k k
-map <leader>l l
-map <leader>h h
-map <leader>c c
-map <leader>o o
-"map <leader>x x
-map <C-s> +
-map <C-z> -
-map <leader>_ _
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>h <C-w>h
+nnoremap <leader>c <C-w>c
+nnoremap <leader>o <C-w>o
+nnoremap <C-s> <C-w>+
+nnoremap <C-z> <C-w>-
+nnoremap <leader>_ <C-w>_
 
-map <leader>q :QuickScopeToggle<CR>
+nnoremap <leader>q :QuickScopeToggle<CR>
 
 " Moving up and down with centering the cursor
-map <C-J> jzz
-map <C-K> kzz
+nnoremap <C-J> jzz
+nnoremap <C-K> kzz
 
 " Set CWD to current file's PWD
 map <F12> :cd %:h<CR>
@@ -228,6 +268,24 @@ nnoremap ZZ ZQ
 nmap <tab> :bn<CR>
 nmap <s-tab> :bp<CR>
 map <leader>b :Buffers<CR>
+
+nnoremap <silent> <Up>    :cprevious<CR>
+nnoremap <silent> <Down>  :cnext<CR>
+nnoremap <silent> <Left>  :cpfile<CR>
+nnoremap <silent> <Right> :cnfile<CR>
+
+nnoremap <silent> <S-Up>    :lprevious<CR>
+nnoremap <silent> <S-Down>  :lnext<CR>
+nnoremap <silent> <S-Left>  :lpfile<CR>
+nnoremap <silent> <S-Right> :lnfile<CR>
+
+" Avoid unintentional switch to Ex mode.
+nnoremap Q <nop>
+
+noremap Y y$
+
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " ]]]
 

@@ -1,0 +1,13 @@
+#!/bin/bash
+# Dump ANSI colors.
+
+for fgbg in 38 48 ; do # for foreground/background
+    for color in {0..256} ; do # for all 256 colors
+        printf "\e[${fgbg};5;${color}m ${color}\t\e[0m"
+        # newline after every 10 colors
+        if [ $((($color + 1) % 10)) == 0 ] ; then
+            echo
+        fi
+    done
+    echo # final newline
+done
