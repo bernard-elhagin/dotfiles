@@ -10,7 +10,6 @@ function! gitgutter#all(force) abort
       let file = expand('#'.bufnr.':p')
       if !empty(file)
         if index(visible, bufnr) != -1
-          call gitgutter#init_buffer(bufnr)
           call gitgutter#process_buffer(bufnr, a:force)
         elseif a:force
           call s:reset_tick(bufnr)
@@ -21,27 +20,28 @@ function! gitgutter#all(force) abort
 endfunction
 
 
-" Finds the file's path relative to the repo root.
-function! gitgutter#init_buffer(bufnr)
-  if gitgutter#utility#is_active(a:bufnr)
-    let p = gitgutter#utility#repo_path(a:bufnr, 0)
-    if type(p) != s:t_string || empty(p)
-      call gitgutter#utility#set_repo_path(a:bufnr)
-      call s:setup_maps()
-    endif
-  endif
-endfunction
-
-
 function! gitgutter#process_buffer(bufnr, force) abort
   " NOTE a:bufnr is not necessarily the current buffer.
 
   if gitgutter#utility#is_active(a:bufnr)
+
+    call s:setup_maps(a:bufnr)
+
+    if has('patch-7.4.1559')
+      let l:Callback = function('gitgutter#process_buffer', [a:bufnr, a:force])
+    else
+      let l:Callback = {'function': 'gitgutter#process_buffer', 'arguments': [a:bufnr, a:force]}
+    endif
+    let how = s:setup_path(a:bufnr, l:Callback)
+    if [how] == ['async']  " avoid string-to-number conversion if how is a number
+      return
+    endif
+
     if a:force || s:has_fresh_changes(a:bufnr)
 
       let diff = ''
       try
-        let diff = gitgutter#diff#run_diff(a:bufnr, 0)
+        let diff = gitgutter#diff#run_diff(a:bufnr, 'index', 0)
       catch /gitgutter not tracked/
         call gitgutter#debug#log('Not tracked: '.gitgutter#utility#file(a:bufnr))
       catch /gitgutter diff failed/
@@ -85,10 +85,35 @@ function! gitgutter#toggle() abort
   endif
 endfunction
 
+
+function! gitgutter#buffer_disable() abort
+  let bufnr = bufnr('')
+  call gitgutter#utility#setbufvar(bufnr, 'enabled', 0)
+  call s:clear(bufnr)
+endfunction
+
+function! gitgutter#buffer_enable() abort
+  let bufnr = bufnr('')
+  call gitgutter#utility#setbufvar(bufnr, 'enabled', 1)
+  call gitgutter#process_buffer(bufnr, 1)
+endfunction
+
+function! gitgutter#buffer_toggle() abort
+  if gitgutter#utility#getbufvar(bufnr(''), 'enabled', 1)
+    call gitgutter#buffer_disable()
+  else
+    call gitgutter#buffer_enable()
+  endif
+endfunction
+
 " }}}
 
-function! s:setup_maps()
+function! s:setup_maps(bufnr)
   if !g:gitgutter_map_keys
+    return
+  endif
+
+  if gitgutter#utility#getbufvar(a:bufnr, 'mapped', 0)
     return
   endif
 
@@ -121,6 +146,18 @@ function! s:setup_maps()
   if !hasmapto('<Plug>GitGutterTextObjectOuterVisual') && maparg('ac', 'x') ==# ''
     xmap <buffer> ac <Plug>GitGutterTextObjectOuterVisual
   endif
+
+  call gitgutter#utility#setbufvar(a:bufnr, 'mapped', 1)
+endfunction
+
+function! s:setup_path(bufnr, continuation)
+  let p = gitgutter#utility#repo_path(a:bufnr, 0)
+
+  if type(p) == s:t_string && !empty(p)  " if path is known
+    return
+  endif
+
+  return gitgutter#utility#set_repo_path(a:bufnr, a:continuation)
 endfunction
 
 function! s:has_fresh_changes(bufnr) abort
@@ -136,4 +173,5 @@ function! s:clear(bufnr)
   call gitgutter#sign#remove_dummy_sign(a:bufnr, 1)
   call gitgutter#hunk#reset(a:bufnr)
   call s:reset_tick(a:bufnr)
+  call gitgutter#utility#setbufvar(a:bufnr, 'path', '')
 endfunction

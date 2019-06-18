@@ -44,7 +44,6 @@ Plugin 'wincent/vcs-jump'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'xolox/vim-session'
@@ -546,7 +545,7 @@ command! -bang -nargs=* FindInRepo call fzf#run({ 'sink': 'e', 'source': 'git ls
 map <leader>ff :Files<CR>
 map <leader>fg :GFiles<CR>
 map <leader>fr :FindInRepo<CR>
-map <leader>fa :Ag<CR>
+map <leader>fa :Rg<CR>
 map <leader>fc :Commits<CR>
 map <leader>fb :BCommits<CR>
 map <leader>fh :History<CR>
@@ -576,6 +575,11 @@ map <leader>vi :VimuxInterruptRunner<CR>
 " Command-T [[[
 
 map <leader>t :CommandTHelp<CR>
+
+" ]]]
+" Vim-Session [[[
+
+let g:session_autosave='no'
 
 " ]]]
 
