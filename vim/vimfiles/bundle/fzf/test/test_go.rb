@@ -1371,7 +1371,7 @@ class TestGoFZF < TestBase
   end
 
   def test_preview_hidden
-    tmux.send_keys %(seq 1000 | #{FZF} --preview 'echo {{}-{}-\\$LINES-\\$COLUMNS}' --preview-window down:1:hidden --bind ?:toggle-preview), :Enter
+    tmux.send_keys %(seq 1000 | #{FZF} --preview 'echo {{}-{}-\\$FZF_PREVIEW_LINES-\\$FZF_PREVIEW_COLUMNS}' --preview-window down:1:hidden --bind ?:toggle-preview), :Enter
     tmux.until { |lines| lines[-1] == '>' }
     tmux.send_keys '?'
     tmux.until { |lines| lines[-2] =~ / {1-1-1-[0-9]+}/ }
@@ -1400,21 +1400,21 @@ class TestGoFZF < TestBase
 
   def test_preview_flags
     tmux.send_keys %(seq 10 | sed 's/^/:: /; s/$/  /' |
-        #{FZF} --multi --preview 'echo {{2}/{s2}/{+2}/{+s2}/{q}}'), :Enter
-    tmux.until { |lines| lines[1].include?('{1/1  /1/1  /}') }
+        #{FZF} --multi --preview 'echo {{2}/{s2}/{+2}/{+s2}/{q}/{n}/{+n}}'), :Enter
+    tmux.until { |lines| lines[1].include?('{1/1  /1/1  //0/0}') }
     tmux.send_keys '123'
-    tmux.until { |lines| lines[1].include?('{////123}') }
+    tmux.until { |lines| lines[1].include?('{////123//}') }
     tmux.send_keys 'C-u', '1'
     tmux.until { |lines| lines.match_count == 2 }
-    tmux.until { |lines| lines[1].include?('{1/1  /1/1  /1}') }
+    tmux.until { |lines| lines[1].include?('{1/1  /1/1  /1/0/0}') }
     tmux.send_keys :BTab
-    tmux.until { |lines| lines[1].include?('{10/10  /1/1  /1}') }
+    tmux.until { |lines| lines[1].include?('{10/10  /1/1  /1/9/0}') }
     tmux.send_keys :BTab
-    tmux.until { |lines| lines[1].include?('{10/10  /1 10/1   10  /1}') }
+    tmux.until { |lines| lines[1].include?('{10/10  /1 10/1   10  /1/9/0 9}') }
     tmux.send_keys '2'
-    tmux.until { |lines| lines[1].include?('{//1 10/1   10  /12}') }
+    tmux.until { |lines| lines[1].include?('{//1 10/1   10  /12//0 9}') }
     tmux.send_keys '3'
-    tmux.until { |lines| lines[1].include?('{//1 10/1   10  /123}') }
+    tmux.until { |lines| lines[1].include?('{//1 10/1   10  /123//0 9}') }
   end
 
   def test_preview_q_no_match
@@ -1425,6 +1425,12 @@ class TestGoFZF < TestBase
     tmux.until { |lines| lines[1].include?('foo bar') }
     tmux.send_keys 'C-u'
     tmux.until { |lines| !lines[1].include?('foo') }
+  end
+
+  def test_preview_q_no_match_with_initial_query
+    tmux.send_keys %(: | #{FZF} --preview 'echo foo {q}{q}' --query foo), :Enter
+    tmux.until { |lines| lines.match_count == 0 }
+    tmux.until { |lines| lines[1].include?('foofoo') }
   end
 
   def test_no_clear
@@ -1512,6 +1518,25 @@ class TestGoFZF < TestBase
     assert_equal ['foo bar'], `#{FZF} -f'foo\\ bar' < #{tempname}`.lines.map(&:chomp)
     assert_equal ['foo bar'], `#{FZF} -f'^foo\\ bar$' < #{tempname}`.lines.map(&:chomp)
     assert_equal input.lines.count - 1, `#{FZF} -f'!^foo\\ bar$' < #{tempname}`.lines.count
+  end
+
+  def test_inverse_only_search_should_not_sort_the_result
+    # Filter
+    assert_equal(%w[aaaaa b ccc],
+      `printf '%s\n' aaaaa b ccc BAD | #{FZF} -f '!bad'`.lines.map(&:chomp))
+
+    # Interactive
+    tmux.send_keys(%[printf '%s\n' aaaaa b ccc BAD | #{FZF} -q '!bad'], :Enter)
+    tmux.until { |lines| lines.item_count == 4 && lines.match_count == 3 }
+    tmux.until { |lines| lines[-3] == '> aaaaa' }
+    tmux.until { |lines| lines[-4] == '  b' }
+    tmux.until { |lines| lines[-5] == '  ccc' }
+  end
+
+  def test_preview_correct_tab_width_after_ansi_reset_code
+    writelines tempname, ["\x1b[31m+\x1b[m\t\x1b[32mgreen"]
+    tmux.send_keys "#{FZF} --preview 'cat #{tempname}'", :Enter
+    tmux.until { |lines| lines[1].include?('+       green') }
   end
 end
 

@@ -546,7 +546,7 @@ command! -bang -nargs=* FindInRepo call fzf#run({ 'sink': 'e', 'source': 'git ls
 map <leader>ff :Files<CR>
 map <leader>fg :GFiles<CR>
 map <leader>fr :FindInRepo<CR>
-map <leader>fa :Ag<CR>
+map <leader>fa :Rg<CR>
 map <leader>fc :Commits<CR>
 map <leader>fb :BCommits<CR>
 map <leader>fh :History<CR>

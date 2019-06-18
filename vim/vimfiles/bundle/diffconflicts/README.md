@@ -2,7 +2,12 @@
 
 A better Vimdiff Git mergetool
 
-tl;dr: This converts a file containing conflict markers into a two-way diff.
+tl;dr:
+
+* Call `:DiffConflicts` to convert a file containing conflict markers into
+  a two-way diff.
+* Install as a Git mergetool to do that automatically. (See
+  [Installation](#installation) below.)
 
 ## Why?
 
@@ -72,7 +77,17 @@ splitting them apart.
     git config --global mergetool.keepBackup false
     ```
 
+    Or, if you'd prefer to always open both the diff view and the history view
+    call `DiffConflictsWithHistory` instead:
+
+    ```
+    git config --global mergetool.diffconflicts.cmd 'vim -c DiffConflictsWithHistory "$MERGED" "$BASE" "$LOCAL" "$REMOTE"'
+    ```
+
 3.  During a merge you can call `:DiffConflictsShowHistory` to open a new tab
-    containing the merge base and each full version of the conflict to aid in
-    understanding the history behind each change. (This is not opened by
-    default so that Vim starts more quickly.)
+    containing the merge BASE and full copies of the LOCAL and REMOTE versions
+    of the conflicted file. This can help to understand the history or intent
+    behind the conflicting changes to help you decide how best to combine the
+    changes.
+
+    This tab is not opened by default so that Vim starts more quickly.

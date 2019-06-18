@@ -51,10 +51,6 @@ function! quick_scope#Ready() abort
   " Position of where a dummy cursor should be placed.
   let s:cursor = 0
 
-  " Terminal and gui cursors which will be hidden and shown.
-  let s:t_ve = &t_ve
-  let s:guicursor = &guicursor
-
   " Characters with secondary highlights. Modified by get_highlight_patterns()
   let s:chars_s = []
 
@@ -77,13 +73,6 @@ function! quick_scope#Aim(motion) abort
   " Add a dummy cursor since calling getchar() places the actual cursor on
   " the command line.
   let s:cursor = matchadd(g:qs_hi_group_cursor, '\%#', g:qs_hi_priority + 1)
-
-  " Save and hide the cursor on the command line.
-  let s:t_ve = &t_ve
-  let s:guicursor = &guicursor
-
-  set t_ve=
-  set guicursor=n:block-NONE
 
   " Silence 'Type :quit<Enter> to exit Vim' message on <c-c> during a
   " character search.
@@ -109,11 +98,6 @@ endfunction
 function! quick_scope#Reload() abort
   " Remove dummy cursor
   call matchdelete(s:cursor)
-
-  " Restore the cursor on the command line.
-  set guicursor&
-  let &t_ve = s:t_ve
-  let &guicursor = s:guicursor
 
   " Restore previous or default <c-c> functionality
   if exists('b:qs_prev_ctrl_c_map')
@@ -354,8 +338,8 @@ endfunction
 " of a double_tap
 function! s:reset_saved_secondary_highlight() abort
   if s:saved_secondary_highlight =~# '^links to '
-    let s:saved_secondary_highlight = substitute(s:saved_secondary_highlight, '^links to ', '', '')
-    execute 'highlight! link ' . g:qs_hi_group_secondary . ' ' . s:saved_secondary_highlight
+    let s:saved_secondary_hlgroup_only = substitute(s:saved_secondary_highlight, '^links to ', '', '')
+    execute 'highlight! link ' . g:qs_hi_group_secondary . ' ' . s:saved_secondary_hlgroup_only
   else
     execute 'highlight ' . g:qs_hi_group_secondary . ' ' . s:saved_secondary_highlight
   endif

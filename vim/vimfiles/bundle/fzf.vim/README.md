@@ -27,10 +27,6 @@ is small, which is the case for many of the commands provided here.
 Nevertheless I wrote them anyway since it's really easy to implement custom
 selector with fzf.
 
-fzf is an independent command-line program and thus requires an external
-terminal emulator when on GVim. You may or may not like the experience. Also
-note that Windows support is experimental at the moment.
-
 Installation
 ------------
 
@@ -74,6 +70,7 @@ Commands
 | `Buffers`         | Open buffers                                                            |
 | `Colors`          | Color schemes                                                           |
 | `Ag [PATTERN]`    | [ag][ag] search result (`ALT-A` to select all, `ALT-D` to deselect all) |
+| `Rg [PATTERN]`    | [rg][rg] search result (`ALT-A` to select all, `ALT-D` to deselect all) |
 | `Lines [QUERY]`   | Lines in loaded buffers                                                 |
 | `BLines [QUERY]`  | Lines in the current buffer                                             |
 | `Tags [QUERY]`    | Tags in the project (`ctags -R`)                                        |
@@ -127,7 +124,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'window': 'enew' }
 let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10split enew' }
+let g:fzf_layout = { 'window': '10new' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -186,8 +183,9 @@ command! -bang Colors
   \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
 
 " Augmenting Ag command using fzf#vim#with_preview function
-"   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
+"   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
 "     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Bat: https://github.com/sharkdp/bat
 "       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
 "       - CodeRay: http://coderay.rubychan.de/
 "       - Rouge: https://github.com/jneen/rouge
@@ -333,4 +331,5 @@ MIT
 [run]:   https://github.com/junegunn/fzf#usage-as-vim-plugin
 [vimrc]: https://github.com/junegunn/dotfiles/blob/master/vimrc
 [ag]:    https://github.com/ggreer/the_silver_searcher
+[rg]:    https://github.com/BurntSushi/ripgrep
 [us]:    https://github.com/SirVer/ultisnips
