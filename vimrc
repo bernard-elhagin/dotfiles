@@ -40,6 +40,7 @@ Plugin 'airblade/vim-rooter'
 Plugin 'sukima/xmledit'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'wincent/command-t'
+Plugin 'wincent/vcs-jump'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
@@ -127,7 +128,7 @@ set fillchars+=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-
 
 set list                              " show whitespace
 set listchars=nbsp:⦸                  " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-set listchars+=tab:▷┅                 " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
+set listchars+=tab:▷-                 " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
                                       " + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
 set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
 set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
@@ -139,6 +140,12 @@ endif
 
 if has('persistent_undo')
     " Save all undo files in a single location (less messy, more risky)...
+    "
+    " First, create undo folder if it doesn't exist.
+    if !isdirectory($HOME . '/tmp/.VIM_UNDO_FILES')
+        call mkdir($HOME . '/tmp/.VIM_UNDO_FILES', "p")
+    endif
+
     set undodir=$HOME/tmp/.VIM_UNDO_FILES
 
     " Save a lot of back-history...
@@ -146,11 +153,9 @@ if has('persistent_undo')
 
     " Actually switch on persistent undo
     set undofile
-
 endif
 
 " Goto last location in non-empty files
-
 autocmd BufReadPost *  if line("'\"") > 1 && line("'\"") <= line("$")
                    \|     exe "normal! g`\""
                    \|  endif
@@ -166,7 +171,8 @@ syntax enable
 
 imap jk <ESC>
 
-let mapleader = ' '
+let mapleader=' '
+let maplocalleader='\\'
 
 nnoremap <leader>s :w<CR>
 
@@ -329,6 +335,30 @@ nnoremap zO zczO
 " ]]]
 
 " GUI -------------------------------------------------------------------- [[[
+
+" Change cursor shape/color depending on mode
+if &term =~ "xterm\\|rxvt"
+  " use an orange cursor in insert mode
+  let &t_SI = "\<Esc>]12;orange\x7"
+  " use a red cursor otherwise
+  let &t_EI = "\<Esc>]12;red\x7"
+  silent !echo -ne "\033]12;red\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
+endif
+
+if &term =~ "xterm\\|rxvt"
+  " solid underscore
+  let &t_SI .= "\<Esc>[5 q"
+  " solid block
+  let &t_EI .= "\<Esc>[2 q"
+  " 1 or 0 -> blinking block
+  " 3 -> blinking underscore
+  " Recent versions of xterm (282 or above) also support
+  " 5 -> blinking vertical bar
+  " 6 -> solid vertical bar
+endif
 
 let g:airline_theme='papercolor'
 
