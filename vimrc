@@ -496,7 +496,7 @@ let g:gitgutter_map_keys = 0
 "]]]
 " Matchit [[[
 
-"packadd! matchit
+packadd! matchit
 
 "]]]
 " Syntastic [[[
