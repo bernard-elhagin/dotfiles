@@ -5,7 +5,7 @@
 #
 
 # Change to the dotfiles directory
-cd $HOME/dotfiles
+cd "$HOME/dotfiles" || exit
 
 #
 # Actual symlink stuff
@@ -16,7 +16,7 @@ echo -n "Copying VIM settings.."
 if [[ -d $HOME/.vim ]]; then
     echo "$HOME/.vim already exists...skipping."
 else
-    `ln -s $HOME/dotfiles/vim $HOME/.vim`
+    ln -s "$HOME/dotfiles/vim" "$HOME/.vim"
     echo "done."
 fi
 
@@ -25,7 +25,7 @@ echo -n "Copying zprezto.."
 if [[ -d $HOME/.zprezto ]]; then
     echo "$HOME/.zprezto already exists...skipping."
 else
-    `ln -s $HOME/dotfiles/zprezto $HOME/.zprezto`
+    ln -s "$HOME/dotfiles/zprezto" "$HOME/.zprezto"
     echo "done."
 fi
 
@@ -34,7 +34,7 @@ echo -n "Copying bin.."
 if [[ -d $HOME/bin ]]; then
     echo "$HOME/bin already exists...skipping."
 else
-    `ln -s $HOME/dotfiles/bin $HOME/bin`
+    ln -s "$HOME/dotfiles/bin" "$HOME/bin"
     echo "done."
 fi
 
@@ -43,7 +43,7 @@ echo -n "Copying fzf.."
 if [[ -d $HOME/.fzf ]]; then
     echo "$HOME/.fzf already exists...skipping."
 else
-    `ln -s $HOME/dotfiles/fzf $HOME/.fzf`
+    ln -s "$HOME/dotfiles/fzf" "$HOME/.fzf"
     echo "done."
 fi
 
@@ -52,7 +52,7 @@ echo -n "Copying tmux settings.."
 if [[ -d $HOME/.tmux ]]; then
     echo "$HOME/.tmux already exists...skipping."
 else
-    `ln -s $HOME/dotfiles/tmux $HOME/.tmux`
+    ln -s "$HOME/dotfiles/tmux" "$HOME/.tmux"
     echo "done."
 fi
 
@@ -61,7 +61,7 @@ echo -n "Copying tmuxinator settings.."
 if [[ -d $HOME/.tmuxinator ]]; then
     echo "$HOME/.tmuxinator already exists...skipping."
 else
-    `ln -s $HOME/dotfiles/tmuxinator $HOME/.tmuxinator`
+    ln -s "$HOME/dotfiles/tmuxinator" "$HOME/.tmuxinator"
     echo "done."
 fi
 
@@ -70,7 +70,7 @@ echo -n "Copying i3 settings.."
 if [[ -d $HOME/.i3 ]]; then
     echo "$HOME/.i3 already exists...skipping."
 else
-    `ln -s $HOME/dotfiles/i3 $HOME/.i3`
+    ln -s "$HOME/dotfiles/i3" "$HOME/.i3"
     echo "done."
 fi
 
@@ -103,12 +103,12 @@ main() {
 
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  for i in ${FILES_TO_SYMLINK[@]}; do
+  for i in "${FILES_TO_SYMLINK[@]}"; do
 
     sourceFile="$(pwd)/$i"
     targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
-    `ln -fs $sourceFile $targetFile`
+    ln -fs "$sourceFile" "$targetFile"
 
   done
 
