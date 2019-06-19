@@ -44,7 +44,6 @@ Plugin 'wincent/vcs-jump'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'xolox/vim-session'
@@ -576,6 +575,11 @@ map <leader>vi :VimuxInterruptRunner<CR>
 " Command-T [[[
 
 map <leader>t :CommandTHelp<CR>
+
+" ]]]
+" Vim-Session [[[
+
+let g:session_autosave='no'
 
 " ]]]
 
