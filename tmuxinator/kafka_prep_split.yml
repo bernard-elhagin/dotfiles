@@ -1,0 +1,19 @@
+# /home/bertold/.config/tmuxinator/kafka_prep_split.yml
+
+name: kafka_prep_split
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - PREP_BROKERS:
+        layout: tiled
+        panes:
+          - clear; ktw1
+          - clear; ktw2
+          - clear; ktw3
+    - PREP_ZOOKEEPERS:
+        layout: tiled
+        panes:
+          - clear; ktz1
+          - clear; ktz2
+          - clear; ktz3
