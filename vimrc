@@ -583,6 +583,15 @@ let g:session_autosave='no'
 let g:session_autoload='no'
 
 " ]]]
+" vim-peekaboo [[[
+
+" Make register list wider than default
+let g:peekaboo_window='vert bo 75new'
+
+" Wait 1 second before showing registers
+let g:peekaboo_delay=1000
+
+" ]]]
 
 "]]]
 

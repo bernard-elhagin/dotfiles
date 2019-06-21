@@ -1,6 +1,6 @@
-# /home/bertold/.config/tmuxinator/kafka_dev_full.yml
+# /home/bertold/.config/tmuxinator/kafka_dev_split.yml
 
-name: kafka_dev_full
+name: kafka_dev_split
 root: ~
 tmux_detached: false
 tmux: tmux
