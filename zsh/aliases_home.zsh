@@ -13,5 +13,6 @@ alias pfiles='pacman -Fl'
 alias gs='git status'
 alias gc='git commit'
 alias gaa='git add --all'
+alias gpgm='git push github master'
 
 alias zd='z dot'

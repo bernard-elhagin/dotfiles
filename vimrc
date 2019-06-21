@@ -36,6 +36,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-peekaboo'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 Plugin 'airblade/vim-rooter'
 Plugin 'sukima/xmledit'
 Plugin 'vim-syntastic/syntastic'
