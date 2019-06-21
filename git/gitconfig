@@ -146,3 +146,5 @@
 	lineNumber = false
 [http]
 	sslVerify = false
+[credential]
+	helper = cache --timeout=360000
