@@ -16,3 +16,6 @@
 [submodule "tmuxinator/tmux/plugins/tmux-fpp"]
 	path = tmuxinator/tmux/plugins/tmux-fpp
 	url = https://github.com/tmux-plugins/tmux-fpp
+[submodule "vim/vimfiles/bundle/vim/vimfiles/bundle/vim-repeat"]
+	path = vim/vimfiles/bundle/vim/vimfiles/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat
