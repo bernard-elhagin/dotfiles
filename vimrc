@@ -50,6 +50,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'xolox/vim-session'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 
@@ -198,7 +199,7 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>h <C-w>h
-nnoremap <leader>c <C-w>c
+nnoremap <leader>x <C-w>c
 nnoremap <leader>o <C-w>o
 nnoremap <C-s> <C-w>+
 nnoremap <C-z> <C-w>-
@@ -453,7 +454,7 @@ function! XSLTransform()
 
 endfunction
 
-map <leader>xs :call XSLTransform()<CR>
+"map <leader>xs :call XSLTransform()<CR>
 
 "]]]
 " Log [[[

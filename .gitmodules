@@ -19,3 +19,6 @@
 [submodule "vim/vimfiles/bundle/vim/vimfiles/bundle/vim-repeat"]
 	path = vim/vimfiles/bundle/vim/vimfiles/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule "vim/vimfiles/bundle/nerdcommenter"]
+	path = vim/vimfiles/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
