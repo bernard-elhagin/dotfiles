@@ -51,6 +51,7 @@ Plugin 'xolox/vim-session'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'luochen1990/rainbow'
 
 call vundle#end()
 
@@ -221,9 +222,9 @@ imap <C-Space> 
 
 " Tab configuration
 map <leader>tn :tabnew<cr>
-map <leader>te :tabedit 
+map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 
 map <F7> :tabprev<CR>
 
@@ -593,6 +594,11 @@ let g:peekaboo_window='vert bo 75new'
 let g:peekaboo_delay=1000
 
 " ]]]
+" vim-rainbow [[[
+
+let g:rainbow_active=1
+
+" ]]]
 
 "]]]
 
@@ -607,7 +613,7 @@ let g:peekaboo_delay=1000
 " gives you one color of highlighting.  Now you can use <leader>N where N is
 " a number from 1-6 to highlight the current word in a specific color.
 
-function! HiInterestingWord(n) " [[[
+function! HiInterestingWord(n)
     " Save our location.
     normal! mz
 
@@ -628,24 +634,22 @@ function! HiInterestingWord(n) " [[[
 
     " Move back to our original location.
     normal! `z
-endfunction " ]]]
+endfunction
 
-" Mappings [[[
 nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
 nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
 nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
 nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
 nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
 nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
-" ]]]
-" Default Highlights [[[
+
 hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
 hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
 hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
 hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
 hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
 hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
-" ]]]
+
 " ]]]
 
 "]]]
