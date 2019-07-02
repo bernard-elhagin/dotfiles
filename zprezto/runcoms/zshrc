@@ -93,7 +93,7 @@ test -f $HOST_RC && source $HOST_RC
 alias -g G='| grep --color=always'
 alias -g L='| less -r'
 
-alias e='exit'
+alias x='exit'
 
 [ -f ~/.fzf.sh ] && source $HOME/.fzf.sh
 
