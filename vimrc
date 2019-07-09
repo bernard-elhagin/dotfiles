@@ -497,7 +497,13 @@ let g:gitgutter_map_keys = 0
 "]]]
 " Matchit [[[
 
-packadd! matchit
+if has('packages')
+    if !has('nvim')
+        packadd! matchit
+    endif
+else
+    source $VIMRUNTIME/macros/matchit.vim
+endif
 
 "]]]
 " Syntastic [[[
