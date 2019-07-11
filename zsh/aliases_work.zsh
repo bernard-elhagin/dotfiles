@@ -55,6 +55,10 @@ KAFKA_PROD_ZOO1='10.200.43.55'
 KAFKA_PROD_ZOO2='10.200.43.56'
 KAFKA_PROD_ZOO3='10.200.43.57'
 
+KAFKA_BALTICA_TEST0='10.111.218.195'
+KAFKA_BALTICA_TEST1='10.111.218.196'
+KAFKA_BALTICA_TEST2='10.111.218.197'
+
 # ]]]
 
 # Kafka connect aliases [[[
@@ -106,6 +110,11 @@ alias kpw3="ssh bernard.elhagin@$KAFKA_PROD_WRK3"
 alias kpz1="ssh bernard.elhagin@$KAFKA_PROD_ZOO1"
 alias kpz2="ssh bernard.elhagin@$KAFKA_PROD_ZOO2"
 alias kpz3="ssh bernard.elhagin@$KAFKA_PROD_ZOO3"
+
+# Baltica
+alias kbalttest0="ssh bernard.elhagin@$KAFKA_BALTICA_TEST0"
+alias kbalttest1="ssh bernard.elhagin@$KAFKA_BALTICA_TEST1"
+alias kbalttest2="ssh bernard.elhagin@$KAFKA_BALTICA_TEST2"
 
 # ]]]
 
