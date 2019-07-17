@@ -13,3 +13,11 @@ windows:
       layout: main-horizontal
       panes:
           - clear; wt2
+  - WSO2 PREP wrk3:
+      layout: main-horizontal
+      panes:
+          - clear; wt3
+  - WSO2 PREP wrk4:
+      layout: main-horizontal
+      panes:
+          - clear; wt4

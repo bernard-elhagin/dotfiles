@@ -369,6 +369,7 @@ colorscheme github
 
 hi QuickScopeSecondary cterm=none ctermfg=red
 hi QuickScopePrimary cterm=underline,bold
+hi MatchParen ctermbg=white guibg=white guifg=red gui=underline cterm=bold
 
 set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
 
