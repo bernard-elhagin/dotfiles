@@ -294,6 +294,10 @@ noremap Y y$
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" Remove all irrelevant lines from a bash file
+" (or any file that uses # as a start of comment).
+nnoremap <leader>Q :g/^#\\|\(^$\)/d<CR>
+
 " ]]]
 
 " Folding ---------------------------------------------------------------- [[[
