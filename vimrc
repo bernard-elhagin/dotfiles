@@ -52,6 +52,7 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'luochen1990/rainbow'
+Plugin 'prettier/vim-prettier'
 
 call vundle#end()
 
@@ -122,6 +123,7 @@ set listchars=tab:▸\ ,eol:¬
 set noswapfile
 set autochdir
 set synmaxcol=200
+set fdc=4 " fold gutter
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
 set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
@@ -310,7 +312,7 @@ nnoremap <leader>z za
 vnoremap <leader>z za
 
 " Make zO recursively open whatever fold we're in, even if it's partially open.
-nnoremap zO zczO
+"nnoremap zO zczO
 
 " 1. Close all folds.
 " 2. Open just the folds containing the current line.
