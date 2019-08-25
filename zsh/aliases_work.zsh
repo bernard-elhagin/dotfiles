@@ -71,7 +71,7 @@ alias kdz1="ssh bernard.elhagin@$KAFKA_DEV_ZOO1"
 alias kdz2="ssh bernard.elhagin@$KAFKA_DEV_ZOO2"
 alias kdz3="ssh bernard.elhagin@$KAFKA_DEV_ZOO3"
 
-alias kq="ssh bernardelh@$KAFKA_QA_MGT"
+alias kq="ssh bernard.elhagin@$KAFKA_QA_MGT"
 alias kqw1="ssh bernard.elhagin@$KAFKA_QA_WRK1"
 alias kqw2="ssh bernard.elhagin@$KAFKA_QA_WRK2"
 alias kqw3="ssh bernard.elhagin@$KAFKA_QA_WRK3"

@@ -5,19 +5,10 @@ root: ~/
 tmux_detached: false
 tmux: tmux
 windows:
-  - WSO2 PREP wrk1:
-      layout: main-horizontal
+  - WSO2 PREP:
+      layout: tiled
       panes:
           - clear; wt1
-  - WSO2 PREP wrk2:
-      layout: main-horizontal
-      panes:
           - clear; wt2
-  - WSO2 PREP wrk3:
-      layout: main-horizontal
-      panes:
           - clear; wt3
-  - WSO2 PREP wrk4:
-      layout: main-horizontal
-      panes:
           - clear; wt4

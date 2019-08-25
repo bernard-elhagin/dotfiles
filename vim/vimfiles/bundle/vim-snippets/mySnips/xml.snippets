@@ -12,6 +12,18 @@ snippet log "log" b
 </log>
 endsnippet
 
+snippet logreq "logreq" b
+<log level="full">
+	<property name="[`!p snip.rv = snip.basename`] Request" />
+</log>
+endsnippet
+
+snippet logres "logres" b
+<log level="full">
+	<property name="[`!p snip.rv = snip.basename`] Response" />
+</log>
+endsnippet
+
 snippet logf "logf" b
 <log level="full" separator="&#xA;" />
 endsnippet

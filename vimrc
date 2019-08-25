@@ -53,6 +53,7 @@ Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'luochen1990/rainbow'
 Plugin 'prettier/vim-prettier'
+Plugin 'jreybert/vimagit'
 
 call vundle#end()
 
