@@ -52,6 +52,8 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'luochen1990/rainbow'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch-fuzzy.vim'
 
 call vundle#end()
 
@@ -497,7 +499,11 @@ let g:gitgutter_map_keys = 0
 "]]]
 " Matchit [[[
 
-packadd! matchit
+if has('packages')
+    packadd! matchit
+else
+    source $VIMRUNTIME/macros/matchit.vim
+endif
 
 "]]]
 " Syntastic [[[
@@ -597,6 +603,21 @@ let g:peekaboo_delay=1000
 " vim-rainbow [[[
 
 let g:rainbow_active=1
+
+" ]]]
+" incsearch [[[
+
+let g:incsearch#auto_nohlsearch=1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
 
 " ]]]
 
