@@ -15,4 +15,6 @@ alias gc='git commit'
 alias gaa='git add --all'
 alias gpgm='git push github master'
 
+alias r='ranger'
+
 alias zd='z dot'

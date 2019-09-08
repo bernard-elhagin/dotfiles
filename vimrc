@@ -54,6 +54,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'luochen1990/rainbow'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/incsearch-fuzzy.vim'
+Plugin 'prettier/vim-prettier'
+Plugin 'jreybert/vimagit'
 
 call vundle#end()
 
@@ -124,6 +126,7 @@ set listchars=tab:▸\ ,eol:¬
 set noswapfile
 set autochdir
 set synmaxcol=200
+set fdc=4 " fold gutter
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
 set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
@@ -296,6 +299,10 @@ noremap Y y$
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" Remove all irrelevant lines from a bash file
+" (or any file that uses # as a start of comment).
+nnoremap <leader>Q :g/^#\\|\(^$\)/d<CR>
+
 " ]]]
 
 " Folding ---------------------------------------------------------------- [[[
@@ -308,7 +315,7 @@ nnoremap <leader>z za
 vnoremap <leader>z za
 
 " Make zO recursively open whatever fold we're in, even if it's partially open.
-nnoremap zO zczO
+"nnoremap zO zczO
 
 " 1. Close all folds.
 " 2. Open just the folds containing the current line.
@@ -371,6 +378,7 @@ colorscheme github
 
 hi QuickScopeSecondary cterm=none ctermfg=red
 hi QuickScopePrimary cterm=underline,bold
+hi MatchParen ctermbg=white guibg=white guifg=red gui=underline cterm=bold
 
 set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
 

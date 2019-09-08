@@ -1,0 +1,348 @@
+snippet pom "property" b
+<property name="$1" description="$1" expression="$2" type="OM" />
+endsnippet
+
+snippet pstr "property" b
+<property name="$1" description="$1" value="$2" type="STRING" scope="default" />
+endsnippet
+
+snippet log "log" b
+<log level="custom" separator="&#xA;">
+	<property name="$1" expression="${2:$body}" />
+</log>
+endsnippet
+
+snippet logreq "logreq" b
+<log level="full">
+	<property name="[`!p snip.rv = snip.basename`] Request" />
+</log>
+endsnippet
+
+snippet logres "logres" b
+<log level="full">
+	<property name="[`!p snip.rv = snip.basename`] Response" />
+</log>
+endsnippet
+
+snippet logf "logf" b
+<log level="full" separator="&#xA;" />
+endsnippet
+
+snippet seq "sequence" b
+<sequence key="${1:proxyInit}" />
+endsnippet
+
+snippet sequence "sequence with attributes" b
+<sequence name="$1" trace="${2:disable}" xmlns="http://ws.apache.org/ns/synapse">
+	$3
+</sequence>
+endsnippet
+
+snippet pay "payload factory" b
+<payloadFactory description="$1" media-type="xml">
+	<format>
+		$2
+	</format>
+	$3
+</payloadFactory>
+$4
+endsnippet
+
+snippet args "args" b
+<args>
+	$1
+</args>
+endsnippet
+
+snippet arg "arg" b
+<arg evaluator="${1:xml}" expression="$2" />
+endsnippet
+
+snippet xml "xml header" b
+<?xml version="1.0" encoding="UTF-8"?>
+
+endsnippet
+
+snippet prox "proxy" b
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="$1" startOnLoad="${2:true}" trace="${3:disable}" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="engagedModules">BusinessLogging</parameter>
+
+	<target>
+		<inSequence>
+			$4
+		</inSequence>
+		$5
+		<outSequence>
+		$6
+		</outSequence>
+
+		<faultSequence/>
+	</target>
+
+	<publishWSDL key="gov:atena/schemas/iHestia/$7" />
+</proxy>
+endsnippet
+
+snippet fault "fault sequence" b
+<faultSequence>
+	<log level="custom">
+		<property expression="$ctx:ERROR_MESSAGE" name="[$1]Exception" />
+		<property expression="$ctx:ERROR_DETAIL" name="${2:Detail}" />
+	</log>
+
+	<property name="HTTP_SC" scope="default" type="STRING" value="500" />
+
+	<header action="remove" name="To" scope="default" />
+
+	<send/>
+</faultSequence>
+endsnippet
+
+snippet soapenv "soap envelope" b
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	$1
+</soapenv:Envelope>
+endsnippet
+
+snippet send "send with endpoint" b
+<send description="&lt;endpoint key=&quot;gov:iHestia/iSzkody/endpoints/esb/${1:endpointaddress}&quot; />">
+	<endpoint key="gov:iHestia/iSzkody/endpoints/esb/$1" />
+</send>
+endsnippet
+
+snippet enr "enrich" b
+<enrich>
+	$1
+</enrich>
+endsnippet
+
+snippet wsdl "publishWSDL" b
+<publishWSDL key="${1:gov/atena/schemas/iHestia/}" />
+endsnippet
+
+snippet cout "callout" b
+<callout endpointKey="${1:gov:iHestia/iSzkody/endpoints/iHestia/}" initAxis2ClientOptions="false">
+	<source type="envelope" />
+	<target key="$2" />
+</callout>
+endsnippet
+
+snippet call "call mediator" b
+<call blocking="${1:true}">
+	<endpoint key="gov:iHestia/iSzkody/endpoints/esb/$2" />
+</call>
+endsnippet
+
+snippet head "header" b
+<header name="Action" scope="default" value="${1:http://sap.com/xi/WebService/soap1.1}" />
+endsnippet
+
+snippet tc "closed tag (default send)" b
+<${1:send}/>
+endsnippet
+
+snippet c "$ctx:" w
+$ctx:
+endsnippet
+
+snippet g "get-property" w
+get-property(
+endsnippet
+
+snippet clone "clone mediator" b
+<clone continueParent="${1:true}">
+	<target sequence="$2" />
+	<target sequence="$3" />
+</clone>
+endsnippet
+
+snippet target "target with sequence" b
+<target>
+	<sequence>
+		$1
+	</sequence>
+</target>
+endsnippet
+
+snippet foreach "foreach mediator" b
+<foreach expression="$1">
+	$0
+</foreach>
+endsnippet
+
+snippet filter "filter mediator" b
+<filter regex="${1:[0-9]+}" source="">
+	<then>
+		$2
+	</then>
+	<else>
+		$3
+	</else>
+</filter>
+endsnippet
+
+snippet przelotka "szkielet przelotki" b
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="$1" startOnLoad="true" trace="disable" transports="http https">
+    <parameter name="engagedModules">BusinessLogging</parameter>
+
+    <target>
+        <inSequence>
+
+            <log level="custom">
+                <property expression="/*" name="[$1]Request" />
+            </log>
+
+            <send description="&lt;endpoint key=&quot;gov:iHestia/iSzkody/endpoints/esb/$1.xml&quot;/&gt;">
+                <endpoint key="gov:iHestia/iSzkody/endpoints/esb/$1.xml" />
+            </send>
+
+        </inSequence>
+
+        <outSequence>
+
+            <log level="custom">
+                <property expression="/*" name="[$1]Response" />
+            </log>
+
+            <send/>
+        </outSequence>
+
+        <faultSequence>
+
+            <log level="custom">
+                <property expression="$ctx:ERROR_MESSAGE" name="[$1]Exception" />
+                <property expression="$ctx:ERROR_DETAIL" name="Detail" />
+            </log>
+
+            <property name="HTTP_SC" scope="default" type="STRING" value="500" />
+
+            <header action="remove" name="To" scope="default" />
+
+            <send/>
+
+        </faultSequence>
+    </target>
+
+    <publishWSDL key="gov:atena/schemas/esb/$1.wsdl" />
+</proxy>
+endsnippet
+
+snippet przelotkapi "szkielet przelotki na PI" b
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="$1" startOnLoad="true" trace="disable" transports="http https">
+    <parameter name="engagedModules">BusinessLogging</parameter>
+
+    <target>
+        <inSequence>
+
+            <log level="custom">
+                <property expression="/*" name="[$1]Request" />
+            </log>
+
+            <header name="Action" scope="default" value="http://sap.com/xi/WebService/soap1.1" />
+
+            <send description="&lt;endpoint key=&quot;gov:iHestia/iSzkody/endpoints/esb/$1.xml&quot;/&gt;">
+                <endpoint key="gov:iHestia/iSzkody/endpoints/esb/$1.xml" />
+            </send>
+
+        </inSequence>
+
+        <outSequence>
+
+            <log level="custom">
+                <property expression="/*" name="[$1]Response" />
+            </log>
+
+            <send/>
+
+        </outSequence>
+
+        <faultSequence>
+
+            <log level="custom">
+                <property expression="$ctx:ERROR_MESSAGE" name="[$1]Exception" />
+                <property expression="$ctx:ERROR_DETAIL" name="Detail" />
+            </log>
+
+            <property name="HTTP_SC" scope="default" type="STRING" value="500" />
+
+            <header action="remove" name="To" scope="default" />
+
+            <send/>
+
+        </faultSequence>
+    </target>
+
+    <publishWSDL key="gov:atena/schemas/esb/$1.wsdl" />
+</proxy>
+endsnippet
+
+snippet fil "insert current file name without extension" w
+`!p snip.rv = snip.basename`
+endsnippet
+
+snippet file "insert current file name with extension" w
+`!p snip.rv = fn`
+endsnippet
+
+snippet xslt "xslt mediator" b
+<xslt description="$1" key="gov:atena/maps/iszkody/$2.xslt" />
+endsnippet
+
+snippet store "message store" b
+<store description="ms_$1" messageStore="ms_$1" />
+endsnippet
+
+snippet kerlog "kernel log" b
+<kernel.log>
+	<operation>${1:INFO}</operation>
+	<description>$2</description>
+</kernel.log>
+endsnippet
+
+snippet kersto "kernel store" b
+<kernel.store>
+	<destinationQueue>$1</destinationQueue>
+	<businessId>{$ctx:kernel.message.businessId}</businessId>
+</kernel.store>
+endsnippet
+
+snippet kersuc "kernel success" b
+<kernel.success />
+endsnippet
+
+snippet kerpre "kernel prepare" b
+<kernel.prepare />
+endsnippet
+
+snippet kererr "kernel error" b
+<kernel.error />
+endsnippet
+
+snippet mp_ "message processor" b
+<?xml version="1.0" encoding="UTF-8"?>
+<messageProcessor class="org.apache.synapse.message.processor.impl.sampler.SamplingProcessor" messageStore="ms_$1" name="mp_$1" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="sequence">s_$1</parameter>
+    <parameter name="interval">1500</parameter>
+    <parameter name="is.active">true</parameter>
+    <parameter name="concurrency">1</parameter>
+</messageProcessor>
+endsnippet
+
+snippet ms_ "message store" b
+<?xml version="1.0" encoding="UTF-8"?>
+<messageStore xmlns="http://ws.apache.org/ns/synapse"
+              class="org.apache.synapse.message.store.impl.jms.JmsStore"
+              name="ms_$1">
+
+    <parameter name="store.producer.guaranteed.delivery.enable">false</parameter>
+    <parameter name="store.jms.cache.connection">false</parameter>
+    <parameter name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</parameter>
+    <parameter name="store.failover.message.store.name">ms_$1</parameter>
+    <parameter name="java.naming.provider.url">repository/conf/jndi.properties</parameter>
+    <parameter name="store.jms.ConsumerReceiveTimeOut">0</parameter>
+    <parameter name="store.jms.JMSSpecVersion">1.1</parameter>
+</messageStore>
+endsnippet
