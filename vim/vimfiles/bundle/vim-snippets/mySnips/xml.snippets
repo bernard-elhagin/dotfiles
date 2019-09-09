@@ -14,14 +14,27 @@ endsnippet
 
 snippet logreq "logreq" b
 <log level="full">
-	<property name="[`!p snip.rv = snip.basename`] Request" />
+	<property name="[`!p snip.rv = snip.basename`] Request" expression="$body" />
 </log>
 endsnippet
 
 snippet logres "logres" b
 <log level="full">
-	<property name="[`!p snip.rv = snip.basename`] Response" />
+	<property name="[`!p snip.rv = snip.basename`] Response" expression="$body" />
 </log>
+endsnippet
+
+snippet logreqjson "logreqjson" b
+<log level="full">
+	<property name="[`!p snip.rv = snip.basename`] Request" expression="json-eval($.)" />
+</log>
+endsnippet
+
+snippet logresjson "logresjson" b
+<log level="full">
+	<property name="[`!p snip.rv = snip.basename`] Response" expression="json-eval($.)" />
+</log>
+
 endsnippet
 
 snippet logf "logf" b

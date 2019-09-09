@@ -56,6 +56,8 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'haya14busa/incsearch-fuzzy.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'jreybert/vimagit'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'mhinz/vim-grepper'
 
 call vundle#end()
 
