@@ -40,7 +40,6 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'airblade/vim-rooter'
 Plugin 'sukima/xmledit'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'wincent/command-t'
 Plugin 'wincent/vcs-jump'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
@@ -52,8 +51,6 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'luochen1990/rainbow'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'haya14busa/incsearch-fuzzy.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'jreybert/vimagit'
 Plugin 'haya14busa/incsearch.vim'
@@ -129,6 +126,7 @@ set noswapfile
 set autochdir
 set synmaxcol=200
 set fdc=4 " fold gutter
+set diffopt=internal,filler,context:3,indent-heuristic,algorithm:patience
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
 set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
@@ -268,8 +266,8 @@ noremap H ^
 noremap L $
 vnoremap L g_
 
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 "nnoremap ' `
 "nnoremap ` '
@@ -510,7 +508,9 @@ let g:gitgutter_map_keys = 0
 " Matchit [[[
 
 if has('packages')
-    packadd! matchit
+    if !has('nvim')
+        packadd! matchit
+    endif
 else
     source $VIMRUNTIME/macros/matchit.vim
 endif
@@ -592,7 +592,7 @@ map <leader>vi :VimuxInterruptRunner<CR>
 " ]]]
 " Command-T [[[
 
-map <leader>t :CommandTHelp<CR>
+map <leader>t :Helptags<CR>
 
 " ]]]
 " Vim-Session [[[
@@ -615,9 +615,11 @@ let g:peekaboo_delay=1000
 let g:rainbow_active=1
 
 " ]]]
-" incsearch [[[
+" incsearch.vim [[[
 
-let g:incsearch#auto_nohlsearch=1
+let g:incsearch#auto_nohlsearch = 1
+let g:incsearch#magic = '\v'
+ 
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
 map *  <Plug>(incsearch-nohl-*)
@@ -625,9 +627,9 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-map z/ <Plug>(incsearch-fuzzy-/)
-map z? <Plug>(incsearch-fuzzy-?)
-map zg/ <Plug>(incsearch-fuzzy-stay)
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " ]]]
 
