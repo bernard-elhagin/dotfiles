@@ -568,6 +568,8 @@ map <leader>fc :Commits<CR>
 map <leader>fb :BCommits<CR>
 map <leader>fh :History<CR>
 
+map <leader>t :Helptags<CR>
+
 imap <c-l> <plug>(fzf-complete-line)
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
@@ -588,11 +590,6 @@ map <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
 map <leader>vc :VimuxCloseRunner<CR>
 map <leader>vr :VimuxRunLastCommand<CR>
 map <leader>vi :VimuxInterruptRunner<CR>
-
-" ]]]
-" Command-T [[[
-
-map <leader>t :Helptags<CR>
 
 " ]]]
 " Vim-Session [[[
