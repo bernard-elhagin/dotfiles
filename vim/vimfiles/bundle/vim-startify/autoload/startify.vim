@@ -19,6 +19,25 @@ function! startify#get_separator() abort
   return !exists('+shellslash') || &shellslash ? '/' : '\'
 endfunction
 
+" Function: #get_session_path {{{1
+function! startify#get_session_path() abort
+  if exists('g:startify_session_dir')
+    let path = g:startify_session_dir
+  elseif has('nvim')
+    let path = has('nvim-0.3.1')
+          \ ? stdpath('data').'/session'
+          \ : has('win32')
+          \   ? '~/AppData/Local/nvim-data/session'
+          \   : '~/.local/share/nvim/session'
+  else " Vim
+    let path = has('win32')
+          \ ? '~/vimfiles/session'
+          \ : '~/.vim/session'
+  endif
+
+  return resolve(expand(path))
+endfunction
+
 " Function: #insane_in_the_membrane {{{1
 function! startify#insane_in_the_membrane(on_vimenter) abort
   " Handle vim -y, vim -M.
@@ -64,7 +83,7 @@ function! startify#insane_in_the_membrane(on_vimenter) abort
   " Must be global so that it can be read by syntax/startify.vim.
   let g:startify_header = exists('g:startify_custom_header')
         \ ? s:set_custom_section(g:startify_custom_header)
-        \ : startify#fortune#cowsay()
+        \ : (exists('*strwidth') ? startify#fortune#cowsay() : [])
   if !empty(g:startify_header)
     let g:startify_header += ['']  " add blank line
   endif
@@ -130,6 +149,7 @@ function! startify#insane_in_the_membrane(on_vimenter) abort
   autocmd startify CursorMoved <buffer> call s:set_cursor()
 
   silent! %foldopen!
+  normal! zb
   set filetype=startify
 
   if exists('##DirChanged')
@@ -345,7 +365,7 @@ endfunction
 " Function: #session_delete_buffers {{{1
 function! startify#session_delete_buffers()
   if get(g:, 'startify_session_delete_buffers', 1)
-    silent! %bdelete
+    silent! %bdelete!
   endif
 endfunction
 
@@ -807,10 +827,10 @@ endfunction
 function! s:set_mappings() abort
   nnoremap <buffer><nowait><silent> i             :enew <bar> startinsert<cr>
   nnoremap <buffer><nowait><silent> <insert>      :enew <bar> startinsert<cr>
-  nnoremap <buffer><nowait><silent> b             :call <sid>set_mark('B')<cr>
-  nnoremap <buffer><nowait><silent> s             :call <sid>set_mark('S')<cr>
-  nnoremap <buffer><nowait><silent> t             :call <sid>set_mark('T')<cr>
-  nnoremap <buffer><nowait><silent> v             :call <sid>set_mark('V')<cr>
+  nnoremap <buffer><nowait><silent> b             :call startify#set_mark('B')<cr>
+  nnoremap <buffer><nowait><silent> s             :call startify#set_mark('S')<cr>
+  nnoremap <buffer><nowait><silent> t             :call startify#set_mark('T')<cr>
+  nnoremap <buffer><nowait><silent> v             :call startify#set_mark('V')<cr>
   nnoremap <buffer><nowait><silent> B             :call startify#set_batchmode('B')<cr>
   nnoremap <buffer><nowait><silent> S             :call startify#set_batchmode('S')<cr>
   nnoremap <buffer><nowait><silent> T             :call startify#set_batchmode('T')<cr>
@@ -848,8 +868,8 @@ function! startify#set_batchmode(batchmode) abort
   echo empty(s:batchmode) ? 'Batchmode off' : 'Batchmode: '. s:batchmode
 endfunction
 
-" Function: s:set_mark {{{1
-function! s:set_mark(type, ...) abort
+" Function: #set_mark {{{1
+function! startify#set_mark(type, ...) abort
   if a:0
     let entryline = a:1
   else
@@ -1065,25 +1085,6 @@ function! s:warn(msg) abort
   echohl NONE
 endfunction
 
-" Function: s:get_session_path {{{1
-function! s:get_session_path() abort
-  if exists('g:startify_session_dir')
-    let path = g:startify_session_dir
-  elseif has('nvim')
-    let path = has('nvim-0.3.1')
-          \ ? stdpath('data').'/session'
-          \ : has('win32')
-          \   ? '~/AppData/Local/nvim-data/session'
-          \   : '~/.local/share/nvim/session'
-  else " Vim
-    let path = has('win32')
-          \ ? '~/vimfiles/session'
-          \ : '~/.vim/session'
-  endif
-
-  return resolve(expand(path))
-endfunction
-
 " Init: values {{{1
 let s:sep = startify#get_separator()
 
@@ -1091,13 +1092,14 @@ let s:numfiles = get(g:, 'startify_files_number', 10)
 let s:show_special = get(g:, 'startify_enable_special', 1)
 let s:relative_path = get(g:, 'startify_relative_path') ? ':~:.' : ':p:~'
 let s:tf = exists('g:startify_transformations')
-let s:session_dir = s:get_session_path()
+let s:session_dir = startify#get_session_path()
 
 let s:skiplist = get(g:, 'startify_skiplist', [
-      \ 'COMMIT_EDITMSG',
       \ 'runtime/doc/.*\.txt',
       \ 'bundle/.*/doc/.*\.txt',
       \ 'plugged/.*/doc/.*\.txt',
+      \ '/.git/',
+      \ 'fugitiveblame$',
       \ escape(fnamemodify(resolve($VIMRUNTIME), ':p'), '\') .'doc/.*\.txt',
       \ ])
 

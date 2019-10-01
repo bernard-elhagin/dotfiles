@@ -1,0 +1,28 @@
+# /home/bertold/.config/tmuxinator/kafka_all_brokers.yml
+
+name: kafka_all_brokers
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+  - BROKERS:
+      layout: tiled
+      panes:
+          - clear; kdw1
+          - clear; kdw2
+          - clear; kdw3
+          - clear; kqw1
+          - clear; kqw2
+          - clear; kqw3
+          - clear; ktw1
+          - clear; ktw2
+          - clear; ktw3
+          - clear; kfw1
+          - clear; kfw2
+          - clear; kfw3
+          - clear; kpw1
+          - clear; kpw2
+          - clear; kpw3
+          - clear; ksw1
+          - clear; ksw2
+          - clear; ksw3
