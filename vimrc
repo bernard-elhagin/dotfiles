@@ -362,7 +362,7 @@ if &term =~ "xterm\\|rxvt"
   " solid underscore
   let &t_SI .= "\<Esc>[5 q"
   " solid block
-  let &t_EI .= "\<Esc>[2 q"
+  let &t_EI .= "\<Esc>[1 q"
   " 1 or 0 -> blinking block
   " 3 -> blinking underscore
   " Recent versions of xterm (282 or above) also support
@@ -373,18 +373,23 @@ endif
 let g:airline_theme='papercolor'
 
 "colorscheme mopkai
-colorscheme badwolf
+"colorscheme badwolf
 "colorscheme github
 
-hi QuickScopeSecondary cterm=none ctermfg=red
-hi QuickScopePrimary cterm=underline,bold
+set bg=dark
+colorscheme Atelier_CaveDark
+
+hi Search guibg=yellow guifg=black
+
+"hi QuickScopeSecondary cterm=none ctermfg=red
+"hi QuickScopePrimary cterm=underline,bold
 hi MatchParen ctermbg=white guibg=white guifg=red gui=underline cterm=bold
 
-set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
+"set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
 
-set guioptions=egrLt
-set guioptions-=T
-set guioptions-=m
+"set guioptions=egrLt
+"set guioptions-=T
+"set guioptions-=m
 
 " Map Alt-x (ø) to toggle max window size
 map ø :call MaximizeToggle()<CR>
@@ -527,28 +532,6 @@ let g:syntastic_check_on_wq = 0
 " Gundo [[[
 
 map <F5> :GundoToggle<CR>
-
-"]]]
-" NERDTree [[[
-
-map <F4> :NERDTree<CR>
-map <C-F4> :NERDTreeToggle<CR>
-
-"call NERDTreeAddKeyMap({ [[[
-"	   \ 'key': 'w',
-"	   \ 'callback': 'NERDTreeToggleWidth',
-"	   \ 'quickhelpText': 'Toggle window width' })
-"
-"function! NERDTreeToggleWidth()
-"	let l:maxi = 0
-"	for l:z in range(1, line("$"))
-"		let l:aktlen = len(getline(l:z))
-"		if l:aktlen > l:maxi
-"			let l:maxi = l:aktlen
-"		endif
-"	endfor
-"	exe "vertical resize " . (l:maxi == winwidth(".") ? g:NERDTreeWinSize : l:maxi)
-"endfunction ]]]
 
 "]]]
 " FZF [[[
