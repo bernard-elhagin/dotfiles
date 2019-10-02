@@ -1,0 +1,256 @@
+snippet fronty "fronty do usług w iSzkodach" b
+PREP
+$1http://test-ihestia-prep-wso2-svc2svc.hestia.polska:8190/services/
+FIX
+$2http://test-ihestia-fix-wso2-svc2svc.hestia.polska:8390/services/
+SZKOL
+$3http://prod-ihestia-szkol-wso2-svc2svc.hestia.polska:8290/services/
+PROD
+$4http://prod-ihestia-prod-wso2-svc2svc.hestia.polska:8490/services/
+DEVQA
+$5http://dev-ihestia-trunk-wso2-svc2svc.atena.pl:8290/services/
+TRUNK
+$6http://test-ihestia-trunk-wso2-svc2svc.atena.pl:8190/service/
+endsnippet
+
+snippet kafkasrod "serwery Kafki" b
+dev-kafka-wrk01.atena.pl              10.111.234.187
+dev-kafka-wrk02.atena.pl              10.111.234.188
+dev-kafka-wrk03.atena.pl              10.111.234.189
+dev-kafka-mgt01.atena.pl              10.111.234.190
+dev-kafka-zk01.atena.pl               10.111.234.191
+dev-kafka-zk02.atena.pl               10.111.234.192
+dev-kafka-zk03.atena.pl               10.111.234.193
+test-kafka-wrk01.atena.pl             10.111.234.180
+test-kafka-wrk02.atena.pl             10.111.234.181
+test-kafka-wrk03.atena.pl             10.111.234.182
+test-kafka-mgt01.atena.pl             10.111.234.183
+test-kafka-zk01.atena.pl              10.111.234.184
+test-kafka-zk02.atena.pl              10.111.234.185
+test-kafka-zk03.atena.pl              10.111.234.186
+test-kafka-szkol-wrk01.hestia.polska  10.200.53.31
+test-kafka-szkol-wrk02.hestia.polska  10.200.53.32
+test-kafka-szkol-wrk03.hestia.polska  10.200.53.33
+test-kafka-szkol-mgt01.hestia.polska  10.200.53.34
+test-kafka-szkol-zk01.hestia.polska   10.200.53.35
+test-kafka-szkol-zk02.hestia.polska   10.200.53.36
+test-kafka-szkol-zk03.hestia.polska   10.200.53.37
+test-kafka-prep-wrk01.hestia.polska   10.200.53.51
+test-kafka-prep-wrk02.hestia.polska   10.200.53.52
+test-kafka-prep-wrk03.hestia.polska   10.200.53.53
+test-kafka-prep-mgt01.hestia.polska   10.200.53.54
+test-kafka-prep-zk01.hestia.polska    10.200.53.55
+test-kafka-prep-zk02.hestia.polska    10.200.53.56
+test-kafka-prep-zk03.hestia.polska    10.200.53.57
+test-kafka-fix-wrk01.hestia.polska    10.200.53.58
+test-kafka-fix-wrk02.hestia.polska    10.200.53.59
+test-kafka-fix-wrk03.hestia.polska    10.200.53.60
+test-kafka-fix-mgt01.hestia.polska    10.200.53.61
+test-kafka-fix-zk01.hestia.polska     10.200.53.62
+test-kafka-fix-zk02.hestia.polska     10.200.53.63
+test-kafka-fix-zk03.hestia.polska     10.200.53.64
+prod-kafka-prod-wrk01.hestia.polska   10.200.43.51
+prod-kafka-prod-wrk02.hestia.polska   10.200.43.52
+prod-kafka-prod-wrk03.hestia.polska   10.200.43.53
+prod-kafka-prod-mgt01.hestia.polska   10.200.43.54
+prod-kafka-prod-zk01.hestia.polska    10.200.43.55
+prod-kafka-prod-zk02.hestia.polska    10.200.43.56
+prod-kafka-prod-zk03.hestia.polska    10.200.43.57
+endsnippet
+
+snippet kafka "serwery Kafki" b
+$DEV  ) zookeeper='dev-kafka-zk01.atena.pl:2181'            && brokers='dev-kafka-wrk01.atena.pl:9093';;
+$QA   ) zookeeper='test-kafka-zk01.atena.pl:2181'           && brokers='test-kafka-wrk01.atena.pl:9093';;
+$FIX  ) zookeeper='test-kafka-fix-zk01.hestia.polska:2181'  && brokers='test-kafka-fix-wrk01.hestia.polska:9093';;
+$PREP ) zookeeper='test-kafka-prep-zk01.hestia.polska:2181' && brokers='test-kafka-prep-wrk01.hestia.polska:9093';;
+$PROD ) zookeeper='prod-kafka-prod-zk01.hestia.polska:2181' && brokers='prod-kafka-prod-wrk01.hestia.polska:9093';;
+endsnippet
+
+snippet sroddev "iSzkody QA" b
+DEV-TRUNK:
+$1https://dev-ihestia-trunk-wso2-03.atena.pl:9444/carbon/admin/login.jsp
+
+User: logviewer
+Pass: 1qaz#EDC
+
+                logi:
+                      wrk1: 10.111.230.247
+	                  wrk2: 10.111.230.248
+endsnippet
+
+snippet srodprep "iSzkody PREP" b
+PREP:
+$1https://test-ihestia-prep-wso2mgt:9444/carbon/admin/login.jsp
+
+User: logviewer
+Pass: 1qaz#EDC
+
+                logi:
+                      wrk1: 10.200.70.46
+                      wrk2: 10.200.70.47
+endsnippet
+
+snippet srodprod "iSzkody PROD" b
+PROD:
+$1https://prod-ihestia-prod-wso2mgt.hestia.polska:9444/carbon/admin/login.jsp
+
+User:  logviewer
+Pass:  !QAZ3edc
+
+                logi:
+	                  wrk1: 10.200.69.210
+	                  wrk2: 10.200.69.211
+endsnippet
+
+snippet srodowiska "namiary na srodowiska iSzkody" b
+DEV-TRUNK:
+$1https://dev-ihestia-trunk-wso2-03.atena.pl:9444/carbon/admin/login.jsp
+
+User: logviewer
+Pass: 1qaz#EDC
+
+                logi:
+                      wrk1: 10.111.230.247
+                      wrk2: 10.111.230.248
+
+
+PREP:
+$2https://test-ihestia-prep-wso2mgt:9444/carbon/admin/login.jsp
+
+User: logviewer
+Pass: 1qaz#EDC
+
+                logi:
+                      wrk1: 10.200.70.46
+                      wrk2: 10.200.70.47
+
+PROD:
+$3https://prod-ihestia-prod-wso2mgt.hestia.polska:9444/carbon/admin/login.jsp
+
+User:  logviewer
+Pass:  !QAZ3edc
+
+                logi:
+                      wrk1: 10.200.69.210
+                      wrk2: 10.200.69.211
+
+-----------------------------------------------------------------------------
+
+$4DEVQA
+10.111.230.247  dev-ihestia-trunk-wso2-01
+10.111.230.248  dev-ihestia-trunk-wso2-02
+10.111.230.249  dev-ihestia-trunk-wso2-03
+
+
+$5PREP
+10.200.70.46    test-ihestia-prep-wso2wrk01 
+10.200.70.47    test-ihestia-prep-wso2wrk02 
+10.200.70.48    test-ihestia-prep-wso2mgt   
+
+
+$6PROD
+10.200.69.209  prod-ihestia-prod-wso2mgt
+10.200.69.210  prod-ihestia-prod-wso2wrk01
+10.200.69.211  prod-ihestia-prod-wso2wrk02
+
+endsnippet
+
+snippet ihfronty "wszystkie fronty w iHestii" b
+iH - iHestia PORTY / FRONTY / DNS
+
+1/         DEV
+a/         SOAP / REST            82xx
+            10.111.229.205  dev-ihestia-trunk-soap-app2svc.atena.pl
+            Jest w DNS alias na: dev-ihestia-trunk-soap-svc2svc.atena.pl
+
+            REST 82xx
+            10.111.228.228          dev-ihestia-trunk-rest-front2app.atena.pl
+
+b/         Jboss               8282
+            10.111.229.204  dev-ihestia-trunk-jsoaprest.atena.pl
+            10.111.229.204  dev-ihestia-trunk-jsoaprest-app2svc.atena.pl
+
+c/         REDIS
+            10.111.229.203  dev-ihestia-trunk-redis-app2svc.atena.pl  
+            10.111.229.203  dev-ihestia-trunk-redis-svc2svc.atena.pl 
+
+2/         TEST-TRUNK
+a/         SOAP / REST            81xx    
+            10.111.229.105  test-ihestia-trunk-soap-app2svc.atena.pl
+            Jest w DNS alias na: test-ihestia-trunk-soap-svc2svc.atena.pl
+
+b/         Jboss               8282
+            10.111.229.104  test-ihestia-trunk-jsoaprest-app2svc.atena.pl
+
+c/         REDIS
+            10.111.229.103  test-ihestia-trunk-redis-app2svc.atena.pl  
+            10.111.229.103  test-ihestia-trunk-redis-svc2svc.atena.pl 
+
+            REST 81xx
+            10.111.228.128          test-ihestia-trunk-rest-front2app.atena.pl
+
+
+3/         TEST-PATCH
+a/         SOAP / REST            82xx
+            10.111.229.95 test-ihestia-patch-soap-app2svc.atena.pl
+            Jest w DNS alias na: test-ihestia-patch-soap-svc2svc.atena.pl
+
+b/         Jboss               8282
+            10.111.229.94 test-ihestia-patch-jsoaprest-app2svc.atena.pl
+
+c/         REDIS
+            10.111.229.103  test-ihestia-patch-redis-app2svc.atena.pl  
+            10.111.229.103  test-ihestia-patch-redis-svc2svc.atena.pl 
+
+4/         PREP
+a/         SOAP / REST            81xx
+            10.200.62.217 test-ihestia-prep-soap-app2svc.hestia.polska
+            10.200.70.217 test-ihestia-prep-soap-svc2svc.hestia.polska
+
+b/         Jboss               8181
+            10.200.62.240 test-ihestia-prep-jsoaprest-app2svc.hestia.polska
+            10.200.70.240 test-ihestia-prep-jsoaprest-svc2svc.hestia.polska
+
+c/         REDIS
+            10.200.62.216   test-ihestia-prep-redis-app2svc.hestia.polska
+            10.200.70.216   test-ihestia-prep-redis-svc2svc.hestia.polska
+
+5/         SZKOL
+a/         SOAP / REST            82xx
+            10.200.46.217 prod-ihestia-szkol-soap-app2svc.hestia.polska
+            10.200.69.217 prod-ihestia-szkol-soap-svc2svc.hestia.polska
+
+b/         Jboss               8281
+            10.200.46.240 prod-ihestia-szkol-jsoaprest-app2svc.hestia.polska
+            10.200.69.240 prod-ihestia-szkol-jsoaprest-svc2svc.hestia.polska
+
+c/         REDIS
+            10.200.46.216   prod-ihestia-szkol-redis-app2svc.hestia.polska
+            10.200.69.216   prod-ihestia-szkol-redis-svc2svc.hestia.polska
+
+6/         FIX
+a/         SOAP / REST            83xx
+            10.200.62.218 test-ihestia-fix-soap-app2svc.hestia.polska
+            10.200.70.218 test-ihestia-fix-soap-svc2svc.hestia.polska
+
+b/         Jboss               8381
+            10.200.62.226 test-ihestia-fix-jsoaprest-app2svc.hestia.polska
+            10.200.70.226 test-ihestia-fix-jsoaprest-svc2svc.hestia.polska
+
+c/         REDIS
+            10.200.62.219   test-ihestia-fix-redis-app2svc.hestia.polska     
+            10.200.70.219   test-ihestia-fix-redis-svc2svc.hestia.polska
+
+7/         PROD
+a/         SOAP / REST            84xx
+            10.200.46.218 prod-ihestia-prod-soap-app2svc.hestia.polska
+            10.200.69.218 prod-ihestia-prod-soap-svc2svc.hestia.polska
+
+b/         Jboss               8481
+            10.200.46.169 prod-ihestia-prod-jsoaprest-app2svc.hestia.polska
+            10.200.69.241 prod-ihestia-prod-jsoaprest-svc2svc.hestia.polska
+
+c/         REDIS
+            10.200.46.219   prod-ihestia-prod-redis-app2svc.hestia.polska   
+            10.200.69.219   prod-ihestia-prod-redis-svc2svc.hestia.polska   
+endsnippet

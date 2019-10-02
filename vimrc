@@ -373,8 +373,8 @@ endif
 let g:airline_theme='papercolor'
 
 "colorscheme mopkai
-"colorscheme badwolf
-colorscheme github
+colorscheme badwolf
+"colorscheme github
 
 hi QuickScopeSecondary cterm=none ctermfg=red
 hi QuickScopePrimary cterm=underline,bold
