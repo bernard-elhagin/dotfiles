@@ -55,6 +55,7 @@ Plugin 'prettier/vim-prettier'
 Plugin 'jreybert/vimagit'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'mhinz/vim-grepper'
+Plugin 'svermeulen/vim-extended-ft'
 
 call vundle#end()
 
@@ -125,7 +126,7 @@ set listchars=tab:▸\ ,eol:¬
 set noswapfile
 set autochdir
 set synmaxcol=200
-set fdc=4 " fold gutter
+set fdc=0 " fold gutter
 set diffopt=internal,filler,context:3,indent-heuristic,algorithm:patience
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
@@ -383,7 +384,7 @@ hi Search guibg=yellow guifg=black
 
 "hi QuickScopeSecondary cterm=none ctermfg=red
 "hi QuickScopePrimary cterm=underline,bold
-hi MatchParen ctermbg=white guibg=white guifg=red gui=underline cterm=bold
+hi MatchParen guibg=black guifg=red gui=bold
 
 "set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
 

@@ -18,3 +18,5 @@ alias gpgm='git push github master'
 alias r='ranger'
 
 alias zd='z dot'
+
+alias tx='tmuxinator start'
