@@ -1,6 +1,6 @@
-# /home/bertold/.config/tmuxinator/kafka.yml
+# /home/bertold/.config/tmuxinator/kafka_all_full.yml
 
-name: kafka
+name: kafka_all_full
 root: ~
 tmux_detached: false
 tmux: tmux

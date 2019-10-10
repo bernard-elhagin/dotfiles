@@ -1,0 +1,19 @@
+# /home/bertold/.config/tmuxinator/kafka_qa_split.yml
+
+name: kafka_qa_split
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - QA_BROKERS:
+        layout: tiled
+        panes:
+          - clear; kqw1
+          - clear; kqw2
+          - clear; kqw3
+    - QA_ZOOKEEPERS:
+        layout: tiled
+        panes:
+          - clear; kqz1
+          - clear; kqz2
+          - clear; kqz3

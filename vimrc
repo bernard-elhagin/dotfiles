@@ -22,8 +22,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-repeat'
 Plugin 'sjl/gundo.vim'
-Plugin 'mileszs/ack.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-colorscheme-switcher'
@@ -32,14 +32,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'gregsexton/gitv'
 Plugin 'mhinz/vim-startify'
-Plugin 'majutsushi/tagbar'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-peekaboo'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 Plugin 'airblade/vim-rooter'
 Plugin 'sukima/xmledit'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'wincent/command-t'
 Plugin 'wincent/vcs-jump'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
@@ -47,9 +47,15 @@ Plugin 'vim-scripts/CSApprox'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'xolox/vim-session'
-Plugin 'mattn/emmet-vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'luochen1990/rainbow'
+Plugin 'prettier/vim-prettier'
+Plugin 'jreybert/vimagit'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'mhinz/vim-grepper'
+Plugin 'svermeulen/vim-extended-ft'
 
 call vundle#end()
 
@@ -120,6 +126,8 @@ set listchars=tab:▸\ ,eol:¬
 set noswapfile
 set autochdir
 set synmaxcol=200
+set fdc=0 " fold gutter
+set diffopt=internal,filler,context:3,indent-heuristic,algorithm:patience
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
 set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
@@ -198,7 +206,7 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 nnoremap <leader>h <C-w>h
-nnoremap <leader>c <C-w>c
+nnoremap <leader>x <C-w>c
 nnoremap <leader>o <C-w>o
 nnoremap <C-s> <C-w>+
 nnoremap <C-z> <C-w>-
@@ -220,9 +228,9 @@ imap <C-Space> 
 
 " Tab configuration
 map <leader>tn :tabnew<cr>
-map <leader>te :tabedit 
+map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove
 
 map <F7> :tabprev<CR>
 
@@ -259,8 +267,8 @@ noremap H ^
 noremap L $
 vnoremap L g_
 
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 "nnoremap ' `
 "nnoremap ` '
@@ -292,6 +300,10 @@ noremap Y y$
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+" Remove all irrelevant lines from a bash file
+" (or any file that uses # as a start of comment).
+nnoremap <leader>Q :g/^#\\|\(^$\)/d<CR>
+
 " ]]]
 
 " Folding ---------------------------------------------------------------- [[[
@@ -304,7 +316,7 @@ nnoremap <leader>z za
 vnoremap <leader>z za
 
 " Make zO recursively open whatever fold we're in, even if it's partially open.
-nnoremap zO zczO
+"nnoremap zO zczO
 
 " 1. Close all folds.
 " 2. Open just the folds containing the current line.
@@ -351,7 +363,7 @@ if &term =~ "xterm\\|rxvt"
   " solid underscore
   let &t_SI .= "\<Esc>[5 q"
   " solid block
-  let &t_EI .= "\<Esc>[2 q"
+  let &t_EI .= "\<Esc>[1 q"
   " 1 or 0 -> blinking block
   " 3 -> blinking underscore
   " Recent versions of xterm (282 or above) also support
@@ -363,16 +375,22 @@ let g:airline_theme='papercolor'
 
 "colorscheme mopkai
 "colorscheme badwolf
-colorscheme github
+"colorscheme github
 
-hi QuickScopeSecondary cterm=none ctermfg=red
-hi QuickScopePrimary cterm=underline,bold
+set bg=dark
+colorscheme Atelier_CaveDark
 
-set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
+hi Search guibg=yellow guifg=black
 
-set guioptions=egrLt
-set guioptions-=T
-set guioptions-=m
+"hi QuickScopeSecondary cterm=none ctermfg=red
+"hi QuickScopePrimary cterm=underline,bold
+hi MatchParen guibg=black guifg=red gui=bold
+
+"set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
+
+"set guioptions=egrLt
+"set guioptions-=T
+"set guioptions-=m
 
 " Map Alt-x (ø) to toggle max window size
 map ø :call MaximizeToggle()<CR>
@@ -453,7 +471,7 @@ function! XSLTransform()
 
 endfunction
 
-map <leader>xs :call XSLTransform()<CR>
+"map <leader>xs :call XSLTransform()<CR>
 
 "]]]
 " Log [[[
@@ -495,7 +513,13 @@ let g:gitgutter_map_keys = 0
 "]]]
 " Matchit [[[
 
-packadd! matchit
+if has('packages')
+    if !has('nvim')
+        packadd! matchit
+    endif
+else
+    source $VIMRUNTIME/macros/matchit.vim
+endif
 
 "]]]
 " Syntastic [[[
@@ -509,28 +533,6 @@ let g:syntastic_check_on_wq = 0
 " Gundo [[[
 
 map <F5> :GundoToggle<CR>
-
-"]]]
-" NERDTree [[[
-
-map <F4> :NERDTree<CR>
-map <C-F4> :NERDTreeToggle<CR>
-
-"call NERDTreeAddKeyMap({ [[[
-"	   \ 'key': 'w',
-"	   \ 'callback': 'NERDTreeToggleWidth',
-"	   \ 'quickhelpText': 'Toggle window width' })
-"
-"function! NERDTreeToggleWidth()
-"	let l:maxi = 0
-"	for l:z in range(1, line("$"))
-"		let l:aktlen = len(getline(l:z))
-"		if l:aktlen > l:maxi
-"			let l:maxi = l:aktlen
-"		endif
-"	endfor
-"	exe "vertical resize " . (l:maxi == winwidth(".") ? g:NERDTreeWinSize : l:maxi)
-"endfunction ]]]
 
 "]]]
 " FZF [[[
@@ -549,6 +551,8 @@ map <leader>fa :Rg<CR>
 map <leader>fc :Commits<CR>
 map <leader>fb :BCommits<CR>
 map <leader>fh :History<CR>
+
+map <leader>t :Helptags<CR>
 
 imap <c-l> <plug>(fzf-complete-line)
 
@@ -572,15 +576,41 @@ map <leader>vr :VimuxRunLastCommand<CR>
 map <leader>vi :VimuxInterruptRunner<CR>
 
 " ]]]
-" Command-T [[[
-
-map <leader>t :CommandTHelp<CR>
-
-" ]]]
 " Vim-Session [[[
 
 let g:session_autosave='no'
 let g:session_autoload='no'
+
+" ]]]
+" vim-peekaboo [[[
+
+" Make register list wider than default
+let g:peekaboo_window='vert bo 75new'
+
+" Wait 1 second before showing registers
+let g:peekaboo_delay=1000
+
+" ]]]
+" vim-rainbow [[[
+
+let g:rainbow_active=1
+
+" ]]]
+" incsearch.vim [[[
+
+let g:incsearch#auto_nohlsearch = 1
+let g:incsearch#magic = '\v'
+ 
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " ]]]
 
@@ -597,7 +627,7 @@ let g:session_autoload='no'
 " gives you one color of highlighting.  Now you can use <leader>N where N is
 " a number from 1-6 to highlight the current word in a specific color.
 
-function! HiInterestingWord(n) " [[[
+function! HiInterestingWord(n)
     " Save our location.
     normal! mz
 
@@ -618,24 +648,22 @@ function! HiInterestingWord(n) " [[[
 
     " Move back to our original location.
     normal! `z
-endfunction " ]]]
+endfunction
 
-" Mappings [[[
 nnoremap <silent> <leader>1 :call HiInterestingWord(1)<cr>
 nnoremap <silent> <leader>2 :call HiInterestingWord(2)<cr>
 nnoremap <silent> <leader>3 :call HiInterestingWord(3)<cr>
 nnoremap <silent> <leader>4 :call HiInterestingWord(4)<cr>
 nnoremap <silent> <leader>5 :call HiInterestingWord(5)<cr>
 nnoremap <silent> <leader>6 :call HiInterestingWord(6)<cr>
-" ]]]
-" Default Highlights [[[
+
 hi def InterestingWord1 guifg=#000000 ctermfg=16 guibg=#ffa724 ctermbg=214
 hi def InterestingWord2 guifg=#000000 ctermfg=16 guibg=#aeee00 ctermbg=154
 hi def InterestingWord3 guifg=#000000 ctermfg=16 guibg=#8cffba ctermbg=121
 hi def InterestingWord4 guifg=#000000 ctermfg=16 guibg=#b88853 ctermbg=137
 hi def InterestingWord5 guifg=#000000 ctermfg=16 guibg=#ff9eb8 ctermbg=211
 hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
-" ]]]
+
 " ]]]
 
 "]]]

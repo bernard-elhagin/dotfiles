@@ -55,6 +55,10 @@ KAFKA_PROD_ZOO1='10.200.43.55'
 KAFKA_PROD_ZOO2='10.200.43.56'
 KAFKA_PROD_ZOO3='10.200.43.57'
 
+KAFKA_BALTICA_TEST0='10.111.218.195'
+KAFKA_BALTICA_TEST1='10.111.218.196'
+KAFKA_BALTICA_TEST2='10.111.218.197'
+
 # ]]]
 
 # Kafka connect aliases [[[
@@ -67,7 +71,7 @@ alias kdz1="ssh bernard.elhagin@$KAFKA_DEV_ZOO1"
 alias kdz2="ssh bernard.elhagin@$KAFKA_DEV_ZOO2"
 alias kdz3="ssh bernard.elhagin@$KAFKA_DEV_ZOO3"
 
-alias kq="ssh bernardelh@$KAFKA_QA_MGT"
+alias kq="ssh bernard.elhagin@$KAFKA_QA_MGT"
 alias kqw1="ssh bernard.elhagin@$KAFKA_QA_WRK1"
 alias kqw2="ssh bernard.elhagin@$KAFKA_QA_WRK2"
 alias kqw3="ssh bernard.elhagin@$KAFKA_QA_WRK3"
@@ -106,6 +110,11 @@ alias kpw3="ssh bernard.elhagin@$KAFKA_PROD_WRK3"
 alias kpz1="ssh bernard.elhagin@$KAFKA_PROD_ZOO1"
 alias kpz2="ssh bernard.elhagin@$KAFKA_PROD_ZOO2"
 alias kpz3="ssh bernard.elhagin@$KAFKA_PROD_ZOO3"
+
+# Baltica
+alias kbalttest0="ssh bernard.elhagin@$KAFKA_BALTICA_TEST0"
+alias kbalttest1="ssh bernard.elhagin@$KAFKA_BALTICA_TEST1"
+alias kbalttest2="ssh bernard.elhagin@$KAFKA_BALTICA_TEST2"
 
 # ]]]
 
@@ -190,6 +199,9 @@ alias prod_produce="$KCP1$KAFKA_PROD_BROKERS_SSL$KCP2"
 
 # ]]]
 
+# Temp horton
+alias horton="ssh el-hbe1@dev-hortonworkshdp-srv01.hestia.polska"
+
 # WSO2 SSH aliases [[[
 alias wd1='ssh -t logviewer@10.111.230.247 "cd logs; bash"'
 alias wd2='ssh -t logviewer@10.111.230.248 "cd logs; bash"'
@@ -197,6 +209,8 @@ alias wdm='ssh -t logviewer@10.111.230.249 "cd logs; bash"'
 alias wt1='ssh -t logviewer@10.200.70.46   "cd logs; bash"'
 alias wt2='ssh -t logviewer@10.200.70.47   "cd logs; bash"'
 alias wtm='ssh -t logviewer@10.200.70.48   "cd logs; bash"'
+alias wt3='ssh -t logviewer@10.200.70.30   "cd logs; bash"'
+alias wt4='ssh -t logviewer@10.200.70.31   "cd logs; bash"'
 alias wp1='ssh -t logviewer@10.200.69.210  "cd logs; bash"'
 alias wp2='ssh -t logviewer@10.200.69.211  "cd logs; bash"'
 alias wpm='ssh -t logviewer@10.200.69.209  "cd logs; bash"'

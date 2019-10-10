@@ -1,0 +1,19 @@
+# /home/bertold/.config/tmuxinator/kafka_prod_split.yml
+
+name: kafka_prod_split
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - PROD_BROKERS:
+        layout: tiled
+        panes:
+          - clear; kpw1
+          - clear; kpw2
+          - clear; kpw3
+    - PROD_ZOOKEEPERS:
+        layout: tiled
+        panes:
+          - clear; kpz1
+          - clear; kpz2
+          - clear; kpz3
