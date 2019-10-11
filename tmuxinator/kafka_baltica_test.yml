@@ -1,13 +1,13 @@
-# /home/bertold/.config/tmuxinator/kafka_baltica_test.yml
+# /home/bertold/.config/tmuxinator/kafka_btts_brokers.yml
 
-name: kafka_baltica_test
+name: kafka_btts_brokers
 root: ~
 tmux_detached: false
 tmux: tmux
 windows:
-    - PROD_NODES:
-        layout: tiled
-        panes:
-          - clear; kbalttest0
-          - clear; kbalttest1
-          - clear; kbalttest2
+  - BTTS_BROKERS:
+      layout: tiled
+      panes:
+          - clear; kbtts0
+          - clear; kbtts1
+          - clear; kbtts2

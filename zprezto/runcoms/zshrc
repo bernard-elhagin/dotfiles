@@ -73,6 +73,7 @@ ZSH_HIGHLIGHT_STYLES[arg0]='fg=yellow,bold'
 
 SPACESHIP_EXIT_CODE_SHOW=true
 SPACESHIP_EXIT_CODE_SYMBOL="✘ "
+SPACESHIP_HOST_SHOW=true
 
 alias lll='ls -crtl'
 

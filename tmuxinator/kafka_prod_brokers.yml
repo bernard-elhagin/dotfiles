@@ -1,0 +1,13 @@
+# /home/bertold/.config/tmuxinator/kafka_prod_brokers.yml
+
+name: kafka_prod_brokers
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - PROD_BROKERS:
+        layout: tiled
+        panes:
+          - clear; kpw1
+          - clear; kpw2
+          - clear; kpw3

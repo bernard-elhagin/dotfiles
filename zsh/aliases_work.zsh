@@ -55,9 +55,9 @@ KAFKA_PROD_ZOO1='10.200.43.55'
 KAFKA_PROD_ZOO2='10.200.43.56'
 KAFKA_PROD_ZOO3='10.200.43.57'
 
-KAFKA_BALTICA_TEST0='10.111.218.195'
-KAFKA_BALTICA_TEST1='10.111.218.196'
-KAFKA_BALTICA_TEST2='10.111.218.197'
+KAFKA_BALTICA_TEST0='btts-kafka0.atena.pl'
+KAFKA_BALTICA_TEST1='btts-kafka1.atena.pl'
+KAFKA_BALTICA_TEST2='btts-kafka2.atena.pl'
 
 # ]]]
 
@@ -112,9 +112,9 @@ alias kpz2="ssh bernard.elhagin@$KAFKA_PROD_ZOO2"
 alias kpz3="ssh bernard.elhagin@$KAFKA_PROD_ZOO3"
 
 # Baltica
-alias kbalttest0="ssh bernard.elhagin@$KAFKA_BALTICA_TEST0"
-alias kbalttest1="ssh bernard.elhagin@$KAFKA_BALTICA_TEST1"
-alias kbalttest2="ssh bernard.elhagin@$KAFKA_BALTICA_TEST2"
+alias kbtts0="ssh bernard.elhagin@$KAFKA_BALTICA_TEST0"
+alias kbtts1="ssh bernard.elhagin@$KAFKA_BALTICA_TEST1"
+alias kbtts2="ssh bernard.elhagin@$KAFKA_BALTICA_TEST2"
 
 # ]]]
 
