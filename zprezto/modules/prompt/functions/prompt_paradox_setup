@@ -54,29 +54,29 @@ function prompt_paradox_build_prompt {
   BALTCMNDEV='baltics-cmndev-wso2-as'
   BALTCTRDEV='baltics-ctrdev-wso2-as'
 
-#  case `hostname` in
-#    $DEV        ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [DEV] %F{yellow}[`hostname -i`]%F{green}%f';;
-#    $QA         ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [QA] %F{yellow}[`hostname -i`]%F{green}%f';;
-#    $FIX        ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [FIX] %F{yellow}[`hostname -i`]%F{green}%f';;
-#    $SZKOL      ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [SZKOL] %F{yellow}[`hostname -i`]%F{green}%f';;
-#    $PREP       ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [PREP] %F{yellow}[`hostname -i`]%F{green}%f';;
-#    $PROD       ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{red}%m%F{white} [PROD] %F{yellow}[`hostname -i`]%F{red}%f';;
-#    $BALTCMNDEV ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [CMNDEV] %F{yellow}[`hostname -i`]%F{green}%f';;
-#    $BALTCTRDEV ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [CTRDEV] %F{yellow}[`hostname -i`]%F{green}%f';;
-#    *           ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{blue}%n%F{red}@%F{green}%m%f';;
-#  esac
-
   case `hostname` in
-    $DEV        ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [DEV] %F{yellow}[`hostname -i`]%F{green}%f';;
-    $QA         ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [QA] %F{yellow}[`hostname -i`]%F{green}%f';;
-    $FIX        ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [FIX] %F{yellow}[`hostname -i`]%F{green}%f';;
-    $SZKOL      ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [SZKOL] %F{yellow}[`hostname -i`]%F{green}%f';;
-    $PREP       ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [PREP] %F{yellow}[`hostname -i`]%F{green}%f';;
-    $PROD       ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{red}%m%F{white} [PROD] %F{yellow}[`hostname -i`]%F{red}%f';;
-    $BALTCMNDEV ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [CMNDEV] %F{yellow}[`hostname -i`]%F{green}%f';;
-    $BALTCTRDEV ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [CTRDEV] %F{yellow}[`hostname -i`]%F{green}%f';;
-    *           ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{blue}%n%F{red}@%F{green}%m%f';;
+    $DEV        ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [DEV] %F{yellow}[`hostname -i`]%F{green}%f';;
+    $QA         ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [QA] %F{yellow}[`hostname -i`]%F{green}%f';;
+    $FIX        ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [FIX] %F{yellow}[`hostname -i`]%F{green}%f';;
+    $SZKOL      ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [SZKOL] %F{yellow}[`hostname -i`]%F{green}%f';;
+    $PREP       ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [PREP] %F{yellow}[`hostname -i`]%F{green}%f';;
+    $PROD       ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{red}%m%F{white} [PROD] %F{yellow}[`hostname -i`]%F{red}%f';;
+    $BALTCMNDEV ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [CMNDEV] %F{yellow}[`hostname -i`]%F{green}%f';;
+    $BALTCTRDEV ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [CTRDEV] %F{yellow}[`hostname -i`]%F{green}%f';;
+    *           ) prompt_paradox_start_segment black default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{blue}%n%F{red}@%F{green}%m%f';;
   esac
+
+#  case `hostname` in
+#    $DEV        ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [DEV] %F{yellow}[`hostname -i`]%F{green}%f';;
+#    $QA         ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [QA] %F{yellow}[`hostname -i`]%F{green}%f';;
+#    $FIX        ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [FIX] %F{yellow}[`hostname -i`]%F{green}%f';;
+#    $SZKOL      ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [SZKOL] %F{yellow}[`hostname -i`]%F{green}%f';;
+#    $PREP       ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [PREP] %F{yellow}[`hostname -i`]%F{green}%f';;
+#    $PROD       ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{red}%m%F{white} [PROD] %F{yellow}[`hostname -i`]%F{red}%f';;
+#    $BALTCMNDEV ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [CMNDEV] %F{yellow}[`hostname -i`]%F{green}%f';;
+#    $BALTCTRDEV ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{green}%m%F{white} [CTRDEV] %F{yellow}[`hostname -i`]%F{green}%f';;
+#    *           ) prompt_paradox_start_segment white default '%(?::%F{red}✘ )%(!:%F{yellow}⚡ :)%(1j:%F{cyan}⚙ :)%F{blue}%n%F{red}@%F{green}%m%f';;
+#  esac
   
   prompt_paradox_start_segment blue black '$_prompt_paradox_pwd'
 
