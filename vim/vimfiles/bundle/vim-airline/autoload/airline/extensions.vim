@@ -34,6 +34,13 @@ let s:filetype_overrides = {
       \ 'vimshell': ['vimshell','%{vimshell#get_status_string()}'],
       \ }
 
+if exists(':Gina')
+  let s:filetype_overrides['gina-status'] = ['gina', '%{gina#component#repo#preset()}' ]
+  let s:filetype_overrides['diff'] = ['gina', '%{gina#component#repo#preset()}' ]
+  let s:filetype_overrides['gina-log'] = ['gina', '%{gina#component#repo#preset()}' ]
+  let s:filetype_overrides['gina-tag'] = ['gina', '%{gina#component#repo#preset()}' ]
+endif
+
 let s:filetype_regex_overrides = {}
 
 function! s:check_defined_section(name)
@@ -156,7 +163,8 @@ function! airline#extensions#load()
     call add(s:loaded_ext, 'netrw')
   endif
 
-  if has("terminal") || has('nvim')
+  if (has("terminal") || has('nvim')) &&
+        \ get(g:, 'airline#extensions#term#enabled', 1)
     call airline#extensions#term#init(s:ext)
     call add(s:loaded_ext, 'term')
   endif

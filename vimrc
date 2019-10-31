@@ -56,6 +56,7 @@ Plugin 'jreybert/vimagit'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'mhinz/vim-grepper'
 Plugin 'svermeulen/vim-extended-ft'
+Plugin 'machakann/vim-highlightedyank'
 
 call vundle#end()
 
@@ -477,6 +478,11 @@ endfunction
 " Log [[[
 
 "au BufEnter *.log syntax off
+
+"]]]
+" JSON [[[
+
+au BufEnter *.json map =x :%!python -m json.tool<CR>
 
 "]]]
 
