@@ -104,6 +104,8 @@ alias x='exit'
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+
 # Map CTRL-u to delete to beginning of
 # line instead of whole line
 bindkey "^u" backward-kill-line
@@ -115,6 +117,23 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 alias v='vim $(fzf)'
 
 eval "$(fasd --init auto)"
+
+#bindkey -v
+#
+#function zle-line-init zle-keymap-select {
+#    RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+#    RPS2=$RPS1
+#    zle reset-prompt
+#}
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+#
+#bindkey -a u undo
+#bindkey -a '^R' redo
+#bindkey '^?' backward-delete-char
+#bindkey '^H' backward-delete-char
+#bindkey -M viins '^s' fzf-history-widget
+#bindkey -M vicmd '^s' fzf-history-widget
 
 source $HOME/.functions
 

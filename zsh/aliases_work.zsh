@@ -199,9 +199,6 @@ alias prod_produce="$KCP1$KAFKA_PROD_BROKERS_SSL$KCP2"
 
 # ]]]
 
-# Temp horton
-alias horton="ssh el-hbe1@dev-hortonworkshdp-srv01.hestia.polska"
-
 # WSO2 SSH aliases [[[
 alias wd1='ssh -t logviewer@10.111.230.247 "cd logs; bash"'
 alias wd2='ssh -t logviewer@10.111.230.248 "cd logs; bash"'

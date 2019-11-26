@@ -301,9 +301,18 @@ noremap Y y$
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+map <leader>n :call LineNumbers()<CR>
+
+function! LineNumbers()
+    set number!
+    set relativenumber!
+endfunction
+
 " Remove all irrelevant lines from a bash file
 " (or any file that uses # as a start of comment).
 nnoremap <leader>Q :g/^#\\|\(^$\)/d<CR>
+
+" execute "!perl /home/bertold/Devel/Projects/wso2tools/add_artifact.pl " . system("git rev-parse --show-toplevel | tr -d '\\n'")
 
 " ]]]
 
@@ -378,8 +387,8 @@ let g:airline_theme='papercolor'
 "colorscheme badwolf
 "colorscheme github
 
+colorscheme one
 set bg=dark
-colorscheme Atelier_CaveDark
 
 hi Search guibg=yellow guifg=black
 
