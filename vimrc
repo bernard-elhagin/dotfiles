@@ -57,6 +57,8 @@ Plugin 'haya14busa/incsearch.vim'
 Plugin 'mhinz/vim-grepper'
 Plugin 'svermeulen/vim-extended-ft'
 Plugin 'machakann/vim-highlightedyank'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'fannheyward/coc-xml'
 
 call vundle#end()
 
@@ -360,7 +362,7 @@ vnoremap <leader>z za
 " Change cursor shape/color depending on mode
 if &term =~ "xterm\\|rxvt"
   " use an orange cursor in insert mode
-  let &t_SI = "\<Esc>]12;orange\x7"
+  let &t_SI = "\<Esc>]12;red\x7"
   " use a red cursor otherwise
   let &t_EI = "\<Esc>]12;red\x7"
   silent !echo -ne "\033]12;red\007"
@@ -626,6 +628,31 @@ map g# <Plug>(incsearch-nohl-g#)
 map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+
+" ]]]
+" coc.vim [[[
+
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h ' . expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
 
 " ]]]
 
