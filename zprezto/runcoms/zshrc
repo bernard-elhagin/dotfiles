@@ -137,4 +137,6 @@ eval "$(fasd --init auto)"
 
 source $HOME/.functions
 
+unsetopt correct
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=145'

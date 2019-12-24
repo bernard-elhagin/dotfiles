@@ -27,7 +27,8 @@ function gcd() {
 # ls after cd
 c() {
     cd $1;
-    /usr/bin/ls --group-directories-first --color=auto -l;
+    #/usr/bin/ls --group-directories-first --color=auto -l;
+    exa --group-directories-first --color=always --header --time-style=long-iso -l;
 }
 
 alias cd="c"
