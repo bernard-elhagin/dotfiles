@@ -53,7 +53,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'luochen1990/rainbow'
 Plugin 'prettier/vim-prettier'
 Plugin 'jreybert/vimagit'
-Plugin 'haya14busa/incsearch.vim'
 Plugin 'mhinz/vim-grepper'
 Plugin 'svermeulen/vim-extended-ft'
 Plugin 'machakann/vim-highlightedyank'
@@ -386,10 +385,10 @@ endif
 let g:airline_theme='papercolor'
 
 "colorscheme mopkai
-"colorscheme badwolf
+colorscheme badwolf
 "colorscheme github
 
-colorscheme one
+"colorscheme one
 set bg=dark
 
 hi Search guibg=yellow guifg=black
@@ -611,23 +610,6 @@ let g:peekaboo_delay=1000
 " vim-rainbow [[[
 
 let g:rainbow_active=1
-
-" ]]]
-" incsearch.vim [[[
-
-let g:incsearch#auto_nohlsearch = 1
-let g:incsearch#magic = '\v'
- 
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
 
 " ]]]
 " coc.vim [[[

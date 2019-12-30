@@ -1,0 +1,15 @@
+# /home/bertold/.config/tmuxinator/wso2space_dev.yml
+
+name: wso2space_dev
+root: ~/Devel/Projects/space-esb-eb/
+tmux_detached: false
+tmux: tmux
+windows:
+  - vim:
+      layout: main-horizontal
+      panes:
+          - vim
+  - WSO2 EI 6.5.0:
+      layout: main-horizontal
+      panes:
+          - ~/Devel/wso2ei-6.5.0/bin/integrator.sh
