@@ -1,0 +1,13 @@
+# /home/bertold/.config/tmuxinator/kafka_qa_brokers.yml
+
+name: kafka_qa_brokers
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - QA_BROKERS:
+        layout: tiled
+        panes:
+          - clear; kqw1
+          - clear; kqw2
+          - clear; kqw3
