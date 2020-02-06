@@ -315,6 +315,13 @@ nnoremap <leader>Q :g/^#\\|\(^$\)/d<CR>
 
 " execute "!perl /home/bertold/Devel/Projects/wso2tools/add_artifact.pl " . system("git rev-parse --show-toplevel | tr -d '\\n'")
 
+" Change/select object between //
+onoremap <silent> i/ :<C-U>normal! T/vt/<CR>
+onoremap <silent> a/ :<C-U>normal! F/vt/<CR>
+
+xnoremap <silent> i/ :<C-U>normal! T/vt/<CR>
+xnoremap <silent> a/ :<C-U>normal! F/vt/<CR>
+
 " ]]]
 
 " Folding ---------------------------------------------------------------- [[[
@@ -586,7 +593,7 @@ let g:startify_custom_header=''
 let g:VimuxOrientation="h"
 let g:VimuxHeight="35"
 
-map <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
+map <leader>vm :VimuxRunCommand("makeSpace.sh")<CR>
 map <leader>vc :VimuxCloseRunner<CR>
 map <leader>vr :VimuxRunLastCommand<CR>
 map <leader>vi :VimuxInterruptRunner<CR>
@@ -637,6 +644,15 @@ function! s:show_documentation()
 endfunction
 
 " ]]]
+" vim-tmux-navigator [[[
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+
+"]]]
 
 "]]]
 
