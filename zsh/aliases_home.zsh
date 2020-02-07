@@ -10,6 +10,13 @@ alias yss='yay -Ss'
 alias ys='yay -S'
 alias pfiles='pacman -Fl'
 
+alias lll='ls -crtl'
+alias zs='vim $HOME/.zshrc'
+alias github='git clone https://github.com/'
+
+alias x='exit'
+alias v='vim $(fzf)'
+
 alias gs='git status'
 alias gc='git commit'
 alias gaa='git add --all'
@@ -22,6 +29,10 @@ alias r='ranger'
 alias zd='z dot'
 
 alias tx='tmuxinator start'
+
+# Global aliases
+alias -g G='| grep --color=always'
+alias -g L='| less -r'
 
 if (command -v exa >/dev/null); then
     alias ll='exa   -l --header --time-style=long-iso --group-directories-first'

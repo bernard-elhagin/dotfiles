@@ -56,8 +56,8 @@ Plugin 'jreybert/vimagit'
 Plugin 'mhinz/vim-grepper'
 Plugin 'svermeulen/vim-extended-ft'
 Plugin 'machakann/vim-highlightedyank'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'fannheyward/coc-xml'
+"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+"Plugin 'fannheyward/coc-xml'
 
 call vundle#end()
 

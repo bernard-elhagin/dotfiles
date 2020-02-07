@@ -75,12 +75,6 @@ SPACESHIP_EXIT_CODE_SHOW=true
 SPACESHIP_EXIT_CODE_SYMBOL="✘ "
 SPACESHIP_HOST_SHOW=true
 
-alias lll='ls -crtl'
-
-alias zs='vim $HOME/.zshrc'
-
-alias github='git clone https://github.com/'
-
 source $HOME/.aliases_home.zsh
 source $HOME/.aliases_work.zsh
 source $HOME/.aliases_ssh.zsh
@@ -92,12 +86,6 @@ test -f $LOCAL_RC && source $LOCAL_RC
 
 HOST_RC=$HOME/.zsh/host/$(hostname -s)
 test -f $HOST_RC && source $HOST_RC
-
-# Global aliases
-alias -g G='| grep --color=always'
-alias -g L='| less -r'
-
-alias x='exit'
 
 [ -f ~/.fzf.sh ] && source $HOME/.fzf.sh
 
@@ -113,8 +101,6 @@ bindkey "^u" backward-kill-line
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-
-alias v='vim $(fzf)'
 
 eval "$(fasd --init auto)"
 
