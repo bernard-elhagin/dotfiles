@@ -59,6 +59,8 @@ KAFKA_BALTICA_TEST0='btts-kafka0.atena.pl'
 KAFKA_BALTICA_TEST1='btts-kafka1.atena.pl'
 KAFKA_BALTICA_TEST2='btts-kafka2.atena.pl'
 
+KAFKA_BALTICA_DEV='btct-kafka.atena.pl'
+
 # ]]]
 
 # Kafka connect aliases [[[
@@ -116,6 +118,7 @@ alias kbtts0="ssh bernard.elhagin@$KAFKA_BALTICA_TEST0"
 alias kbtts1="ssh bernard.elhagin@$KAFKA_BALTICA_TEST1"
 alias kbtts2="ssh bernard.elhagin@$KAFKA_BALTICA_TEST2"
 
+alias kbdev="ssh bernard.elhagin@$KAFKA_BALTICA_DEV"
 # ]]]
 
 # Kafka helpers [[[

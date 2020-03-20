@@ -20,7 +20,6 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-repeat'
 Plugin 'sjl/gundo.vim'
@@ -37,6 +36,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'junegunn/vim-peekaboo'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/gv.vim'
 Plugin 'airblade/vim-rooter'
 Plugin 'sukima/xmledit'
 Plugin 'vim-syntastic/syntastic'
@@ -56,8 +56,8 @@ Plugin 'jreybert/vimagit'
 Plugin 'mhinz/vim-grepper'
 Plugin 'svermeulen/vim-extended-ft'
 Plugin 'machakann/vim-highlightedyank'
-"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-"Plugin 'fannheyward/coc-xml'
+Plugin 'AndrewRadev/tagalong.vim'
+Plugin 'machakann/vim-sandwich'
 
 call vundle#end()
 
@@ -130,6 +130,7 @@ set autochdir
 set synmaxcol=200
 set fdc=0 " fold gutter
 set diffopt=internal,filler,context:3,indent-heuristic,algorithm:patience
+set clipboard^=unnamed
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
 set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
@@ -283,16 +284,6 @@ nnoremap ZZ ZQ
 nmap <tab> :bn<CR>
 nmap <s-tab> :bp<CR>
 map <leader>b :Buffers<CR>
-
-nnoremap <silent> <Up>    :cprevious<CR>
-nnoremap <silent> <Down>  :cnext<CR>
-nnoremap <silent> <Left>  :cpfile<CR>
-nnoremap <silent> <Right> :cnfile<CR>
-
-nnoremap <silent> <S-Up>    :lprevious<CR>
-nnoremap <silent> <S-Down>  :lnext<CR>
-nnoremap <silent> <S-Left>  :lpfile<CR>
-nnoremap <silent> <S-Right> :lnfile<CR>
 
 " Avoid unintentional switch to Ex mode.
 nnoremap Q <nop>
@@ -523,8 +514,8 @@ let g:airline_powerline_fonts = 1
 "]]]
 " Fugitive [[[
 
-nnoremap <leader>gs :silent Gstatus<CR>
-nnoremap <leader>gp :silent Gpull<CR>
+nnoremap <leader>gs :silent Gstatus<cr>
+nnoremap <leader>gp :silent Gpull<cr>
 nnoremap <leader>gd :silent Gdiff<cr>
 nnoremap <leader>gw :silent Gwrite<cr>
 nnoremap <leader>gb :silent Gblame<cr>
@@ -620,29 +611,29 @@ let g:rainbow_active=1
 
 " ]]]
 " coc.vim [[[
-
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-
-inoremap <silent><expr> <c-space> coc#refresh()
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h ' . expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
-
+"
+"inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+"function! s:check_back_space() abort
+"    let col = col('.') - 1
+"    return !col || getline('.')[col - 1] =~# '\s'
+"endfunction
+"
+"inoremap <silent><expr> <c-space> coc#refresh()
+"
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"
+"nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+"function! s:show_documentation()
+"    if (index(['vim','help'], &filetype) >= 0)
+"        execute 'h ' . expand('<cword>')
+"    else
+"        call CocAction('doHover')
+"    endif
+"endfunction
+"
 " ]]]
 " vim-tmux-navigator [[[
 let g:tmux_navigator_no_mappings = 1
@@ -706,4 +697,25 @@ hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 
 " ]]]
 
+" Search for pattern [[[
+"
+" https://gist.github.com/romainl/047aca21e338df7ccf771f96858edb86
+
+function! CCR()
+    " grab the current command-line
+    let cmdline = getcmdline()
+
+    " check if it ends with '#' or 'number'
+    if cmdline =~ '\v\C/(#|nu|num|numb|numbe|number)$'
+        " press '<cr>' then ':' the enter command-line mode
+        return "\<cr>:"
+    else
+        " press '<cr>'
+        return "\<cr>"
+    endif
+endfunction
+
+cnoremap <expr> <cr> CCR()
+
+" ]]]
 "]]]
