@@ -1,0 +1,12 @@
+# /home/bertold/.config/tmuxinator/kafka_baltica_topics.yml
+
+name: kafka_baltica_topics
+root: ~/bin
+tmux_detached: false
+tmux: tmux
+windows:
+    - SERVERS:
+        layout: tiled
+        panes:
+          - clear; kbtts0
+          - clear; kbdev

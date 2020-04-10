@@ -30,6 +30,8 @@ alias zd='z dot'
 
 alias tx='tmuxinator start'
 
+alias topics='tmuxinator start kafka_topics'
+
 # Global aliases
 alias -g G='| grep --color=always'
 alias -g L='| less -r'
