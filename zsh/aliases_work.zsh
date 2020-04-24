@@ -228,4 +228,7 @@ alias wso2='ssh Bernard.El-Hagin@10.111.250.167'
 # WSO2 aliases
 alias esb='$HOME/Devel/wso2ei-6.3.0/bin/integrator.sh'
 
+# SSH to work computer from home
+alias sshp='ssh -p 3022 bertold@10.111.18.81'
+
 # ]]]

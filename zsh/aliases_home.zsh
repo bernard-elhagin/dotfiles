@@ -35,6 +35,7 @@ alias topics='tmuxinator start kafka_topics'
 # Global aliases
 alias -g G='| grep --color=always'
 alias -g L='| less -r'
+alias -g D='>/dev/null 2>/dev/null'
 
 if (command -v exa >/dev/null); then
     alias ll='exa   -l --header --time-style=long-iso --group-directories-first'

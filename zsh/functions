@@ -25,13 +25,13 @@ function gcd() {
 }
 
 # ls after cd
-c() {
+ls_after_cd() {
     cd $1;
     #/usr/bin/ls --group-directories-first --color=auto -l;
     exa --group-directories-first --color=always --header --time-style=long-iso -l;
 }
 
-alias cd="c"
+alias cd="ls_after_cd"
 
 t() {
     fasdlist=$( fasd -d -l -r $1 | \

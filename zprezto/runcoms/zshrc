@@ -14,8 +14,8 @@ fi
 
 export VIM=$HOME/.vim
 
-if [[ -d /usr/share/vim/vim81 ]]; then
-    export VIMRUNTIME=/usr/share/vim/vim81
+if [[ -d /usr/share/vim/vim82 ]]; then
+    export VIMRUNTIME=/usr/share/vim/vim82
 elif [[ -d /usr/share/vim/vim74 ]]; then
     export VIMRUNTIME=/usr/share/vim/vim74
 else
@@ -125,8 +125,6 @@ source $HOME/.functions
 
 unsetopt correct
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=145'
-
 source /home/bertold/.config/broot/launcher/bash/br
 
 _zlf() {
@@ -157,3 +155,5 @@ _zlf_handler() {
     zle -R
 }
 zle -N _zlf_handler
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=234'
