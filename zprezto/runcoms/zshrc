@@ -125,8 +125,6 @@ source $HOME/.functions
 
 unsetopt correct
 
-source /home/bertold/.config/broot/launcher/bash/br
-
 _zlf() {
     emulate -L zsh
     local d=$(mktemp -d) || return 1

@@ -31,6 +31,7 @@ alias zd='z dot'
 alias tx='tmuxinator start'
 
 alias topics='tmuxinator start kafka_topics'
+alias sshp='ssh -p 3022 bertold@atw0393'
 
 # Global aliases
 alias -g G='| grep --color=always'
@@ -38,6 +39,6 @@ alias -g L='| less -r'
 alias -g D='>/dev/null 2>/dev/null'
 
 if (command -v exa >/dev/null); then
-    alias ll='exa   -l --header --time-style=long-iso --group-directories-first'
-    alias lll='exa -al --header --time-style=long-iso --group-directories-first'
+    alias ll='exa   -l --header --time-style=long-iso --group-directories-first --git'
+    alias lll='exa -al --header --time-style=long-iso --group-directories-first --git'
 fi
