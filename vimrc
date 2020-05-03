@@ -382,8 +382,8 @@ endif
 
 let g:airline_theme='papercolor'
 
-"colorscheme mopkai
-colorscheme badwolf
+colorscheme mopkai
+"colorscheme badwolf
 "colorscheme github
 
 "colorscheme one

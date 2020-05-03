@@ -11,7 +11,7 @@ fi
 
 count=$1
 filenamebase=$2
-for (( filenumber = 1; filenumber <= $count ; filenumber++ )); do
+for (( filenumber = 1; filenumber <= $count; filenumber++ )); do
     echo "Losowa liczba: $RANDOM" >> $filenamebase$filenumber.txt
     git add $filenamebase$filenumber.txt
     git commit -m "$filenamebase$filenumber"
