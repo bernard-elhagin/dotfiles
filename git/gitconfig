@@ -47,7 +47,7 @@
     last = diff HEAD^                 # diff last committed change
 
   # log
-    l = log --graph --date=short
+	l = log
     changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
     short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
     simple = log --pretty=format:\" * %s\"
@@ -112,10 +112,10 @@
   # the usual default is to push all branches
     default = upstream
 [core]
-    autocrlf = false
-    editor = vim
+	autocrlf = input
+	editor = vim
     excludesfile = ~/.gitignore
-	pager = diff-so-fancy | less --tabs=4
+	pager = diff-so-fancy | less -F --tabs=4
 [advice]
     statusHints = false
 [diff]
@@ -123,10 +123,11 @@
   # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
     algorithm = patience
+	tool = vimdiff
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
-    enabled = true
+	enabled = true
 [include]
     path = .gitconfig.user
 [user]

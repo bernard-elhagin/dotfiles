@@ -1,7 +1,3 @@
-# Start local kafka
-alias kafkarun='sudo kafka-server-start.sh /opt/kafka/config/server.properties'
-alias zoorun='sudo zookeeper-server-start.sh /opt/kafka/config/zookeeper.properties'
-
 # Package manager aliases
 alias pacman='pacman --color=always'
 alias pss='pacman -Ss'
@@ -30,8 +26,9 @@ alias zd='z dot'
 
 alias tx='tmuxinator start'
 
-alias topics='tmuxinator start kafka_topics'
 alias sshp='ssh -p 3022 bertold@atw0393'
+
+alias c='clear'
 
 # Global aliases
 alias -g G='| grep --color=always'
