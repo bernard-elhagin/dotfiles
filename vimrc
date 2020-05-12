@@ -313,6 +313,16 @@ onoremap <silent> a/ :<C-U>normal! F/vt/<CR>
 xnoremap <silent> i/ :<C-U>normal! T/vt/<CR>
 xnoremap <silent> a/ :<C-U>normal! F/vt/<CR>
 
+" Go into mergetool mode
+"map <leader>d :call DiffToolMode()<CR>
+
+"function! DiffToolMode()
+    "set nohls
+map <leader>d :let @/='======='<CR>ggn
+"endfunction
+
+map <c-down> ddd/>>>>>><cr>dd?<<<<<<<cr>dd:let @/='======='<CR>
+map <c-up> ddd?<<<<<<<cr>/>>>>>>><cr>dd:let @/='======='<CR>
 " ]]]
 
 " Folding ---------------------------------------------------------------- [[[
@@ -382,9 +392,7 @@ endif
 
 let g:airline_theme='papercolor'
 
-colorscheme mopkai
-"colorscheme badwolf
-"colorscheme github
+colorscheme onedark
 
 "colorscheme one
 set bg=dark
