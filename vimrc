@@ -39,7 +39,6 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/gv.vim'
 Plugin 'airblade/vim-rooter'
 Plugin 'sukima/xmledit'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'wincent/vcs-jump'
 Plugin 'whiteinge/diffconflicts'
 Plugin 'unblevable/quick-scope'
@@ -54,10 +53,9 @@ Plugin 'luochen1990/rainbow'
 Plugin 'prettier/vim-prettier'
 Plugin 'jreybert/vimagit'
 Plugin 'mhinz/vim-grepper'
-Plugin 'svermeulen/vim-extended-ft'
-Plugin 'machakann/vim-highlightedyank'
 Plugin 'AndrewRadev/tagalong.vim'
 Plugin 'machakann/vim-sandwich'
+Plugin 'voldikss/vim-floaterm'
 
 call vundle#end()
 
@@ -398,6 +396,7 @@ colorscheme onedark
 set bg=dark
 
 hi Search guibg=yellow guifg=black
+hi Visual guibg=yellow guifg=black
 
 "hi QuickScopeSecondary cterm=none ctermfg=red
 "hi QuickScopePrimary cterm=underline,bold

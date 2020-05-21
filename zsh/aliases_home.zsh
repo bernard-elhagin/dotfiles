@@ -1,7 +1,6 @@
 # Package manager aliases
 alias pacman='pacman --color=always'
-alias pss='pacman -Ss'
-alias pS='sudo pacman -S'
+alias pac="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias yss='yay -Ss'
 alias ys='yay -S'
 alias pfiles='pacman -Fl'
@@ -19,8 +18,6 @@ alias gaa='git add --all'
 alias gpgm='git push github master'
 
 alias mci='mvn clean install'
-
-alias r='ranger'
 
 alias zd='z dot'
 
