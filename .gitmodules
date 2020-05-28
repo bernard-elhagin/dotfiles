@@ -1,30 +1,132 @@
-[submodule "vim/vimfiles/bundle/diffconflicts"]
-	path = vim/vimfiles/bundle/diffconflicts
-	url = https://github.com/whiteinge/diffconflicts
-[submodule "vim/vimfiles/bundle/vim-csexact"]
-	path = vim/vimfiles/bundle/vim-csexact
-	url = https://github.com/KevinGoodsell/vim-csexact
-[submodule "vim/vimfiles/bundle/YouCompleteMe"]
-	path = vim/vimfiles/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
-[submodule "vimux"]
-	path = vimux
-	url = https://github.com/benmills/vimux.git
-[submodule "bin/tmux/plugins/tmux-resurrect"]
-	path = bin/tmux/plugins/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect
-[submodule "tmuxinator/tmux/plugins/tmux-fpp"]
-	path = tmuxinator/tmux/plugins/tmux-fpp
-	url = https://github.com/tmux-plugins/tmux-fpp
-[submodule "vim/vimfiles/bundle/vim/vimfiles/bundle/vim-repeat"]
-	path = vim/vimfiles/bundle/vim/vimfiles/bundle/vim-repeat
-	url = https://github.com/tpope/vim-repeat
-[submodule "vim/vimfiles/bundle/nerdcommenter"]
-	path = vim/vimfiles/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter
-[submodule "incsearch.vim"]
-	path = incsearch.vim
-	url = https://github.com/haya14busa/incsearch.vim
-[submodule "incsearch-fuzzy.vim"]
-	path = incsearch-fuzzy.vim
-	url = https://github.com/haya14busa/incsearch-fuzzy.vim
+[submodule "VundleVim/Vundle.vim"]
+    path = Vundle.vim
+    url = https://github.com/VundleVim/Vundle.vim
+[submodule "flazz/vim-colorschemes"]
+    path = vim-colorschemes
+    url = https://github.com/flazz/vim-colorschemes
+[submodule "SirVer/ultisnips"]
+    path = ultisnips
+    url = https://github.com/SirVer/ultisnips
+[submodule "honza/vim-snippets"]
+    path = vim-snippets
+    url = https://github.com/honza/vim-snippets
+[submodule "easymotion/vim-easymotion"]
+    path = vim-easymotion
+    url = https://github.com/easymotion/vim-easymotion
+[submodule "bling/vim-airline"]
+    path = vim-airline
+    url = https://github.com/bling/vim-airline
+[submodule "ctrlpvim/ctrlp.vim"]
+    path = ctrlp.vim
+    url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "tpope/vim-fugitive"]
+    path = vim-fugitive
+    url = https://github.com/tpope/vim-fugitive
+[submodule "tpope/vim-vinegar"]
+    path = vim-vinegar
+    url = https://github.com/tpope/vim-vinegar
+[submodule "tpope/vim-repeat"]
+    path = vim-repeat
+    url = https://github.com/tpope/vim-repeat
+[submodule "sjl/gundo.vim"]
+    path = gundo.vim
+    url = https://github.com/sjl/gundo.vim
+[submodule "godlygeek/tabular"]
+    path = tabular
+    url = https://github.com/godlygeek/tabular
+[submodule "xolox/vim-misc"]
+    path = vim-misc
+    url = https://github.com/xolox/vim-misc
+[submodule "xolox/vim-colorscheme-switcher"]
+    path = vim-colorscheme-switcher
+    url = https://github.com/xolox/vim-colorscheme-switcher
+[submodule "airblade/vim-gitgutter"]
+    path = vim-gitgutter
+    url = https://github.com/airblade/vim-gitgutter
+[submodule "vim-airline/vim-airline-themes"]
+    path = vim-airline-themes
+    url = https://github.com/vim-airline/vim-airline-themes
+[submodule "Valloric/MatchTagAlways"]
+    path = MatchTagAlways
+    url = https://github.com/Valloric/MatchTagAlways
+[submodule "gregsexton/gitv"]
+    path = gitv
+    url = https://github.com/gregsexton/gitv
+[submodule "mhinz/vim-startify"]
+    path = vim-startify
+    url = https://github.com/mhinz/vim-startify
+[submodule "junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' "]
+    path = fzf', { 'dir': '~/.fzf', 'do': './install --bin' 
+    url = https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' 
+[submodule "junegunn/fzf.vim"]
+    path = fzf.vim
+    url = https://github.com/junegunn/fzf.vim
+[submodule "junegunn/vim-peekaboo"]
+    path = vim-peekaboo
+    url = https://github.com/junegunn/vim-peekaboo
+[submodule "junegunn/goyo.vim"]
+    path = goyo.vim
+    url = https://github.com/junegunn/goyo.vim
+[submodule "junegunn/limelight.vim"]
+    path = limelight.vim
+    url = https://github.com/junegunn/limelight.vim
+[submodule "junegunn/gv.vim"]
+    path = gv.vim
+    url = https://github.com/junegunn/gv.vim
+[submodule "airblade/vim-rooter"]
+    path = vim-rooter
+    url = https://github.com/airblade/vim-rooter
+[submodule "sukima/xmledit"]
+    path = xmledit
+    url = https://github.com/sukima/xmledit
+[submodule "wincent/vcs-jump"]
+    path = vcs-jump
+    url = https://github.com/wincent/vcs-jump
+[submodule "whiteinge/diffconflicts"]
+    path = diffconflicts
+    url = https://github.com/whiteinge/diffconflicts
+[submodule "unblevable/quick-scope"]
+    path = quick-scope
+    url = https://github.com/unblevable/quick-scope
+[submodule "vim-scripts/CSApprox"]
+    path = CSApprox
+    url = https://github.com/vim-scripts/CSApprox
+[submodule "benmills/vimux"]
+    path = vimux
+    url = https://github.com/benmills/vimux
+[submodule "christoomey/vim-tmux-navigator"]
+    path = vim-tmux-navigator
+    url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "xolox/vim-session"]
+    path = vim-session
+    url = https://github.com/xolox/vim-session
+[submodule "dyng/ctrlsf.vim"]
+    path = ctrlsf.vim
+    url = https://github.com/dyng/ctrlsf.vim
+[submodule "rafi/awesome-vim-colorschemes"]
+    path = awesome-vim-colorschemes
+    url = https://github.com/rafi/awesome-vim-colorschemes
+[submodule "scrooloose/nerdcommenter"]
+    path = nerdcommenter
+    url = https://github.com/scrooloose/nerdcommenter
+[submodule "luochen1990/rainbow"]
+    path = rainbow
+    url = https://github.com/luochen1990/rainbow
+[submodule "prettier/vim-prettier"]
+    path = vim-prettier
+    url = https://github.com/prettier/vim-prettier
+[submodule "jreybert/vimagit"]
+    path = vimagit
+    url = https://github.com/jreybert/vimagit
+[submodule "mhinz/vim-grepper"]
+    path = vim-grepper
+    url = https://github.com/mhinz/vim-grepper
+[submodule "AndrewRadev/tagalong.vim"]
+    path = tagalong.vim
+    url = https://github.com/AndrewRadev/tagalong.vim
+[submodule "machakann/vim-sandwich"]
+    path = vim-sandwich
+    url = https://github.com/machakann/vim-sandwich
+[submodule "chriskempson/base16-vim"]
+    path = base16-vim
+    url = https://github.com/chriskempson/base16-vim
