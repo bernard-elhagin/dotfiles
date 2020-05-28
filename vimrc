@@ -55,7 +55,7 @@ Plugin 'jreybert/vimagit'
 Plugin 'mhinz/vim-grepper'
 Plugin 'AndrewRadev/tagalong.vim'
 Plugin 'machakann/vim-sandwich'
-Plugin 'voldikss/vim-floaterm'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
 
@@ -390,9 +390,8 @@ endif
 
 let g:airline_theme='papercolor'
 
-colorscheme onedark
+colorscheme base16-default-dark
 
-"colorscheme one
 set bg=dark
 
 hi Search guibg=yellow guifg=black

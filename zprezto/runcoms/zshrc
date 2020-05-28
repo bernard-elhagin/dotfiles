@@ -5,7 +5,7 @@ export VISUAL='vim'
 
 export TERM="xterm-256color"
 
-HOSTNAME=$(hostname)
+#HOSTNAME=$(hostname)
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -84,8 +84,8 @@ source $HOME/.aliases_ssh.zsh
 LOCAL_RC=$HOME/.zshrc.local
 test -f $LOCAL_RC && source $LOCAL_RC
 
-HOST_RC=$HOME/.zsh/host/$(hostname -s)
-test -f $HOST_RC && source $HOST_RC
+#HOST_RC=$HOME/.zsh/host/$(hostname -s)
+#test -f $HOST_RC && source $HOST_RC
 
 [ -f ~/.fzf.sh ] && source $HOME/.fzf.sh
 
