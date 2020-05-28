@@ -26,13 +26,14 @@ esac
 # z listą topiców do utworzenia
 filename="$1"
 while IFS='' read -r line || [[ -n "$line" ]]; do
-    #topic=$(echo "$line" | cut -f 1 -d" ")
-    #retention=$(echo "$line" | cut -f 2 -d" ")
-    #partitions=$(echo "$line" | cut -f 3 -d" ")
+    topic=$(echo "$line" | cut -f 1 -d" ")
+    retention=$(echo "$line" | cut -f 2 -d" ")
+    partitions=$(echo "$line" | cut -f 3 -d" ")
 
-    #retention_ms=$((retention*24*60*60*1000))
+    replication_factor=$(/opt/kafka/bin/zookeeper-shell.sh $zookeeper ls /brokers/ids | grep '\[' | sed -E 's/.*(.)]$/\1/')
 
-    #/opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor 3 --partitions $partitions --topic "$topic" --config retention.ms=$retention_ms
-    echo $zookeeper
+    retention_ms=$((retention*24*60*60*1000))
+
+    /opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor $replication_factor --partitions $partitions --topic "$topic" --config retention.ms=$retention_ms
     done < "$filename"
 exit 0

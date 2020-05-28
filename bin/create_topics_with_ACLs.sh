@@ -28,15 +28,17 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     partitions=$(echo "$line" | cut -f 3 -d" ")
     jaas_user=$(echo "$line" | cut -f 4 -d" ")
 
+    replication_factor=$(/opt/kafka/bin/zookeeper-shell.sh $zookeeper ls /brokers/ids | grep '\[' | sed -E 's/.*(.)]$/\1/')
+
     retention_ms=$((retention*24*60*60*1000))
 
-    echo "/opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor 3 --partitions $partitions --topic "$topic" --config retention.ms=$retention_ms"
+    echo "/opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor $replication_factor --partitions $partitions --topic "$topic" --config retention.ms=$retention_ms"
     echo "
     "
     echo "/opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=$zookeeper --add --allow-principal User:$jaas_user --operation All --topic "$topic" --group=\'*\'"
     echo "
     "
-    /opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor 3 --partitions $partitions --topic "$topic" --config retention.ms=$retention_ms
+    /opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor $replication_factor --partitions $partitions --topic "$topic" --config retention.ms=$retention_ms
     /opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=$zookeeper --add --allow-principal User:$jaas_user --operation All --topic "$topic" --group=\'*\'
 done < "$filename"
 exit 0
