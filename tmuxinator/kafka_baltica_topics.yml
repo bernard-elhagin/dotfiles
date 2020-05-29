@@ -9,4 +9,6 @@ windows:
         layout: tiled
         panes:
           - clear; kbtts0
+          - clear; kbtts1
+          - clear; kbtts2
           - clear; kbdev

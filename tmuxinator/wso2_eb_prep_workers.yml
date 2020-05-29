@@ -1,0 +1,12 @@
+# /home/bertold/.config/tmuxinator/wso2_eb_prep_workers.yml
+
+name: wso2_eb_prep_workers
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - WSO2_EB_PREP:
+        layout: tiled
+        panes:
+          - clear; wso2ebprep1
+          - clear; wso2ebprep2

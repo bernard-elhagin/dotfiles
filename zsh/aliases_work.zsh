@@ -119,6 +119,7 @@ alias kbtts1="ssh bernard.elhagin@$KAFKA_BALTICA_TEST1"
 alias kbtts2="ssh bernard.elhagin@$KAFKA_BALTICA_TEST2"
 
 alias kbdev="ssh bernard.elhagin@$KAFKA_BALTICA_DEV"
+
 # ]]]
 
 # Kafka helpers [[[
@@ -224,6 +225,13 @@ alias wbalcmnd='ssh bernard.el-hagin@baltics-cmndev-wso2-as'
 alias wbalctrd='ssh bernard.el-hagin@baltics-ctrdev-wso2-as'
 
 alias wso2='ssh Bernard.El-Hagin@10.111.250.167'
+
+alias wso2ebprep1="ssh bernard.elhagin@10.103.3.18"
+alias wso2ebprep2="ssh bernard.elhagin@10.103.3.19"
+
+# TODO: Fix DNS
+#alias wso2ebprep1="ssh bernard.elhagin@spcq-wso2-wrkr1.test.inter"
+#alias wso2ebprep2="ssh bernard.elhagin@spcq-wso2-wrkr2.test.inter"
 
 # WSO2 aliases
 alias esb='$HOME/Devel/wso2ei-6.3.0/bin/integrator.sh'
