@@ -27,8 +27,10 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     retention=$(echo "$line" | cut -f 2 -d" ")
     partitions=$(echo "$line" | cut -f 3 -d" ")
     jaas_user=$(echo "$line" | cut -f 4 -d" ")
+    replication_factor=$(echo "$line" | cut -f 5 -d" ")
 
-    replication_factor=$(/opt/kafka/bin/zookeeper-shell.sh $zookeeper ls /brokers/ids | grep '\[' | sed -E 's/.*(.)]$/\1/')
+    [[ -z "${replication_factor// }" ]] &&
+        replication_factor=$(/opt/kafka/bin/zookeeper-shell.sh $zookeeper ls /brokers/ids | grep '\[' | sed -E 's/.*(.)]$/\1/')
 
     retention_ms=$((retention*24*60*60*1000))
 
