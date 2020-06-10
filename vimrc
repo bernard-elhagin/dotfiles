@@ -5,6 +5,9 @@
 "
 set nocompatible
 
+if has('python3')
+endif
+
 " Initialize ------------------------------------------------------------- [[[
 filetype off
 
@@ -64,6 +67,7 @@ filetype plugin indent on
 if filereadable('/usr/bin/python3')
   " Avoid search, speeding up start-up.
   let g:python3_host_prog='/usr/bin/python3'
+  let g:pymode_python='python3'
 endif
 
 " Allow for per-machine overrides in ~/.vim/host/$HOSTNAME.vim and

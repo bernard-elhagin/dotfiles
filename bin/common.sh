@@ -30,6 +30,9 @@ case $environment in
     $SZKOL ) zookeeper="test-kafka-szkol-zk01.hestia.polska:2181,test-kafka-szkol-zk02.hestia.polska:2181,test-kafka-szkol-zk03.hestia.polska:2181"
              worker="test-kafka-szkol-wrk01.hestia.polska:9092,test-kafka-szkol-wrk02.hestia.polska:9092,test-kafka-szkol-wrk03.hestia.polska:9092" ;;
 
+          *) zookeeper="localhost:2181"
+             worker="localhost:9092" ;;
+
 esac
 
 echo $zookeeper
