@@ -229,6 +229,10 @@ alias wso2='ssh Bernard.El-Hagin@10.111.250.167'
 alias wso2ebprep1="ssh bernard.elhagin@10.103.3.18"
 alias wso2ebprep2="ssh bernard.elhagin@10.103.3.19"
 
+# WSO2 EB QA
+alias webqa1="ssh el-hbe1@10.111.218.193"
+alias webqa2="ssh el-hbe1@10.111.218.194"
+
 # TODO: Fix DNS
 #alias wso2ebprep1="ssh bernard.elhagin@spcq-wso2-wrkr1.test.inter"
 #alias wso2ebprep2="ssh bernard.elhagin@spcq-wso2-wrkr2.test.inter"

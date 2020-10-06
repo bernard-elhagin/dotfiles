@@ -202,8 +202,8 @@ nnoremap <CS-Space> gg"*yG:q!<CR>
 " Rerun last shell command
 nnoremap <leader>r :!<UP><CR>
 
-" Show the path of current file.
-nnoremap <leader>p :echo expand('%')<CR>
+" Toggle paste mode
+nnoremap <leader>p :set paste!<CR>
 
 " Mappings for manipulating and moving around splits
 nnoremap <C-h> <C-w>h
@@ -403,10 +403,11 @@ endif
 
 let g:airline_theme='papercolor'
 
-colorscheme base16-default-dark
+colorscheme herokudoc
 
 set bg=dark
 
+hi Normal guibg=black
 hi Search guibg=yellow guifg=black
 hi Visual guibg=yellow guifg=black
 

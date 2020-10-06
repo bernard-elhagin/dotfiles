@@ -27,6 +27,9 @@ alias sshp='ssh -p 3022 bertold@atw0393'
 
 alias c='clear'
 
+alias tml='tmux list-sessions'
+alias tma='tmux attach-session -t'
+
 # Global aliases
 alias -g G='| grep --color=always'
 alias -g L='| less -r'
