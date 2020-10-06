@@ -56,9 +56,11 @@ Plugin 'luochen1990/rainbow'
 Plugin 'prettier/vim-prettier'
 Plugin 'jreybert/vimagit'
 Plugin 'mhinz/vim-grepper'
-Plugin 'AndrewRadev/tagalong.vim'
+"Plugin 'AndrewRadev/tagalong.vim'
 Plugin 'machakann/vim-sandwich'
 Plugin 'chriskempson/base16-vim'
+Plugin 'stsewd/fzf-checkout.vim'
+"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 call vundle#end()
 
@@ -133,6 +135,7 @@ set synmaxcol=200
 set fdc=0 " fold gutter
 set diffopt=internal,filler,context:3,indent-heuristic,algorithm:patience
 set clipboard^=unnamed
+set hidden
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
 set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
@@ -325,6 +328,12 @@ map <leader>d :let @/='======='<CR>ggn
 
 map <c-down> ddd/>>>>>><cr>dd?<<<<<<<cr>dd:let @/='======='<CR>
 map <c-up> ddd?<<<<<<<cr>/>>>>>>><cr>dd:let @/='======='<CR>
+
+inoremap <c-l> <right>
+inoremap <c-h> <left>
+inoremap <c-j> <ESC>A
+inoremap <c-i> <ESC>I
+
 " ]]]
 
 " Folding ---------------------------------------------------------------- [[[
@@ -510,8 +519,8 @@ au BufEnter *.json map =x :%!python -m json.tool<CR>
 
 " UltiSnips [[[
 
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:SuperTabDefaultCompletionType = 'context'
@@ -561,6 +570,9 @@ map <F5> :GundoToggle<CR>
 "]]]
 " FZF [[[
 
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPS='--reverse'
+
 set wildignore+=*\\tmp\\*,*.sw?,*.zip,*.settings,*.esb_diagram,*\\*sandbox\\*,*.classpath,*\\.meta\\*
 set wildignore+=.git,*.orig
 set wildignore+=*.exe,*.o,*.obj,*.dll,*.manifest
@@ -578,7 +590,7 @@ map <leader>fh :History<CR>
 
 map <leader>t :Helptags<CR>
 
-imap <c-l> <plug>(fzf-complete-line)
+"imap <c-l> <plug>(fzf-complete-line)
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
