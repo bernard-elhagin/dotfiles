@@ -21,14 +21,16 @@ alias mci='mvn clean install'
 
 alias zd='z dot'
 
-alias tx='tmuxinator start'
-
 alias sshp='ssh -p 3022 bertold@atw0393'
 
 alias c='clear'
 
+# TMUX aliases
 alias tml='tmux list-sessions'
 alias tma='tmux attach-session -t'
+alias tx='tmuxinator start'
+alias txkb='tmuxinator start kafka_baltica_topics'
+alias txkt='tmuxinator start kafka_topics'
 
 # Global aliases
 alias -g G='| grep --color=always'

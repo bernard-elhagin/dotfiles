@@ -61,6 +61,7 @@ Plugin 'machakann/vim-sandwich'
 Plugin 'chriskempson/base16-vim'
 Plugin 'stsewd/fzf-checkout.vim'
 "Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'szw/vim-maximizer'
 
 call vundle#end()
 
@@ -571,7 +572,7 @@ map <F5> :GundoToggle<CR>
 "]]]
 " FZF [[[
 
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+"let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPS='--reverse'
 
 set wildignore+=*\\tmp\\*,*.sw?,*.zip,*.settings,*.esb_diagram,*\\*sandbox\\*,*.classpath,*\\.meta\\*
