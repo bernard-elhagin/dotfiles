@@ -133,6 +133,7 @@ case $environment in
     $SZKOL ) zookeeper="test-kafka-szkol-zk01.hestia.polska:2181" && brokers="test-kafka-szkol-wrk01.hestia.polska:9092,test-kafka-szkol-wrk02.hestia.polska:9092,test-kafka-szkol-wrk03.hestia.polska:9092";;
     $PREP  ) zookeeper="test-kafka-prep-zk01.hestia.polska:2181"  && brokers="test-kafka-prep-wrk01.hestia.polska:9092,test-kafka-prep-wrk02.hestia.polska:9092,test-kafka-prep-wrk03.hestia.polska:9092";;
     $PROD  ) zookeeper="prod-kafka-prod-zk01.hestia.polska:2181"  && brokers="prod-kafka-prod-wrk01.hestia.polska:9092,prod-kafka-prod-wrk02.hestia.polska:9092,prod-kafka-prod-wrk03.hestia.polska:9092";;
+    *      ) zookeeper="localhost:2181"                           && brokers="localhost:9092,localhost:9092,localhost:9092";;
 esac
 
 describe_topic()
