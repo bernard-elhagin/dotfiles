@@ -48,7 +48,6 @@ Plugin 'unblevable/quick-scope'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'xolox/vim-session'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'scrooloose/nerdcommenter'
@@ -608,7 +607,7 @@ let g:startify_custom_header=''
 let g:VimuxOrientation="h"
 let g:VimuxHeight="35"
 
-map <leader>vm :VimuxRunCommand("makeSpace.sh")<CR>
+map <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
 map <leader>vc :VimuxCloseRunner<CR>
 map <leader>vr :VimuxRunLastCommand<CR>
 map <leader>vi :VimuxInterruptRunner<CR>
