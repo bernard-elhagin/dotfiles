@@ -52,7 +52,7 @@ Plugin 'xolox/vim-session'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'luochen1990/rainbow'
+"Plugin 'luochen1990/rainbow'
 Plugin 'prettier/vim-prettier'
 Plugin 'jreybert/vimagit'
 Plugin 'mhinz/vim-grepper'
@@ -333,7 +333,7 @@ map <c-up> ddd?<<<<<<<cr>/>>>>>>><cr>dd:let @/='======='<CR>
 inoremap <c-l> <right>
 inoremap <c-h> <left>
 inoremap <c-j> <ESC>A
-inoremap <c-i> <ESC>I
+inoremap <c-o> <ESC>I
 
 " ]]]
 
