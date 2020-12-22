@@ -526,7 +526,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:SuperTabDefaultCompletionType = 'context'
 
-let g:UltiSnipsSnippetsDir="~/.vim/vimfiles/bundle/vim-snippets/mySnips"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips/mySnips"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mySnips"]
 
 let g:airline_powerline_fonts = 1
