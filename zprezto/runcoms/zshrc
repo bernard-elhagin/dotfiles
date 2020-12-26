@@ -155,3 +155,5 @@ _zlf_handler() {
 zle -N _zlf_handler
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=234'
+
+XDG_CONFIG_HOME=$HOME/.config
