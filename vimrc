@@ -61,6 +61,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'stsewd/fzf-checkout.vim'
 "Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'szw/vim-maximizer'
+Plugin 'dracula/vim'
 
 call vundle#end()
 
@@ -403,7 +404,9 @@ endif
 
 let g:airline_theme='papercolor'
 
-colorscheme herokudoc
+"colorscheme herokudoc
+colorscheme hilal
+"colorscheme dracula
 
 set bg=dark
 

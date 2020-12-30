@@ -31,7 +31,7 @@ alias man='nocorrect man'
 alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
 alias mysql='nocorrect mysql'
-alias rm='nocorrect rm'
+#alias rm='nocorrect rm'
 
 # Disable globbing.
 alias bower='noglob bower'
@@ -56,7 +56,7 @@ alias mv="${aliases[mv]:-mv} -i"
 alias p='${(z)PAGER}'
 alias po='popd'
 alias pu='pushd'
-alias rm="${aliases[rm]:-rm} -i"
+#alias rm="${aliases[rm]:-rm} -i"
 alias type='type -a'
 
 # ls

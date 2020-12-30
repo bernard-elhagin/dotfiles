@@ -156,4 +156,11 @@ zle -N _zlf_handler
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=234'
 
-XDG_CONFIG_HOME=$HOME/.config
+export XDG_CONFIG_HOME=$HOME/.config
+
+export NNN_PLUG="f:fzcd;p:preview-tui;t:treeview;g:-_git diff"
+export NNN_FCOLORS="0000E6310800808008000080"
+alias nnn "nnn -e"
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_USE_EDITOR=1
+export NNN_BMS='p:~/Devel/Projects;t:/tmp;d:~/dotfiles'
