@@ -11,59 +11,59 @@ endif
 " Initialize ------------------------------------------------------------- [[[
 filetype off
 
-set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
-set rtp+=$VIM/vimfiles/bundle/powerline/powerline/bindings/vim/
-call vundle#begin('$VIM/vimfiles/bundle')
+"set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
+"set rtp+=$VIM/vimfiles/bundle/powerline/powerline/bindings/vim/
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'bling/vim-airline'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-vinegar'
-Plugin 'tpope/vim-repeat'
-Plugin 'sjl/gundo.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-colorscheme-switcher'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'gregsexton/gitv'
-Plugin 'mhinz/vim-startify'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/vim-peekaboo'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/gv.vim'
-Plugin 'airblade/vim-rooter'
-Plugin 'sukima/xmledit'
-Plugin 'wincent/vcs-jump'
-Plugin 'whiteinge/diffconflicts'
-Plugin 'unblevable/quick-scope'
-Plugin 'vim-scripts/CSApprox'
-Plugin 'benmills/vimux'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'rafi/awesome-vim-colorschemes'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'luochen1990/rainbow'
-Plugin 'prettier/vim-prettier'
-Plugin 'jreybert/vimagit'
-Plugin 'mhinz/vim-grepper'
-"Plugin 'AndrewRadev/tagalong.vim'
-Plugin 'machakann/vim-sandwich'
-Plugin 'chriskempson/base16-vim'
-Plugin 'stsewd/fzf-checkout.vim'
-"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'szw/vim-maximizer'
-Plugin 'dracula/vim'
+Plug 'VundleVim/Vundle.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'easymotion/vim-easymotion'
+Plug 'bling/vim-airline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-repeat'
+Plug 'sjl/gundo.vim'
+Plug 'godlygeek/tabular'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Valloric/MatchTagAlways'
+Plug 'gregsexton/gitv'
+Plug 'mhinz/vim-startify'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/gv.vim'
+Plug 'airblade/vim-rooter'
+Plug 'sukima/xmledit'
+Plug 'wincent/vcs-jump'
+Plug 'whiteinge/diffconflicts'
+Plug 'unblevable/quick-scope'
+Plug 'vim-scripts/CSApprox'
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'dyng/ctrlsf.vim'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'luochen1990/rainbow'
+Plug 'prettier/vim-prettier'
+Plug 'jreybert/vimagit'
+Plug 'mhinz/vim-grepper'
+"Plug 'AndrewRadev/tagalong.vim'
+Plug 'machakann/vim-sandwich'
+Plug 'chriskempson/base16-vim'
+Plug 'stsewd/fzf-checkout.vim'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'szw/vim-maximizer'
+Plug 'dracula/vim'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
@@ -529,8 +529,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 let g:SuperTabDefaultCompletionType = 'context'
 
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips/mySnips"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "mySnips"]
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips", "UltiSnips"]
 
 let g:airline_powerline_fonts = 1
 
