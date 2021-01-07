@@ -11,8 +11,6 @@ endif
 " Initialize ------------------------------------------------------------- [[[
 filetype off
 
-"set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
-"set rtp+=$VIM/vimfiles/bundle/powerline/powerline/bindings/vim/
 call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
@@ -51,17 +49,15 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dyng/ctrlsf.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
-"Plug 'luochen1990/rainbow'
 Plug 'prettier/vim-prettier'
 Plug 'jreybert/vimagit'
 Plug 'mhinz/vim-grepper'
-"Plug 'AndrewRadev/tagalong.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'chriskempson/base16-vim'
 Plug 'stsewd/fzf-checkout.vim'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'szw/vim-maximizer'
 Plug 'dracula/vim'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -137,6 +133,7 @@ set fdc=0 " fold gutter
 set diffopt=internal,filler,context:3,indent-heuristic,algorithm:patience
 set clipboard^=unnamed
 set hidden
+set updatetime=1000
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
 set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
@@ -669,6 +666,9 @@ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
+"]]]
+" auto-pairs [[[
+let g:AutoPairsFlyMode = 1
 "]]]
 
 "]]]
