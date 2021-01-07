@@ -92,7 +92,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 #    zstyle ':prezto:module:prompt' theme 'paradox'
 #fi
 
-zstyle ':prezto:module:prompt' theme 'spaceship'
+#zstyle ':prezto:module:prompt' theme 'spaceship'
 
 #
 # Screen

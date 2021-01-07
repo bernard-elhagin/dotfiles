@@ -402,12 +402,12 @@ endif
 let g:airline_theme='papercolor'
 
 "colorscheme herokudoc
-colorscheme hilal
-"colorscheme dracula
+"colorscheme hilal
+colorscheme dracula
 
 set bg=dark
 
-hi Normal guibg=black
+"hi Normal guibg=black
 hi Search guibg=yellow guifg=black
 hi Visual guibg=yellow guifg=black
 
