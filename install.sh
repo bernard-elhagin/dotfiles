@@ -74,6 +74,15 @@ else
     echo "done."
 fi
 
+# fonts
+echo -n "Copying fonts.."
+if [[ -d $HOME/.i3 ]]; then
+    echo "$HOME/.i3 already exists...skipping."
+else
+    ln -s "$HOME/dotfiles/fonts" "$HOME/.local/share/fonts"
+    echo "done."
+fi
+
 declare -a FILES_TO_SYMLINK=(
   'zprezto/runcoms/zlogin'
   'zprezto/runcoms/zlogout'
