@@ -76,8 +76,8 @@ fi
 
 # fonts
 echo -n "Copying fonts.."
-if [[ -d $HOME/.i3 ]]; then
-    echo "$HOME/.i3 already exists...skipping."
+if [[ -d $HOME/.local/share/fonts ]]; then
+    echo "$HOME/.local/share/fonts already exists...skipping."
 else
     ln -s "$HOME/dotfiles/fonts" "$HOME/.local/share/fonts"
     echo "done."
