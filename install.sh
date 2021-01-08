@@ -90,6 +90,7 @@ declare -a FILES_TO_SYMLINK=(
   'zprezto/runcoms/zprofile'
   'zprezto/runcoms/zshenv'
   'zprezto/runcoms/zshrc'
+  'p10k.zsh'
   'fzf.sh'
   'vimrc'
   'tmux/tmux.conf'
