@@ -58,6 +58,8 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'szw/vim-maximizer'
 Plug 'dracula/vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'blindFS/vim-taskwarrior'
+Plug 'sjl/gundo.vim'
 
 call plug#end()
 
@@ -411,40 +413,9 @@ set bg=dark
 hi Search guibg=yellow guifg=black
 hi Visual guibg=yellow guifg=black
 
-"hi QuickScopeSecondary cterm=none ctermfg=red
-"hi QuickScopePrimary cterm=underline,bold
-hi MatchParen guibg=black guifg=red gui=bold
-
-"set guifont=Source_Code_Pro:h10:cANSI:qDRAFT
-
-"set guioptions=egrLt
-"set guioptions-=T
-"set guioptions-=m
-
-" Map Alt-x (ø) to toggle max window size
-map ø :call MaximizeToggle()<CR>
-
-function! MaximizeToggle()
-    let size = eval("&columns")
-    if(size > 250)
-        simalt ~P
-    else
-        simalt ~s
-    endif
-endfunction
-
-winpos 729 3
-
-set lines=70
-set columns=172
-
-" Resize font with Control-Up and Control-Down
-if has("gui_running")
-    if  has("gui_running") && (has("win32") || has("win64"))
-        nnoremap <C-Up> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)+1', '')<CR>
-        nnoremap <C-Down> :silent let &guifont=substitute(&guifont, ':h\zs\d\+', '\=submatch(0)-1', '')<CR>
-    endif
-endif
+hi QuickScopePrimary cterm=underline,bold gui=underline,bold ctermfg=red guifg=red
+hi QuickScopeSecondary cterm=underline,bold gui=underline,bold ctermfg=cyan guifg=cyan
+hi MatchParen guibg=bg guifg=red gui=bold
 
 " ]]]
 
@@ -599,7 +570,8 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 " Startify [[[
 
 "let g:startify_header=''
-let g:startify_custom_header=''
+let g:startify_custom_header = ''
+let g:startify_change_to_vcs_root = 1
 
 " ]]]
 " Vimux [[[

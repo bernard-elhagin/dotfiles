@@ -78,9 +78,9 @@ ZSH_HIGHLIGHT_STYLES[redirection]='none'
 ZSH_HIGHLIGHT_STYLES[comment]='fg=black,bold'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=yellow,bold'
 
-SPACESHIP_EXIT_CODE_SHOW=true
-SPACESHIP_EXIT_CODE_SYMBOL="✘ "
-SPACESHIP_HOST_SHOW=true
+#SPACESHIP_EXIT_CODE_SHOW=true
+#SPACESHIP_EXIT_CODE_SYMBOL="✘ "
+#SPACESHIP_HOST_SHOW=true
 
 source $HOME/.aliases_home.zsh
 source $HOME/.aliases_work.zsh
@@ -91,7 +91,7 @@ source $HOME/.aliases_ssh.zsh
 LOCAL_RC=$HOME/.zshrc.local
 test -f $LOCAL_RC && source $LOCAL_RC
 
-#HOST_RC=$HOME/.zsh/host/$(hostname -s)
+#HOST_RC=$HOME/.zsh/host/$(hostname)
 #test -f $HOST_RC && source $HOST_RC
 
 [ -f ~/.fzf.sh ] && source $HOME/.fzf.sh
@@ -165,17 +165,21 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=234'
 
 export XDG_CONFIG_HOME=$HOME/.config
 
+alias nnn "nnn -e"
+
 export NNN_PLUG="f:fzcd;p:preview-tui;t:treeview;g:-_git diff"
 export NNN_FCOLORS="0000E6310800808008000080"
-alias nnn "nnn -e"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_USE_EDITOR=1
 export NNN_BMS='p:~/Devel/Projects;t:/tmp;d:~/dotfiles'
+
+# Prompt
 source ~/.zprezto/modules/prompt/external/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# PERL libs in home dir
 PATH="/home/bertold/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/bertold/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/bertold/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
