@@ -17,6 +17,8 @@ alias gc='git commit'
 alias gaa='git add --all'
 alias gpgm='git push github master'
 
+alias d='dman.sh'
+
 alias mci='mvn clean install'
 
 alias zd='z dot'
