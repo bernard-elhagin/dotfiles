@@ -282,6 +282,7 @@ vnoremap L g_
 "nnoremap ` '
 
 imap {{ {}<ESC>O
+imap ,, ,<CR>
 
 nnoremap ZQ ZZ
 nnoremap ZZ ZQ
