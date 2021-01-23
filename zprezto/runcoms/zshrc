@@ -41,7 +41,7 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-export PATH=$HOME/Devel/kafka/bin/:/opt/kafka/bin/:$HOME/bin/ranger-1.9.2:$HOME/bin:$PATH
+export PATH=$HOME/Devel/kafka/bin/:/opt/kafka/bin/:$HOME/bin/ranger-1.9.2:$HOME/bin:$HOME/bin/starship:$PATH
 export JAVA_HOME=/usr
 
 # Syntax highlighting color overrides
@@ -173,15 +173,17 @@ export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_USE_EDITOR=1
 export NNN_BMS='p:~/Devel/Projects;t:/tmp;d:~/dotfiles'
 
-# Prompt
-source ~/.zprezto/modules/prompt/external/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # PERL libs in home dir
 PATH="/home/bertold/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/bertold/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/bertold/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/bertold/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/bertold/perl5"; export PERL_MM_OPT;
+
+# Prompt
+#source ~/.zprezto/modules/prompt/external/powerlevel10k/powerlevel10k.zsh-theme
+eval "$(starship init zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
