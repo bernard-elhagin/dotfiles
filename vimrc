@@ -642,7 +642,7 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 "]]]
 " auto-pairs [[[
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 "]]]
 
 "]]]
