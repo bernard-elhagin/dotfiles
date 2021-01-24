@@ -335,6 +335,7 @@ inoremap <c-h> <left>
 inoremap <c-j> <ESC>A
 inoremap <c-o> <ESC>I
 
+map <F9> :cd %:h<CR>yi":e ../sequences/".xml<CR>
 " ]]]
 
 " Folding ---------------------------------------------------------------- [[[
