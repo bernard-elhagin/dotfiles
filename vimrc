@@ -491,6 +491,18 @@ au BufEnter *.json map =x :%!python -m json.tool<CR>
 
 " Plugin Settings -------------------------------------------------------- [[[
 
+" EasyMotion [[[
+
+let g:EasyMotion_do_mapping = 0
+
+" Jump to anywhere you want with minimal keystrokes.
+" s{char}{label}
+nmap m <Plug>(easymotion-overwin-w)
+
+" Case insensitive
+let g:EasyMotion_smartcase = 1
+
+"]]]
 " UltiSnips [[[
 
 let g:UltiSnipsExpandTrigger="<tab>"
