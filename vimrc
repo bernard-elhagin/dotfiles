@@ -254,7 +254,7 @@ function! Fold()
     endif
 endfunction
 
-map 0 ^
+"map 0 ^
 
 " Toggle hls and matching with the <leader>N utility
 map <CR> :set hls!<CR>
