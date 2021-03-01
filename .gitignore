@@ -4,3 +4,4 @@ directory_widths.txt
 vim/sessions/
 tmux/resurrect/
 vim/vimfiles/bundle/
+bin/wally
