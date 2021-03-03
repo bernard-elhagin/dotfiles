@@ -185,6 +185,8 @@ syntax enable
 " Mappings --------------------------------------------------------------- [[[
 
 imap jk <ESC>
+vnoremap jk <ESC>
+cnoremap jk <ESC>
 
 let mapleader=' '
 let maplocalleader='\\'
