@@ -60,6 +60,7 @@ Plug 'dracula/vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'sjl/gundo.vim'
+Plug 'romainl/vim-cool'
 
 call plug#end()
 
