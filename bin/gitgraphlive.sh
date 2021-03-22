@@ -23,8 +23,8 @@ defTime=3
 if [[ $usrLen =~ $numRegex && $usrTime =~ $numRegex ]]; then
     echo ''
 else
-	# Invalid or no lines and refresh rate were provided
-	# so instead, using defaults instead.
+▷---# Invalid or no lines and refresh rate were provided
+▷---# so instead, using defaults instead.
     usrLen=$defLen
     usrTime=$defTime
 fi

@@ -1,0 +1,16 @@
+snippet top "topic w azure" b
+---
+apiVersion: kafka.strimzi.io/v1beta1
+kind: KafkaTopic
+metadata:
+  name: $1
+  labels:
+    strimzi.io/cluster: "cluster"
+spec:
+  partitions: $2
+  replicas: $3
+  topicName: $1
+  config:
+    retention.ms: $4
+
+endsnippet

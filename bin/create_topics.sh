@@ -34,6 +34,6 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 
     retention_ms=$((retention*24*60*60*1000))
 
-    /opt/kafka/bin/kafka-topics.sh --create --zookeeper $zookeeper --replication-factor $replication_factor --partitions $partitions --topic "$topic" --config retention.ms=$retention_ms
+    /opt/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor $replication_factor --partitions $partitions --topic "$topic" --config retention.ms=$retention_ms
     done < "$filename"
 exit 0
