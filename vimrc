@@ -314,6 +314,9 @@ endfunction
 " (or any file that uses # as a start of comment).
 nnoremap <leader>Q :g/^#\\|\(^$\)/d<CR>
 
+" Remove trailing whitespace
+nnoremap <leader>w :%s/\s\+$//<CR>
+
 " execute "!perl /home/bertold/Devel/Projects/wso2tools/add_artifact.pl " . system("git rev-parse --show-toplevel | tr -d '\\n'")
 
 " Change/select object between //
@@ -330,21 +333,6 @@ xnoremap <silent> iy :<C-U>execute "normal!?^---\r:nohlsearch\rjV/^---\rk"<cr>
 xnoremap <silent> ay :<C-U>execute "normal!?^---\r:nohlsearch\rV/^---\r"<cr>
 " Go into mergetool mode
 "map <leader>d :call DiffToolMode()<CR>
-"---
-"---
-"dfdfdfdfdf
-"dfdfdfdfdf
-"dfdfdfdfdf
-"dfdfdfdfdf
-"---
-"dfdfdfdfdf
-"---
-"---
-"dfdfdfdfdf
-"dfdfdfdfdf
-"---
-"dfdfdfdfdf
-"---
 
 "function! DiffToolMode()
     "set nohls
