@@ -12,7 +12,7 @@ fi
 count=$1
 filenamebase=$2
 for (( filenumber = 1; filenumber <= $count; filenumber++ )); do
-    echo "Losowa liczba: $RANDOM" >> $filenamebase$filenumber.txt
+    echo "Random number: $RANDOM" >> $filenamebase$filenumber.txt
     git add $filenamebase$filenumber.txt >/dev/null 2>/dev/null
     git commit -m "${filenamebase}_$filenumber" >/dev/null 2>/dev/null
 done

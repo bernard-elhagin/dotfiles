@@ -16,7 +16,7 @@
 numRegex='[0-9]+$'
 usrLen=$1
 usrTime=$2
-defLen=15
+defLen=45
 defTime=3
 
 # Command line argument processing

@@ -61,6 +61,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'blindFS/vim-taskwarrior'
 Plug 'sjl/gundo.vim'
 Plug 'romainl/vim-cool'
+Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 
 call plug#end()
 
@@ -322,8 +323,28 @@ onoremap <silent> a/ :<C-U>normal! F/vt/<CR>
 xnoremap <silent> i/ :<C-U>normal! T/vt/<CR>
 xnoremap <silent> a/ :<C-U>normal! F/vt/<CR>
 
+onoremap <silent> iy :<C-U>execute "normal!?^---\r:nohlsearch\rjV/^---\rk"<cr>
+onoremap <silent> ay :<C-U>execute "normal!?^---\r:nohlsearch\rV/^---\r"<cr>
+
+xnoremap <silent> iy :<C-U>execute "normal!?^---\r:nohlsearch\rjV/^---\rk"<cr>
+xnoremap <silent> ay :<C-U>execute "normal!?^---\r:nohlsearch\rV/^---\r"<cr>
 " Go into mergetool mode
 "map <leader>d :call DiffToolMode()<CR>
+"---
+"---
+"dfdfdfdfdf
+"dfdfdfdfdf
+"dfdfdfdfdf
+"dfdfdfdfdf
+"---
+"dfdfdfdfdf
+"---
+"---
+"dfdfdfdfdf
+"dfdfdfdfdf
+"---
+"dfdfdfdfdf
+"---
 
 "function! DiffToolMode()
     "set nohls
@@ -410,7 +431,8 @@ let g:airline_theme='papercolor'
 
 "colorscheme herokudoc
 "colorscheme hilal
-colorscheme dracula
+"colorscheme dracula
+colorscheme nord
 
 set bg=dark
 
