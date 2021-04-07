@@ -92,8 +92,8 @@
     svnl = svn log --oneline --show-commit
 	g = grep --break --heading
 	undo = reset --hard \"HEAD@{1}\"
-[format]
-    pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+#[format]
+    #pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
     prompt = false
 	keepBackup = false

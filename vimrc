@@ -62,6 +62,7 @@ Plug 'blindFS/vim-taskwarrior'
 Plug 'sjl/gundo.vim'
 Plug 'romainl/vim-cool'
 Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
+Plug 'markonm/traces.vim'
 
 call plug#end()
 

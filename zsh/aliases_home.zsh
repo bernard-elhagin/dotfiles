@@ -7,6 +7,7 @@ alias pfiles='pacman -Fl'
 
 alias lll='ls -crtl'
 alias zs='vim $HOME/.zshrc'
+alias zpre='vim $HOME/.zpreztorc'
 alias github='git clone https://github.com/'
 
 alias x='exit'
@@ -16,6 +17,7 @@ alias gs='git status'
 alias gc='git commit'
 alias gaa='git add --all'
 alias gpgm='git push github master'
+alias grh='git reset --hard'
 
 alias d='dman.sh'
 
