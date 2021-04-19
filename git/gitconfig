@@ -42,7 +42,7 @@
     cp = cherry-pick -x               # grab a change from a branch
 
   # diff
-	d = diff HEAD HEAD~1
+	d = diff HEAD~1 HEAD
     dc = diff --cached                # diff staged changes
     last = diff HEAD^                 # diff last committed change
 
@@ -92,8 +92,8 @@
     svnl = svn log --oneline --show-commit
 	g = grep --break --heading
 	undo = reset --hard \"HEAD@{1}\"
-#[format]
-    #pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+[format]
+	pretty = %C(blue)%as%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
     prompt = false
 	keepBackup = false
