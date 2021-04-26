@@ -1,0 +1,13 @@
+# /home/bertold/.config/tmuxinator/kafka_szkol_brokers.yml
+
+name: kafka_szkol_brokers
+root: ~
+tmux_detached: false
+tmux: tmux
+windows:
+    - SZKOL_BROKERS:
+        layout: tiled
+        panes:
+          - clear; ksw1
+          - clear; ksw2
+          - clear; ksw3
