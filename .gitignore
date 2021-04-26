@@ -5,3 +5,4 @@ vim/sessions/
 tmux/resurrect/
 vim/vimfiles/bundle/
 bin/wally
+bin/xplr

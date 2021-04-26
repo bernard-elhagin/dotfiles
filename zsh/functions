@@ -67,3 +67,9 @@ _zlf_handler() {
     zle -R
 }
 zle -N _zlf_handler
+
+my-expand() {
+    zle _expand_alias || zle _expand_word || true;
+}
+zle -N my-expand
+bindkey '^ ' my-expand
