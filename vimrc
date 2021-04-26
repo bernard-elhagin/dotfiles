@@ -13,7 +13,6 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
