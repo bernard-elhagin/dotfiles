@@ -49,19 +49,19 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier'
-Plug 'jreybert/vimagit'
-Plug 'mhinz/vim-grepper'
+"Plug 'jreybert/vimagit'
+"Plug 'mhinz/vim-grepper'
 Plug 'machakann/vim-sandwich'
 Plug 'chriskempson/base16-vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'szw/vim-maximizer'
 Plug 'dracula/vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'blindFS/vim-taskwarrior'
-Plug 'sjl/gundo.vim'
 Plug 'romainl/vim-cool'
 Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 Plug 'markonm/traces.vim'
+Plug 'tommcdo/vim-lion'
+Plug 'preservim/tagbar'
 
 call plug#end()
 
@@ -188,10 +188,13 @@ syntax enable
 
 imap jk <ESC>
 vnoremap jk <ESC>
-cnoremap jk <ESC>
+cnoremap jk <C-U> <ESC>
 
 let mapleader=' '
 let maplocalleader='\\'
+
+nnoremap ; :
+nnoremap : ;
 
 nnoremap <leader>s :w<CR>
 
@@ -261,7 +264,7 @@ endfunction
 "map 0 ^
 
 " Toggle hls and matching with the <leader>N utility
-map <CR> :set hls!<CR>
+"map <CR> :set hls!<CR>
 map <BS> :call clearmatches()<CR>
 
 " Show what highlight group symbol/word under cursor belongs to
@@ -419,8 +422,8 @@ let g:airline_theme='papercolor'
 
 "colorscheme herokudoc
 "colorscheme hilal
-"colorscheme dracula
-colorscheme nord
+colorscheme dracula
+"colorscheme nord
 
 set bg=dark
 
@@ -669,6 +672,14 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 " auto-pairs [[[
 let g:AutoPairsFlyMode = 0
 "]]]
+" DiffConflicts [[[
+    "map <leader>dd  :DiffConflicts<cr>
+    "map <leader>dsh :DiffConflictsShowHistory<cr>
+    "map <leader>dh  :DiffConflictsWithHistory<cr>
+"]]]
+" Tagbar [[[
+    nmap <F5> ;TagbarToggle<cr>
+" ]]]
 
 "]]]
 
