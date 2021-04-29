@@ -567,7 +567,7 @@ let g:syntastic_check_on_wq = 0
 "]]]
 " Gundo [[[
 
-map <F5> :GundoToggle<CR>
+"map <F5> :GundoToggle<CR>
 
 "]]]
 " FZF [[[
