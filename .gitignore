@@ -6,3 +6,5 @@ tmux/resurrect/
 vim/vimfiles/bundle/
 bin/wally
 bin/xplr
+autoload/
+plugged/
