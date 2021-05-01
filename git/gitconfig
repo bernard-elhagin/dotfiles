@@ -42,12 +42,12 @@
     cp = cherry-pick -x               # grab a change from a branch
 
   # diff
-	d = diff HEAD~1 HEAD
+    d = diff HEAD~1 HEAD
     dc = diff --cached                # diff staged changes
     last = diff HEAD^                 # diff last committed change
 
   # log
-	l = log --oneline --all --decorate --graph
+    l = log --oneline --all --decorate --graph
     changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
     short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
     simple = log --pretty=format:\" * %s\"
@@ -96,14 +96,14 @@
 	pretty = %C(blue)%as%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
     prompt = false
-	keepBackup = false
+    keepBackup = false
 [mergetool "mvimdiff"]
     cmd="vim -c 'Gdiff' $MERGED"     # use fugitive.vim for 3-way merge
     keepbackup=false
 [merge]
     summary = true
     verbosity = 1
-	tool = diffconflicts
+    tool = diffconflicts
 [apply]
     whitespace = nowarn
 [branch]
@@ -113,10 +113,10 @@
   # the usual default is to push all branches
     default = upstream
 [core]
-	autocrlf = input
-	editor = vim
+    autocrlf = input
+    editor = vim
     excludesfile = ~/.gitignore
-	pager = diff-so-fancy | less -F --tabs=4
+    pager = diff-so-fancy | less -F --tabs=4
 [advice]
     statusHints = false
 [diff]
@@ -124,16 +124,16 @@
   # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
     algorithm = patience
-	tool = vimdiff
+    tool = vimdiff
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
-	enabled = true
+    enabled = true
 [include]
     path = .gitconfig.user
 [user]
-	email = bernard.elhagin@gmail.com
-	name = Bernard El-Hagin
+    email = bernard.elhagin@gmail.com
+    name = Bernard El-Hagin
 [color "diff-highlight"]
     oldNormal = red bold
     oldHighlight = cyan bold 55
@@ -141,16 +141,16 @@
     newHighlight = red 55
     stripLeadingSymbols=false
 [mergetool "diffconflicts"]
-	cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
+    cmd = vim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+    trustExitCode = true
 [grep]
-	extendedRegexp = true
-	lineNumber = false
+    extendedRegexp = true
+    lineNumber = false
 [http]
-	sslVerify = false
+    sslVerify = false
 [credential]
-	helper = cache --timeout=360000
+    helper = cache --timeout=360000
 [pull]
-	rebase = true
+    rebase = true
 [init]
-	defaultBranch = main
+    defaultBranch = main

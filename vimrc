@@ -25,7 +25,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-repeat'
@@ -40,13 +39,9 @@ Plug 'gregsexton/gitv'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-rooter'
 Plug 'sukima/xmledit'
-Plug 'wincent/vcs-jump'
 Plug 'whiteinge/diffconflicts'
 Plug 'unblevable/quick-scope'
 Plug 'vim-scripts/CSApprox'
@@ -56,8 +51,6 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier'
-"Plug 'jreybert/vimagit'
-"Plug 'mhinz/vim-grepper'
 Plug 'machakann/vim-sandwich'
 Plug 'chriskempson/base16-vim'
 Plug 'stsewd/fzf-checkout.vim'
@@ -236,28 +229,24 @@ nnoremap <leader>_ <C-w>_
 
 nnoremap <leader>q :QuickScopeToggle<CR>
 
-" Moving up and down with centering the cursor
-nnoremap <C-J> jzz
-nnoremap <C-K> kzz
-
 " Set CWD to current file's PWD
-map <F12> :cd %:h<CR>
+noremap <F12> :cd %:h<CR>
 
 " Switch to previous buffer
-map <F2> :b#<CR>
+noremap <F2> :b#<CR>
 
 imap <C-Space> 
 
 " Tab configuration
-map <leader>tn :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+nnoremap <leader>tn :tabnew<cr>
+nnoremap <leader>te :tabedit
+nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>tm :tabmove
 
-map <F7> :tabprev<CR>
+nnoremap <F7> :tabprev<CR>
 
 " Fold all, unfold all
-map <leader>; :call Fold()<CR>
+nnoremap <leader>e :call Fold()<CR>
 
 function! Fold()
     let foldlvl = eval("&foldlevel")
@@ -272,10 +261,10 @@ endfunction
 
 " Toggle hls and matching with the <leader>N utility
 "map <CR> :set hls!<CR>
-map <BS> :call clearmatches()<CR>
+nnoremap <BS> :call clearmatches()<CR>
 
 " Show what highlight group symbol/word under cursor belongs to
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" .  synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" .  synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
+nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" .  synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" .  synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
 
 " Find all lines with word under cursor and give option to jump to one of the
 " lines
@@ -285,8 +274,8 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 nnoremap =x :exe ":silent %!xmllint --format --recover - 2>/dev/null"<CR>:set filetype=xml<CR>
 
 " Easier movement to start and end of line
-noremap H ^
-noremap L $
+noremap  H ^
+noremap  L $
 vnoremap L g_
 
 " nnoremap / /\v
@@ -301,9 +290,9 @@ imap ,, ,<CR>
 nnoremap ZQ ZZ
 nnoremap ZZ ZQ
 
-nmap <tab> :bn<CR>
-nmap <s-tab> :bp<CR>
-map <leader>b :Buffers<CR>
+nnoremap <tab> :bn<CR>
+nnoremap <s-tab> :bp<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " Avoid unintentional switch to Ex mode.
 nnoremap Q <nop>
@@ -313,7 +302,7 @@ noremap Y y$
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-map <leader>n :call LineNumbers()<CR>
+nnoremap <leader>n :call LineNumbers()<CR>
 
 function! LineNumbers()
     set number!
@@ -346,18 +335,18 @@ xnoremap <silent> ay :<C-U>execute "normal!?^---\r:nohlsearch\rV/^---\r"<cr>
 
 "function! DiffToolMode()
     "set nohls
-map <leader>d :let @/='======='<CR>ggn
+nnoremap <leader>d :let @/='======='<CR>ggn
 "endfunction
 
-map <c-down> ddd/>>>>>><cr>dd?<<<<<<<cr>dd:let @/='======='<CR>
-map <c-up> ddd?<<<<<<<cr>/>>>>>>><cr>dd:let @/='======='<CR>
+nnoremap <c-down> ddd/>>>>>><cr>dd?<<<<<<<cr>dd:let @/='======='<CR>
+nnoremap <c-up> ddd?<<<<<<<cr>/>>>>>>><cr>dd:let @/='======='<CR>
 
 inoremap <c-l> <right>
 inoremap <c-h> <left>
 inoremap <c-j> <ESC>A
 inoremap <c-o> <ESC>I
 
-map <F9> :cd %:h<CR>yi":e ../sequences/".xml<CR>
+nnoremap <F9> :cd %:h<CR>yi":e ../sequences/".xml<CR>
 " ]]]
 
 " Folding ---------------------------------------------------------------- [[[
@@ -520,10 +509,14 @@ let g:EasyMotion_do_mapping = 0
 
 " Jump to anywhere you want with minimal keystrokes.
 " s{char}{label}
-nmap m <Plug>(easymotion-overwin-w)
+nmap m <Plug>(easymotion-w)
+nmap M <Plug>(easymotion-b)
+nmap <leader><leader>j <Plug>(easymotion-bd-jk)
 
 " Case insensitive
 let g:EasyMotion_smartcase = 1
+
+let g:EasyMotion_keys = 'asdfjkl;mvwo'
 
 "]]]
 " UltiSnips [[[
@@ -589,15 +582,15 @@ set wildignore+=*.jpg,*.jpeg,*.bmp,*.gif,*.png
 
 command! -bang -nargs=* FindInRepo call fzf#run({ 'sink': 'e', 'source': 'git ls-files' })
 
-map <leader>ff :Files<CR>
-map <leader>fg :GFiles<CR>
-map <leader>fr :FindInRepo<CR>
-map <leader>fa :Rg<CR>
-map <leader>fc :Commits<CR>
-map <leader>fb :BCommits<CR>
-map <leader>fh :History<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fr :FindInRepo<CR>
+nnoremap <leader>fa :Rg<CR>
+nnoremap <leader>fc :Commits<CR>
+nnoremap <leader>fb :BCommits<CR>
+nnoremap <leader>fh :History<CR>
 
-map <leader>t :Helptags<CR>
+nnoremap <leader>t :Helptags<CR>
 
 "imap <c-l> <plug>(fzf-complete-line)
 
@@ -616,10 +609,10 @@ let g:startify_change_to_vcs_root = 1
 let g:VimuxOrientation="h"
 let g:VimuxHeight="35"
 
-map <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
-map <leader>vc :VimuxCloseRunner<CR>
-map <leader>vr :VimuxRunLastCommand<CR>
-map <leader>vi :VimuxInterruptRunner<CR>
+noremap <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
+noremap <leader>vc :VimuxCloseRunner<CR>
+noremap <leader>vr :VimuxRunLastCommand<CR>
+noremap <leader>vi :VimuxInterruptRunner<CR>
 
 " ]]]
 " Vim-Session [[[
