@@ -63,6 +63,7 @@ Plug 'markonm/traces.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'preservim/tagbar'
 Plug 'rhysd/clever-f.vim'
+Plug 'jez/vim-superman'
 
 call plug#end()
 

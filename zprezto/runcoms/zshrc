@@ -180,3 +180,5 @@ eval "$(starship init zsh)"
 
 export STARDICT_DATA_DIR=$HOME/Documents/stardict
 alias st='sdcv'
+
+compdef vman="man"
