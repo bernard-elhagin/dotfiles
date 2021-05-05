@@ -62,6 +62,7 @@ Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 Plug 'markonm/traces.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'preservim/tagbar'
+Plug 'rhysd/clever-f.vim'
 
 call plug#end()
 
@@ -679,6 +680,10 @@ let g:AutoPairsFlyMode = 0
 "]]]
 " Tagbar [[[
     nmap <F5> ;TagbarToggle<cr>
+" ]]]
+" Clever-f [[[
+    let g:clever_f_across_no_line=1
+    let g:clever_f_smart_case=1
 " ]]]
 
 "]]]
