@@ -1,7 +1,7 @@
 " .vimrc
 "
 " Author: Bernard El-Hagin <bernard.elhagin@gmail.com>
-" http://github.com/bernard-elhagin/configurations
+" http://github.com/bernard-elhagin/dotfiles
 "
 set nocompatible
 
@@ -239,11 +239,9 @@ noremap <F2> :b#<CR>
 
 imap <C-Space> 
 
-" Tab configuration
-nnoremap <leader>tn :tabnew<cr>
-nnoremap <leader>te :tabedit
-nnoremap <leader>tc :tabclose<cr>
-nnoremap <leader>tm :tabmove
+" Swap two words (tn - current with next word; tp - current with previous)
+nnoremap <silent> <leader>tn "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>:nohlsearch<CR>
+nnoremap <silent> <leader>tp "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>:nohlsearch<CR>
 
 nnoremap <F7> :tabprev<CR>
 
