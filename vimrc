@@ -132,7 +132,6 @@ set laststatus=2
 set path+=.,~/Devel/Projects/**
 set suffixesadd+=.xml
 set listchars=tab:▸\ ,eol:¬
-set noswapfile
 set autochdir
 set synmaxcol=200
 set fdc=0 " fold gutter
@@ -140,6 +139,7 @@ set diffopt=internal,filler,context:3,indent-heuristic,algorithm:patience
 set clipboard^=unnamed
 set hidden
 set updatetime=1000
+set timeoutlen=300
 
 set fillchars=diff:∙               " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
 set fillchars+=fold:·              " MIDDLE DOT (U+00B7, UTF-8: C2 B7)
