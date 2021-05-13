@@ -104,6 +104,7 @@
     summary = true
     verbosity = 1
     tool = diffconflicts
+	conflictstyle = diff3
 [apply]
     whitespace = nowarn
 [branch]
@@ -116,7 +117,7 @@
     autocrlf = input
     editor = vim
     excludesfile = ~/.gitignore
-    pager = diff-so-fancy | less -F --tabs=4
+    pager = delta
 [advice]
     statusHints = false
 [diff]
@@ -153,4 +154,13 @@
 [pull]
     rebase = true
 [init]
-    defaultBranch = main
+    defaultBranch = master
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
