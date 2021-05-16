@@ -41,8 +41,8 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-export PATH=$HOME/Devel/kafka/bin/:/opt/kafka/bin/:$HOME/bin/ranger-1.9.2:$HOME/bin:$HOME/bin/starship:$PATH
-export JAVA_HOME=/usr
+export PATH=$HOME/Devel/kafka/bin/:/opt/kafka/bin/:$HOME/bin/ranger-1.9.2:$HOME/bin:$HOME/bin/starship:$HOME/npm/bin:$PATH
+export JAVA_HOME=/home/bertold/java/jdk-16.0.1
 
 # Syntax highlighting color overrides
 # Define default styles.

@@ -63,7 +63,10 @@ Plug 'markonm/traces.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'preservim/tagbar'
 Plug 'rhysd/clever-f.vim'
-Plug 'jez/vim-superman'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'thinca/vim-textobj-between'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 call plug#end()
 
@@ -557,14 +560,6 @@ else
 endif
 
 "]]]
-" Syntastic [[[
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"]]]
 " Gundo [[[
 
 "map <F5> :GundoToggle<CR>
@@ -682,7 +677,9 @@ let g:AutoPairsFlyMode = 0
 " ]]]
 " Clever-f [[[
     let g:clever_f_across_no_line=1
-    let g:clever_f_smart_case=1
+    let g:clever_f_smart_case=0
+    let g:clever_f_mark_direct=1
+    let g:clever_f_mark_char=1
 " ]]]
 
 "]]]

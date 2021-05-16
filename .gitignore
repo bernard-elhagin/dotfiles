@@ -8,3 +8,5 @@ bin/wally
 bin/xplr
 autoload/
 plugged/
+bin/jq
+arduino-cli
