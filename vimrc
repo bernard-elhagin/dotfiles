@@ -56,7 +56,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'szw/vim-maximizer'
 Plug 'dracula/vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'romainl/vim-cool'
 Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
 Plug 'markonm/traces.vim'
@@ -67,6 +66,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'thinca/vim-textobj-between'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'idbrii/vim-endoscope'
 
 call plug#end()
 
