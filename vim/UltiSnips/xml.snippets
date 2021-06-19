@@ -334,3 +334,8 @@ snippet ms_ "message store" b
     <parameter name="store.jms.JMSSpecVersion">1.1</parameter>
 </messageStore>
 endsnippet
+
+snippet type "messageType" b
+<property name="messageType" scope="axis2" value="application/$1" />
+<property name="ContentType" scope="axis2" value="application/$1" />
+endsnippet

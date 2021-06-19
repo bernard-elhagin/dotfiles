@@ -67,6 +67,8 @@ Plug 'kana/vim-textobj-entire'
 Plug 'thinca/vim-textobj-between'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'idbrii/vim-endoscope'
+Plug 'sheerun/vim-polyglot'
+Plug 'stevearc/vim-arduino'
 
 call plug#end()
 
@@ -228,8 +230,6 @@ nnoremap <leader>l <C-w>l
 nnoremap <leader>h <C-w>h
 nnoremap <leader>x <C-w>c
 nnoremap <leader>o <C-w>o
-nnoremap <C-s> <C-w>+
-nnoremap <C-z> <C-w>-
 nnoremap <leader>_ <C-w>_
 
 nnoremap <leader>q :QuickScopeToggle<CR>
@@ -239,8 +239,6 @@ noremap <F12> :cd %:h<CR>
 
 " Switch to previous buffer
 noremap <F2> :b#<CR>
-
-imap <C-Space> 
 
 " Swap two words (tn - current with next word; tp - current with previous)
 nnoremap <silent> <leader>tn "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>:nohlsearch<CR>
@@ -604,7 +602,7 @@ let g:startify_change_to_vcs_root = 1
 let g:VimuxOrientation="h"
 let g:VimuxHeight="35"
 
-noremap <leader>vm :VimuxRunCommand("makeSzkody.sh")<CR>
+noremap <leader>vm :VimuxRunCommand("makeSpace.sh")<CR>
 noremap <leader>vc :VimuxCloseRunner<CR>
 noremap <leader>vr :VimuxRunLastCommand<CR>
 noremap <leader>vi :VimuxInterruptRunner<CR>
@@ -678,8 +676,14 @@ let g:AutoPairsFlyMode = 0
 " Clever-f [[[
     let g:clever_f_across_no_line=1
     let g:clever_f_smart_case=0
-    let g:clever_f_mark_direct=1
+    let g:clever_f_mark_direct=0
     let g:clever_f_mark_char=1
+" ]]]
+" vim-arduino [[[
+    let g:arduino_cmd = '/home/bertold/bin/arduino-1.8.15/arduino'
+    let g:arduino_dir = '/home/bertold/bin/arduino-1.8.15'
+    let g:arduino_home_dir = '/home/bertold/.arduino15'
+    let g:arduino_args = '--verbose-upload'
 " ]]]
 
 "]]]

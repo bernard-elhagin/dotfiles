@@ -10,3 +10,5 @@ autoload/
 plugged/
 bin/jq
 arduino-cli
+arduino-1.8.15/
+arduino/
